@@ -28,9 +28,7 @@ if user_input != "all":
 
 user_score = 0
 # remember the questions that have already been asked
-indexes_of_questions = []
-for i in range(nr_of_questions):
-    indexes_of_questions.append(i)
+indexes_of_questions = [i for i in range(len(questions))]
 
 for i in range(nr_of_questions):
     # wait 1 second before displaying next question

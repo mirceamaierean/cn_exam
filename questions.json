@@ -1416,9 +1416,10 @@
       "128 seconds",
       "1 second",
       "10 seconds",
-      "1024 seconds"
+      "1024 seconds",
+      "256 seconds"
     ],
-    "correct": "a"
+    "correct": "e"
   },
   {
     "question": "What kind of signal flows through the optical fiber cable?",
@@ -1559,5 +1560,338 @@
       "Local Area Name"
     ],
     "correct": "c"
+  },
+  {
+    "question": "What command would you use to test the Datalink Layer to see if it works (on Windows)?",
+    "answers": [
+      "arp /a",
+      "ipconfig /all",
+      "ipconfig",
+      "arp /d",
+      "All answers are correct."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following IP sets belong to 209.220.186.12/255.255.255.252 ip class?",
+    "answers": [
+      "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15",
+      "209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16",
+      "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17, 209.220.186.14, 209.220.186.18",
+      "209.220.186.10, 209.220.186.11, 209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following is a valid IP/Netmask combination?",
+    "answers": [
+      "209.220.186.8/255.255.255.240",
+      "209.220.186.8/255.255.255.0",
+      "209.220.186.8/255.255.255.248",
+      "209.220.186.8/255.255.255.252",
+      "C and D are both correct."
+    ],
+    "correct": "e"
+  },
+  {
+    "question": "How many bits of zero does the following netmask have? 255.255.255.248",
+    "answers": ["2 bits", "3 bits", "4 bits", "8 bits"],
+    "correct": "b"
+  },
+  {
+    "question": "Which is the correct binary representation of the following netmask? 255.255.255.128",
+    "answers": [
+      "11111111 11111111 11111111 10000000",
+      "11111111 11111111 11111111 11110000",
+      "11111111 11111111 11111111 11000000",
+      "11111111 11111111 11111111 00000000"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is the netmask for the following IP class? 192.168.0.0/24",
+    "answers": [
+      "255.255.255.128",
+      "255.255.255.0",
+      "255.255.0.0",
+      "255.0.0.0",
+      "All netmasks are correct."
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What is the netmask for the following IP class? 10.10.0.0/17",
+    "answers": [
+      "255.255.255.128",
+      "255.255.255.0",
+      "255.255.128.0",
+      "255.255.0.0",
+      "All netmasks are correct."
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "How do you find the network address if you have the network mask and one random IP address in the network?",
+    "answers": [
+      "You 'and' the netmask and the random IP",
+      "You 'or' the netmask and the random IP",
+      "You add the netmask and the random IP",
+      "You 'xor' the netmask and the random IP"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What will you get if you 'or' together the natmaks of a network and one random IP in the network?",
+    "answers": [
+      "The ip class.",
+      "The first IP in the class of the random IP.",
+      "The last IP in the class of the random IP.",
+      "Nothing significant."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What does NAT stand for?",
+    "answers": [
+      "Network Address Translation",
+      "Name Address Translocation",
+      "Network Area Translation",
+      "Network Area Translocation",
+      "Name Area Translocation"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following involve NAT?",
+    "answers": [
+      "Prot forwarding.",
+      "Accessing the web from an internal network. Your PC's network will be translated to your public IP (i.e., home network)",
+      "Both answers involve NAT."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Are MAC addresses guaranteed to be unique?",
+    "answers": [
+      "No, buying the same type of a network adapter twice (from an online store) means you get the same MAC address.",
+      "No, the MAC address is software related.",
+      "Depends on the network adapter you have.",
+      "Yes, because MAC addresses are burned into the ROM of the network adapter."
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What is a private IP address?",
+    "answers": [
+      "It's an IP address that does not have a netmask;",
+      "It's an IP address that is reserved for internal use behind a router or NAT device, apart from the public;",
+      "It's an IP address that your device receives when connecting to public networks;",
+      "It's an IP address that has the following form: 127.0.x.x."
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which is the range for an IP address of class B?",
+    "answers": ["191-220", "127-190", "128-191", "128-192"],
+    "correct": "c"
+  },
+  {
+    "question": "What is the broadcast address of the following IP address 221.17.123.9 that has in its network 42 computers?",
+    "answers": [
+      "221.17.123.255",
+      "255.255.255.255",
+      "221.17.123.64",
+      "221.17.123.65"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What is the use of the ARP protocol?",
+    "answers": [
+      "To determine the IP address when we know the MAC address;",
+      "To determine the MAC address when we know the IP address;",
+      "To determine the IP address when we know the IP address of the DNS server;",
+      "To determine the MAC address when we know the default gateway."
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What does UDP stand for?",
+    "answers": [
+      "User Datagram Protocol",
+      "Universal Datagram Packets",
+      "Unique Destination Protocol",
+      "Undefined Destination Packets"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is the subdomain for the top level domain for the following DNS address: \"linux.scs.ubbcluj.ro\"?",
+    "answers": ["\"linux\"", "\"scs\"", "\"ubbcluj\"", "\"ro\""],
+    "correct": "c"
+  },
+  {
+    "question": "Which is the difference between bandwidth and throughput?",
+    "answers": [
+      "The bandwidth is the physical property of the transmission medium, while throughput represents the amount of data which we transmit",
+      "There is no difference between them;",
+      "The bandwidth represents the amount of data which we transmit, while is the physical property of the transmission medium."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is a broadcast MAC address?",
+    "answers": [
+      "It's a logical address which identifies only one recipient; throughput",
+      "It's a logical address which is used to identify all the computers within a network;",
+      "It's a logical identifier for a group of hosts in a computer network that are available to process data-grams."
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "In how many subclasses with the netmask 255.192.0.0 can the class of minimal dimension containing both IP addresses: 78.79.80.81 and 79.80.81.82, be divided?",
+    "answers": ["7", "10", "8", "9"],
+    "correct": "c"
+  },
+  {
+    "question": "Which are the layers of the TCP/IP model?",
+    "answers": [
+      "Application layer, transport layer, session layer, network access layer;",
+      "Application layer, transport layer, internet layer, network access layer;",
+      "Application layer, presentation layer, session layer, transport layer, network layer, data-link layer, physical layer;",
+      "Application layer, internet layer."
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following does not describe a socket?",
+    "answers": [
+      "An internal endpoint for sending or receiving data at a single node in a computer.",
+      "A door between the application process and end-to-end transport protocol.",
+      "A process that sends and receives data at a single node in a computer."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "How do we obtain the starting address of a network from a given IP?",
+    "answers": [
+      "OR logic between IP given and NOT netmask",
+      "AND logic between IP given and NOT netmask",
+      "AND logic between IP given and netmask"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which is the order of the five-layer Internet protocol stack?",
+    "answers": [
+      "Application, Transport, Network, Link, Physical",
+      "Network, Transport, Application, Link, Physical",
+      "Application, Transport, Link, Network, Physical"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "UDP vs. TCP flow control: Which statement is false?",
+    "answers": [
+      "UDP: one part can overflow, which results in lost packets",
+      "TCP: Traffic is controlled by the OS",
+      "TCP: one part can overflow but there are no lost packets"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What is the length of the TCP header?",
+    "answers": ["32", "64", "20"],
+    "correct": "c"
+  },
+  {
+    "question": "What does a routing table contain?",
+    "answers": [
+      "Source address, destination address, gateway, interface",
+      "Interface, netmask, destination address, gateway",
+      "Source address, destination address, netmask, gateway"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What is Throughput?",
+    "answers": [
+      "Quantity of data which we send at some point through a transmission channel",
+      "Quantity of data over quantity of time which we send at a given time through a transmission channel",
+      "The capacity of data transportation that we send through a transmission channel"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What does traceroute?",
+    "answers": [
+      "Shows all IPs of the routers parsed until the current IP",
+      "Shows all IPs parsed until the current router IP",
+      "Shows the IP route of the last 5 parsed"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is a congestion window?",
+    "answers": [
+      "A sender impose window implemented to avoid overrunning some routers in the middle of the network path",
+      "A window managed by the receiver; that grows when each segment is sent",
+      "A window that controls flow moving of the sender"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of these addresses is not private?",
+    "answers": [
+      "10.255.189.255",
+      "172.168.0.1",
+      "192.168.255.255"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What is checksum?",
+    "answers": [
+      "Is a 16-bit field used on the header and data to check for errors.",
+      "Is a 32-bit field used for error checking of data and IP address",
+      "Is a 16-bit flag used for error checking of the header and data"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the addresses is a valid private address?",
+    "answers": [
+      "10.255.256.0/29",
+      "10.255.255.0/28",
+      "193.168.0.0/29"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which is the third level in the OSI Reference Model Layer?",
+    "answers": [
+      "Network",
+      "Session",
+      "Transport"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which is the network address of the second subnet of a network having 93 computers, where the first contains 22 computers, and starts from 192.168.0.0?",
+    "answers": [
+      "192.168.0.33",
+      "192.168.0.32",
+      "192.168.0.24"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "The natural mask for a class B address is:",
+    "answers": [
+      "255.0.0.0",
+      "255.255.0.0",
+      "255.255.255.0"
+    ],
+    "correct": "b"
   }
 ]
