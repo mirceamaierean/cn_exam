@@ -1,482 +1,1563 @@
 ﻿[
-    {
-        "question": "How many bits of zero does the following netmask have? 255.255.255.248",
-        "answers": ["3", "4", "8", "2"],
-        "correct": "a"
-    },
-    {
-        "question": "The ARP protocol helps with:",
-        "answers": [
-            "Determining the MAC address when the IP address is known",
-            "Determining the IP address when the MAC address is known",
-            "Determining the IP address when the DNS server is known"
-        ],
-        "correct": "a"
-    },
-    {
-        "question": "Which of the following is the correct host range for the subnet in which we can find the IP address 192.168.168.188/255.255.255.192 ?",
-        "answers": [
-            "192.168.168.128-192",
-            "192.168.168.129-191",
-            "192.168.168.128-190",
-            "192.168.168.129-190"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "What is the broadcast address for subnet 200.35.1.192/27?",
-        "answers": [],
-        "correct": "200.35.1.223"
-    },
-    {
-        "question": "Consider the following netmask: 255.255.0.0, the network part(network length) is formed by a number of bits equal to",
-        "answers": ["8", "24", "16", "impossible to determine"],
-        "correct": "c"
-    },
-    {
-        "question": "In TCP, bytes not read from the stream:",
-        "answers": [
-            "A stream does not have bytes into his composition",
-            "are lost - but their count is reported as an error to the user",
-            "Are lost",
-            "Stay available for the next read"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "What are the values of the network address and the netmask in the default route?",
-        "answers": [
-            "0.0.0.0 255.255.255.0",
-            "255.255.255.255 0.0.0.0",
-            "127.0.0.1 255.255.255.0",
-            "0.0.0.0 0.0.0.0"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "Which of the following address can be a valid host IP that can be allocated to a host:",
-        "answers": [
-            "193.231.21.0",
-            "18.19.20.255",
-            "223.245.256.17"
-        ],
-        "correct": "ab"
-    },
-    {
-        "question": "Not all IP addresses from the class 192.168.0.0/8 are private",
-        "answers": ["true", "false"],
-        "correct": "a"
-    },
-    {
-        "question": "A TCP header is larger than a UDP header by how many bytes?",
-        "answers": [],
-        "correct": "12"
-    },
-    {
-        "question": "The checksum in the IP header is computed:",
-        "answers": [
-            "when passing through each switch and hub in order to ensure consistency",
-            "on each router",
-            "on the source and destination hosts",
-            "every time a router believes the packet has been altered"
-        ],
-        "correct": "bc"
-    },
-    {
-        "question": "Which of the following is a valid IP/Netmask combination?",
-        "answers": [
-            "209.220.186.8/255.255.255.248",
-            "None of the combinations are correct",
-            "209.220.186.8/255.255.255.240",
-            "209.220.186.8/255.255.255.252",
-            "209.220.186.8/255.255.255.240"
-        ],
-        "correct": "ad"
-    },
-    {
-        "question": "Which of the following IP addresses cannot be broadcast addresses?",
-        "answers": [
-            "192.168.0.255",
-            "200.0.0.33",
-            "10.0.1.254",
-            "25.0.2.31"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "Which of the following addresses can be valid network addresses provided appropriate network masks?",
-        "answers": [
-            "193.231.20.2",
-            "193.231.20.4",
-            "193.231.20.1",
-            "193.231.20.0",
-            "193.231.20.3"
-        ],
-        "correct": "bd"
-    },
-    {
-        "question": "A company has three departments: Offices, Public and Managers. The offices have 123 computers, Public Relationship has 29 computers and Managers have 5 computers. The company wants to make a network such that: - every computer has access to the internet - have minimum costs - it must be certainly known from which department some webpages are accessed from the HQ in another city Provide a good configuration for these requirements:",
-        "answers": [
-            "3 subnetworks, 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 for every department and connect every subnet directly to the internet, using NAT, through a different provider",
-            "1 subnetwork for all the company, 192.168.0.0/24, connect computers to internet through a router which translates every address IP to a public IP address with different class depending on department",
-            "3 subnetworks, 192.168.0.0/25, 192.168.0.128/27, 192.168.0.160/29, one router which translates the first network to 30.0.0.1, second to 30.0.0.2, and third to 30.0.0.3",
-            "3 subnetworks, 192.168.0.0/25, 192.168.0.128/27, 192.168.0.160/29 and connect them to a central router which translates all the IPs on 192.168.0.0/24 with the IP 30.0.0.5"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "Which of the following are not contained in a routing table?",
-        "answers": ["gateway", "the network interface", "the netmask", "source address"],
-        "correct": "d"
-    },
-    {
-        "question": "What is the broadcast address of the network 190.60.16.0/28?",
-        "answers": [
-            "190.60.16.31",
-            "190.60.16.255",
-            "190.60.16.15",
-            "190.60.16.7"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "What happens after receiving one duplicate Acknowledgment?",
-        "answers": [
-            "none of the answers are correct",
-            "Congestion Window is set to 1 MSS",
-            "Congestion Window is cut in half",
-            "Congestion Window is cut in half and grows exponentially"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "What is the last valid host on the network that 10.215.81.114 / 255.240.0.0 is a part of?",
-        "answers": [],
-        "correct": "10.223.255.254"
-    },
-    {
-        "question": "Consider the following network address: 192.0.2.64 . How many net masks can it be used with?",
-        "answers": [],
-        "correct": "5"
-    },
-    {
-        "question": "accept() is required in any UDP server",
-        "answers": ["true", "false"],
-        "correct": "b"
-    },
-    {
-        "question": "Consider one SWITCH and 10 PC's connected to it. Which of the following is false?",
-        "answers": [
-            "when PC1 sends a message to PC5, the message will be received and processed just by PC5 and the answer of PC5 will be received and processed just by PC1",
-            "when PC1 sends a message to PC5, the message will be received by all the PC's, but only PC5 processes it; the answer is sent back and received only by PC1",
-            "when PC1 sends a message to PC5, the message will be received by all the PC's, each of them sending back an answer",
-            "when PC1 sends a message to PC5, the message will be received by all the PC's but only PC5 processes it; the answer will be also received by all the PC's but only PC1 will process it"
-        ],
-        "correct": "bcd"
-    },
-    {
-        "question": "What is the netmask of the minimum sized network that has as broadcast 70.71.79.255 and also contains the host IP address 70.71.79.240 ?",
-        "answers": [],
-        "correct": "255.255.255.224"
-    },
-    {
-        "question": "Why would an ISP aggregate smaller networks into a larger one?",
-        "answers": [
-            "It does not ever aggregate networks.",
-            "It can't store information about each network individually",
-            "In order to reduce the number of entries in the routing table of the router connecting the ISP to the Internet",
-            "In order to group all networks for a specific client together"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "How many bits of 0 are in the following netmask? 255.255.255.254?",
-        "answers": [],
-        "correct": "1"
-    },
-    {
-        "question": "What is the netmask of the largest network with the address 84.176.0.0 ? (as x.y.z.t)",
-        "answers": [],
-        "correct": "255.240.0.0"
-    },
-    {
-        "question": "When the Congestion Window is below the Threshold:",
-        "answers": [
-            "The window grows linearly",
-            "The congestion window grows exponentially",
-            "The window is set to 1 MSS"
-        ],
-        "correct": "b"
-    },
-    {
-        "question": "Given the address 137.25.28.0/255.255.254.0 provide the maximum number of valid subnets that can be obtained from splitting this network",
-        "answers": [],
-        "correct": "128"
-    },
-    {
-        "question": "Which of the following can be a mask, such that 62.244.89.16 is a valid network address?",
-        "answers": ["255,255,255,252", "/29", "255,255,255,248", "/27", "255.255.255.128"],
-        "correct": "abd"
-    },
-    {
-        "question": "What does a mask /29 mean?",
-        "answers": [
-            "Is equivalent to 255.255.255.248",
-            "The maximum number of IP addresses that can be assigned to hosts is 29",
-            "The maximum number of IP addresses that can be assigned to hosts is 6",
-            "The maximum number of IP addresses that can be assigned to hosts is 8"
-        ],
-        "correct": "ac"
-    },
-    {
-        "question": "What netmask is needed to split a network with address 133.25.0.0/16 in 1000 subnets of 14 hosts each?",
-        "answers": ["/21", "/28", "/19", "/15"],
-        "correct": "b"
-    },
-    {
-        "question": "Which of the following is a private IP address ?",
-        "answers": ["192.168.24.43", "172.15.14.36", "168.172.19.40", "12.0.0.2"],
-        "correct": "a"
-    },
-    {
-        "question": "Which of the following are valid subnetwork addresses ?",
-        "answers": [
-            "177.91.107.0/30",
-            "177.91.154.2/30",
-            "177.91.107.144/29",
-            "177.91.107.1/25"
-        ],
-        "correct": "cd"
-    },
-    {
-        "question": "connect() is required in any TCP server",
-        "answers": ["true", "false"],
-        "correct": "b"
-    },
-    {
-        "question": "UDP is not located at the Link layer",
-        "answers": ["true", "false"],
-        "correct": "a"
-    },
-    {
-        "question": "What happens if the Gateway in a Routing table entry is 0.0.0.0?",
-        "answers": [
-            "The router drops the packet as there is no such gateway IP address",
-            "This is not possible",
-            "All packets will be directed to 0.0.0.0",
-            "The router puts the packet on the associated network interface with this route"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "Which IP field helps to check the order of the fragments?",
-        "answers": ["identifier", "ttl", "flag", "offset"],
-        "correct": "d"
-    },
-    {
-        "question": "Which is the closest number to the largest routing table in the case of class full IP Addressing?",
-        "answers": ["2^16", "2^7+2^14+2^21", "2^32", "2^8+2^16"],
-        "correct": "b"
-    },
-    {
-        "question": "A TCP connection is terminated through:",
-        "answers": [
-            "a  4-way handshake",
-            "a 3-way handshake",
-            "a 2-way handshake",
-            "none of the answers are correct"
-        ],
-        "correct": "ab"
-    },
-    {
-        "question": "254.255.0.0 is a valid netmask",
-        "answers": ["true", "false"],
-        "correct": "b"
-    },
-    {
-        "question": "Which of the following is not a characteristic of the IP protocol?",
-        "answers": [
-            "Is considered an unreliable protocol",
-            "It affects packet routing",
-            "Is a connection-oriented protocol",
-            "It defines the Internet addressing system"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "Write as [network address]/[xx] - in the most compact and ordered way - the addressing space 62.255.254.224...63.64.0.31. (if multiple combinations are needed write them separated by comas without spaces or other characters)",
-        "answers": [],
-        "correct": "62.255.254.224/27,62.255.255.0/24,63.0.0.0/10,63.64.0.0/27"
-    },
-    {
-        "question": "The broadcast for 192.120.0.1/16 is 192.120.255.255",
-        "answers": ["true", "false"],
-        "correct": "a"
-    },
-    {
-        "question": "What is the range of all IPs in which the following given IP resides :194.168.19.69/28 ?",
-        "answers": [
-            "194.167.19.68 – 194 .167.19.83",
-            "194.168.19.64 – 194.168.19.87",
-            "194.168.19.0 - 194.168.19.15",
-            "194.168.19.64 – 194.168.19.79"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "The network address cannot be calculated using the netmask and an IP address",
-        "answers": ["true", "false"],
-        "correct": "b"
-    },
-    {
-        "question": "The following code is a: \n listen(s, 5); while (1) {\n memset(&client, 0, sizeof(client));\nl = sizeof(client);\n c = accept(s, (struct sockaddr *) &client, &l);\nif (fork() == 0) {\nworker(); }\nwait(0); }",
-        "answers": ["iterative server", "concurrent server", "peer to peer server", "concurrent multiplexed server"],
-        "correct": "a"
-    },
-    {
-        "question": "Which of the following IP sets belong to 209.220.186.12/255.255.255.252 ip class?",
-        "answers": [
-            "209.220.186.10, 209.220.186.11, 209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17",
-            "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17, 209.220.186.14, 209.220.186.18",
-            "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15",
-            "209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "Two connected routers are configured with RIP routing. What will be the result when a router received a routing update that contains a higher-cost path to a network already in its routing table?",
-        "answers": [
-            "the updated information will be added to the existing routing table",
-            "the update will be ignored and no further action will occur",
-            "the updated information will replace the existing routing table entry",
-            "the existing routing table entry will be deleted from the routing table and all routers will exchange routing updates to reach convergence"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "Which one of the following addresses is a public IP address assignable to a computer ?",
-        "answers": ["172.16.23.201", "1.0.0.1", "10.5.125.4", "225.46.130.1"],
-        "correct": "b"
-    },
-    {
-        "question": "How many /27 networks are needed such that they can be supernetted to a /24 network?",
-        "answers": [],
-        "correct": "8"
-    },
-    {
-        "question": "193.231.20.0/24 can be divided in exactly X subnets of equal sizes. X=?",
-        "answers": ["7 subnets", "14 subnets", "5 subnets", "8 subnets", "4 subnets"],
-        "correct": "de"
-    },
-    {
-        "question": "In which host range is the IP address 175.156.68.80 255.255.255.192?",
-        "answers": ["175.156.68.64-128", "175.156.68.64-126", "175.156.68.65-126", "175.156.68.65-128"],
-        "correct": "c"
-    },
-    {
-        "question": "ARP can be used for...",
-        "answers": [
-            "Mapping public virtual addresses to private IP addresses",
-            "publishing websites to the internet",
-            "sending emails very fast",
-            "Mapping network addresses to physical (MAC) addresses"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "TCP is located at the Transport layer",
-        "answers": ["true", "false"],
-        "correct": "a"
-    },
-    {
-        "question": "Broadcasting is",
-        "answers": [
-            "When a transmitted packet is received and processed by every machine on the network",
-            "When a transmitted packet is received by every machine on the network but processed by only one of them",
-            "When a transmitted packet is received by every machine on the network but processed by none of them",
-            "A mechanism which is used when the transmission of a packet fails"
-        ],
-        "correct": "a"
-    },
-    {
-        "question": "255.192.0.0 is a valid netmask for the network",
-        "answers": ["132.128.0.0", "192.128.0.0", "None of the choices", "192.193.1.0"],
-        "correct": "ab"
-    },
-    {
-        "question": "The time-to-live for a packet(TTL) is expressed in:",
-        "answers": [
-            "seconds",
-            "the number of routers the packet has already passed through( incremented by 1)",
-            "routers/second",
-            "the number of routers the packet is allowed to pass",
-            "milliseconds"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "Which is the correct expression for the length of UDP datagram payload ?",
-        "answers": [
-            "UDP length = UDP length + UDP header’s length",
-            "UDP length = UDP length – UDP header’s length",
-            "UDP length = IP length + IP header’s length",
-            "UDP length = IP length – IP header’s length -UDP header length"
-        ],
-        "correct": "d"
-    },
-    {
-        "question": "What will you get if you 'or' together the netmask of a network and one IP in that network?",
-        "answers": ["Nothing significant", "The first IP address in the class of the given IP", "The last IP in the class of the given IP", "The class of the IP."],
-        "correct": "a"
-    },
-    {
-        "question": "Write the network mask (only as /x.y.z.t) of the minimum sized network that contain both 80.81.82.83 and 80.83.84.85.",
-        "answers": [],
-        "correct": "255.252.0.0"
-    },
-    {
-        "question": "What is true about ICMP packets ?",
-        "answers": [
-            "They do not provide hosts with information about network problems.",
-            "They guarantee datagram delivery.",
-            "They are encapsulated within IP datagrams.",
-            "ICMP is encapsulated within UDP datagrams"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "Which of the following cannot be a broadcast address ?",
-        "answers": ["192.168.1.255", "22.21.20.19", "10.20.30.255", "20.19.18.17", "21.20.19.18"],
-        "correct": "de"
-    },
-    {
-        "question": "All IP addresses from the class 10.0.0.0/16 are private",
-        "answers": ["true", "false"],
-        "correct": "a"
-    },
-    {
-        "question": "Which of the following is true about the IP address 10.16.3.65/23?",
-        "answers": [
-            ". The broadcast address of the subnet is 10.16.3.254",
-            "The subnet address is 10.16.3.0/255.255.254.0",
-            "The lowest host address in the subnet is 10.16.2.1",
-            "The last valid host address in the subnet is 10.16.2.254"
-        ],
-        "correct": "c"
-    },
-    {
-        "question": "You have an interface on a router with the IP address of 192.168.192.10/29. Including the router interface, how many hosts can have IP addresses on the LAN attached to the router interface?",
-        "answers": ["5", "6", "8", "7"],
-        "correct": "a"
-    },
-    {
-        "question": "What is the broadcast address for IP combination 132.45.99.0/19?",
-        "answers": [],
-        "correct": "132.45.127.255"
-    },
-    {
-        "question": "What is the network address and mask of the smallest subnet that fits these two IP addresses: 180.181.182.183 and 180.186.12.180? (addr/x.y.z.t format)",
-        "answers": [],
-        "correct": "180.176.0.0/255.240.0.0"
-    }
+  {
+    "question": "How many bits of zero does the following netmask have? 255.255.255.248",
+    "answers": ["3", "4", "8", "2"],
+    "correct": "a"
+  },
+  {
+    "question": "The ARP protocol helps with:",
+    "answers": [
+      "Determining the MAC address when the IP address is known",
+      "Determining the IP address when the MAC address is known",
+      "Determining the IP address when the DNS server is known"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following is the correct host range for the subnet in which we can find the IP address 192.168.168.188/255.255.255.192 ?",
+    "answers": [
+      "192.168.168.128-192",
+      "192.168.168.129-191",
+      "192.168.168.128-190",
+      "192.168.168.129-190"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What is the broadcast address for subnet 200.35.1.192/27?",
+    "answers": [],
+    "correct": "200.35.1.223"
+  },
+  {
+    "question": "Consider the following netmask: 255.255.0.0, the network part(network length) is formed by a number of bits equal to",
+    "answers": ["8", "24", "16", "impossible to determine"],
+    "correct": "c"
+  },
+  {
+    "question": "In TCP, bytes not read from the stream:",
+    "answers": [
+      "A stream does not have bytes into his composition",
+      "are lost - but their count is reported as an error to the user",
+      "Are lost",
+      "Stay available for the next read"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What are the values of the network address and the netmask in the default route?",
+    "answers": [
+      "0.0.0.0 255.255.255.0",
+      "255.255.255.255 0.0.0.0",
+      "127.0.0.1 255.255.255.0",
+      "0.0.0.0 0.0.0.0"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which of the following address can be a valid host IP that can be allocated to a host:",
+    "answers": ["193.231.21.0", "18.19.20.255", "223.245.256.17"],
+    "correct": "ab"
+  },
+  {
+    "question": "Not all IP addresses from the class 192.168.0.0/8 are private",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A TCP header is larger than a UDP header by how many bytes?",
+    "answers": [],
+    "correct": "12"
+  },
+  {
+    "question": "The checksum in the IP header is computed:",
+    "answers": [
+      "when passing through each switch and hub in order to ensure consistency",
+      "on each router",
+      "on the source and destination hosts",
+      "every time a router believes the packet has been altered"
+    ],
+    "correct": "bc"
+  },
+  {
+    "question": "Which of the following is a valid IP/Netmask combination?",
+    "answers": [
+      "209.220.186.8/255.255.255.248",
+      "None of the combinations are correct",
+      "209.220.186.8/255.255.255.240",
+      "209.220.186.8/255.255.255.252",
+      "209.220.186.8/255.255.255.240"
+    ],
+    "correct": "ad"
+  },
+  {
+    "question": "Which of the following IP addresses cannot be broadcast addresses?",
+    "answers": ["192.168.0.255", "200.0.0.33", "10.0.1.254", "25.0.2.31"],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following addresses can be valid network addresses provided appropriate network masks?",
+    "answers": [
+      "193.231.20.2",
+      "193.231.20.4",
+      "193.231.20.1",
+      "193.231.20.0",
+      "193.231.20.3"
+    ],
+    "correct": "bd"
+  },
+  {
+    "question": "A company has three departments: Offices, Public and Managers. The offices have 123 computers, Public Relationship has 29 computers and Managers have 5 computers. The company wants to make a network such that: - every computer has access to the internet - have minimum costs - it must be certainly known from which department some webpages are accessed from the HQ in another city Provide a good configuration for these requirements:",
+    "answers": [
+      "3 subnetworks, 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 for every department and connect every subnet directly to the internet, using NAT, through a different provider",
+      "1 subnetwork for all the company, 192.168.0.0/24, connect computers to internet through a router which translates every address IP to a public IP address with different class depending on department",
+      "3 subnetworks, 192.168.0.0/25, 192.168.0.128/27, 192.168.0.160/29, one router which translates the first network to 30.0.0.1, second to 30.0.0.2, and third to 30.0.0.3",
+      "3 subnetworks, 192.168.0.0/25, 192.168.0.128/27, 192.168.0.160/29 and connect them to a central router which translates all the IPs on 192.168.0.0/24 with the IP 30.0.0.5"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following are not contained in a routing table?",
+    "answers": [
+      "gateway",
+      "the network interface",
+      "the netmask",
+      "source address"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What is the broadcast address of the network 190.60.16.0/28?",
+    "answers": ["190.60.16.31", "190.60.16.255", "190.60.16.15", "190.60.16.7"],
+    "correct": "c"
+  },
+  {
+    "question": "What happens after receiving one duplicate Acknowledgment?",
+    "answers": [
+      "none of the answers are correct",
+      "Congestion Window is set to 1 MSS",
+      "Congestion Window is cut in half",
+      "Congestion Window is cut in half and grows exponentially"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What is the last valid host on the network that 10.215.81.114 / 255.240.0.0 is a part of?",
+    "answers": [],
+    "correct": "10.223.255.254"
+  },
+  {
+    "question": "Consider the following network address: 192.0.2.64 . How many net masks can it be used with?",
+    "answers": [],
+    "correct": "5"
+  },
+  {
+    "question": "accept() is required in any UDP server",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Consider one SWITCH and 10 PC's connected to it. Which of the following is false?",
+    "answers": [
+      "when PC1 sends a message to PC5, the message will be received and processed just by PC5 and the answer of PC5 will be received and processed just by PC1",
+      "when PC1 sends a message to PC5, the message will be received by all the PC's, but only PC5 processes it; the answer is sent back and received only by PC1",
+      "when PC1 sends a message to PC5, the message will be received by all the PC's, each of them sending back an answer",
+      "when PC1 sends a message to PC5, the message will be received by all the PC's but only PC5 processes it; the answer will be also received by all the PC's but only PC1 will process it"
+    ],
+    "correct": "bcd"
+  },
+  {
+    "question": "What is the netmask of the minimum sized network that has as broadcast 70.71.79.255 and also contains the host IP address 70.71.79.240 ?",
+    "answers": [],
+    "correct": "255.255.255.224"
+  },
+  {
+    "question": "Why would an ISP aggregate smaller networks into a larger one?",
+    "answers": [
+      "It does not ever aggregate networks.",
+      "It can't store information about each network individually",
+      "In order to reduce the number of entries in the routing table of the router connecting the ISP to the Internet",
+      "In order to group all networks for a specific client together"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "How many bits of 0 are in the following netmask? 255.255.255.254?",
+    "answers": [],
+    "correct": "1"
+  },
+  {
+    "question": "What is the netmask of the largest network with the address 84.176.0.0 ? (as x.y.z.t)",
+    "answers": [],
+    "correct": "255.240.0.0"
+  },
+  {
+    "question": "When the Congestion Window is below the Threshold:",
+    "answers": [
+      "The window grows linearly",
+      "The congestion window grows exponentially",
+      "The window is set to 1 MSS"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Given the address 137.25.28.0/255.255.254.0 provide the maximum number of valid subnets that can be obtained from splitting this network",
+    "answers": [],
+    "correct": "128"
+  },
+  {
+    "question": "Which of the following can be a mask, such that 62.244.89.16 is a valid network address?",
+    "answers": [
+      "255,255,255,252",
+      "/29",
+      "255,255,255,248",
+      "/27",
+      "255.255.255.128"
+    ],
+    "correct": "abd"
+  },
+  {
+    "question": "What does a mask /29 mean?",
+    "answers": [
+      "Is equivalent to 255.255.255.248",
+      "The maximum number of IP addresses that can be assigned to hosts is 29",
+      "The maximum number of IP addresses that can be assigned to hosts is 6",
+      "The maximum number of IP addresses that can be assigned to hosts is 8"
+    ],
+    "correct": "ac"
+  },
+  {
+    "question": "What netmask is needed to split a network with address 133.25.0.0/16 in 1000 subnets of 14 hosts each?",
+    "answers": ["/21", "/28", "/19", "/15"],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is a private IP address ?",
+    "answers": ["192.168.24.43", "172.15.14.36", "168.172.19.40", "12.0.0.2"],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following are valid subnetwork addresses ?",
+    "answers": [
+      "177.91.107.0/30",
+      "177.91.154.2/30",
+      "177.91.107.144/29",
+      "177.91.107.1/25"
+    ],
+    "correct": "cd"
+  },
+  {
+    "question": "connect() is required in any TCP server",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is not located at the Link layer",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "What happens if the Gateway in a Routing table entry is 0.0.0.0?",
+    "answers": [
+      "The router drops the packet as there is no such gateway IP address",
+      "This is not possible",
+      "All packets will be directed to 0.0.0.0",
+      "The router puts the packet on the associated network interface with this route"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which IP field helps to check the order of the fragments?",
+    "answers": ["identifier", "ttl", "flag", "offset"],
+    "correct": "d"
+  },
+  {
+    "question": "Which is the closest number to the largest routing table in the case of class full IP Addressing?",
+    "answers": ["2^16", "2^7+2^14+2^21", "2^32", "2^8+2^16"],
+    "correct": "b"
+  },
+  {
+    "question": "A TCP connection is terminated through:",
+    "answers": [
+      "a  4-way handshake",
+      "a 3-way handshake",
+      "a 2-way handshake",
+      "none of the answers are correct"
+    ],
+    "correct": "ab"
+  },
+  {
+    "question": "254.255.0.0 is a valid netmask",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is not a characteristic of the IP protocol?",
+    "answers": [
+      "Is considered an unreliable protocol",
+      "It affects packet routing",
+      "Is a connection-oriented protocol",
+      "It defines the Internet addressing system"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Write as [network address]/[xx] - in the most compact and ordered way - the addressing space 62.255.254.224...63.64.0.31. (if multiple combinations are needed write them separated by comas without spaces or other characters)",
+    "answers": [],
+    "correct": "62.255.254.224/27,62.255.255.0/24,63.0.0.0/10,63.64.0.0/27"
+  },
+  {
+    "question": "The broadcast for 192.120.0.1/16 is 192.120.255.255",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "What is the range of all IPs in which the following given IP resides :194.168.19.69/28 ?",
+    "answers": [
+      "194.167.19.68 – 194 .167.19.83",
+      "194.168.19.64 – 194.168.19.87",
+      "194.168.19.0 - 194.168.19.15",
+      "194.168.19.64 – 194.168.19.79"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "The network address cannot be calculated using the netmask and an IP address",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The following code is a: \n listen(s, 5); while (1) {\n memset(&client, 0, sizeof(client));\nl = sizeof(client);\n c = accept(s, (struct sockaddr *) &client, &l);\nif (fork() == 0) {\nworker(); }\nwait(0); }",
+    "answers": [
+      "iterative server",
+      "concurrent server",
+      "peer to peer server",
+      "concurrent multiplexed server"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following IP sets belong to 209.220.186.12/255.255.255.252 ip class?",
+    "answers": [
+      "209.220.186.10, 209.220.186.11, 209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17",
+      "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17, 209.220.186.14, 209.220.186.18",
+      "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15",
+      "209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Two connected routers are configured with RIP routing. What will be the result when a router received a routing update that contains a higher-cost path to a network already in its routing table?",
+    "answers": [
+      "the updated information will be added to the existing routing table",
+      "the update will be ignored and no further action will occur",
+      "the updated information will replace the existing routing table entry",
+      "the existing routing table entry will be deleted from the routing table and all routers will exchange routing updates to reach convergence"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which one of the following addresses is a public IP address assignable to a computer ?",
+    "answers": ["172.16.23.201", "1.0.0.1", "10.5.125.4", "225.46.130.1"],
+    "correct": "b"
+  },
+  {
+    "question": "How many /27 networks are needed such that they can be supernetted to a /24 network?",
+    "answers": [],
+    "correct": "8"
+  },
+  {
+    "question": "193.231.20.0/24 can be divided in exactly X subnets of equal sizes. X=?",
+    "answers": [
+      "7 subnets",
+      "14 subnets",
+      "5 subnets",
+      "8 subnets",
+      "4 subnets"
+    ],
+    "correct": "de"
+  },
+  {
+    "question": "In which host range is the IP address 175.156.68.80 255.255.255.192?",
+    "answers": [
+      "175.156.68.64-128",
+      "175.156.68.64-126",
+      "175.156.68.65-126",
+      "175.156.68.65-128"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "ARP can be used for...",
+    "answers": [
+      "Mapping public virtual addresses to private IP addresses",
+      "publishing websites to the internet",
+      "sending emails very fast",
+      "Mapping network addresses to physical (MAC) addresses"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "TCP is located at the Transport layer",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Broadcasting is",
+    "answers": [
+      "When a transmitted packet is received and processed by every machine on the network",
+      "When a transmitted packet is received by every machine on the network but processed by only one of them",
+      "When a transmitted packet is received by every machine on the network but processed by none of them",
+      "A mechanism which is used when the transmission of a packet fails"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "255.192.0.0 is a valid netmask for the network",
+    "answers": [
+      "132.128.0.0",
+      "192.128.0.0",
+      "None of the choices",
+      "192.193.1.0"
+    ],
+    "correct": "ab"
+  },
+  {
+    "question": "The time-to-live for a packet(TTL) is expressed in:",
+    "answers": [
+      "seconds",
+      "the number of routers the packet has already passed through( incremented by 1)",
+      "routers/second",
+      "the number of routers the packet is allowed to pass",
+      "milliseconds"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which is the correct expression for the length of UDP datagram payload ?",
+    "answers": [
+      "UDP length = UDP length + UDP header’s length",
+      "UDP length = UDP length – UDP header’s length",
+      "UDP length = IP length + IP header’s length",
+      "UDP length = IP length – IP header’s length -UDP header length"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What will you get if you 'or' together the netmask of a network and one IP in that network?",
+    "answers": [
+      "Nothing significant",
+      "The first IP address in the class of the given IP",
+      "The last IP in the class of the given IP",
+      "The class of the IP."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Write the network mask (only as /x.y.z.t) of the minimum sized network that contain both 80.81.82.83 and 80.83.84.85.",
+    "answers": [],
+    "correct": "255.252.0.0"
+  },
+  {
+    "question": "What is true about ICMP packets ?",
+    "answers": [
+      "They do not provide hosts with information about network problems.",
+      "They guarantee datagram delivery.",
+      "They are encapsulated within IP datagrams.",
+      "ICMP is encapsulated within UDP datagrams"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following cannot be a broadcast address ?",
+    "answers": [
+      "192.168.1.255",
+      "22.21.20.19",
+      "10.20.30.255",
+      "20.19.18.17",
+      "21.20.19.18"
+    ],
+    "correct": "de"
+  },
+  {
+    "question": "All IP addresses from the class 10.0.0.0/16 are private",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following is true about the IP address 10.16.3.65/23?",
+    "answers": [
+      ". The broadcast address of the subnet is 10.16.3.254",
+      "The subnet address is 10.16.3.0/255.255.254.0",
+      "The lowest host address in the subnet is 10.16.2.1",
+      "The last valid host address in the subnet is 10.16.2.254"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "You have an interface on a router with the IP address of 192.168.192.10/29. Including the router interface, how many hosts can have IP addresses on the LAN attached to the router interface?",
+    "answers": ["5", "6", "8", "7"],
+    "correct": "a"
+  },
+  {
+    "question": "What is the broadcast address for IP combination 132.45.99.0/19?",
+    "answers": [],
+    "correct": "132.45.127.255"
+  },
+  {
+    "question": "What is the network address and mask of the smallest subnet that fits these two IP addresses: 180.181.182.183 and 180.186.12.180? (addr/x.y.z.t format)",
+    "answers": [],
+    "correct": "180.176.0.0/255.240.0.0"
+  },
+  {
+    "question": "SOCK_DGRAM is used for UDP connections.",
+    "answers": ["False", "True"],
+    "correct": "b"
+  },
+  {
+    "question": "All IP addresses from the class 172.0.0.0/8 are private",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "A DNS server can be a Default Gateway",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A switch is more advanced than a hub",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "IP is located at the Link layer",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "A computer connects to a switch using a Cross-Over cable",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "Are MAC addresses guaranteed to be unique?",
+    "answers": [
+      "Yes, because MAC addresses are burned into the ROM of the network adapter.",
+      "No, buying the same type of a network adapter twice (from an online store) means you get the same MAC address.",
+      "No, the MAC address is software-related.",
+      "Depends on the network adapter you have."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "There can't be multiple computers with the address 127.0.0.1",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "ARP means Address Resolution Protocol",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A UDP socket is created using the parameters AF_INET and SOCK_STREAM",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.255.255 is not the MAC broadcasting address",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following describes 'big endian'?",
+    "answers": [
+      "None of these choices.",
+      "Least significant byte in the middle.",
+      "Most significant byte in the middle.",
+      "Most significant byte first.",
+      "Most significant byte last."
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which of the following involve NAT?",
+    "answers": [
+      "Port Forwarding.",
+      "Address Translation.",
+      "Accessing the web from an internal network. Your PC's network will be translated to your public IP (i.e., home network)."
+    ],
+    "correct": "abc"
+  },
+  {
+    "question": "127.0.0.1 cannot be a network address",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "127.16.0.1 is a private IP address",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "The recvfrom() call doesn't transmit data to the TCP client",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "192.168.1.155 belongs to the class 192.168.1.0/25",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "The MAC address has 32 bits",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "A class /24 can be split into 3 subclasses /26.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A network with the netmask 255.255.255.0 has 2^8=128 IPs.",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "How long is an IPv4 address?",
+    "answers": ["32 bits", "48 bits", "4 bytes", "6 bytes"],
+    "correct": "ac"
+  },
+  {
+    "question": "What command would you use to check the Datalink Layer if it works (on Windows)?",
+    "answers": [
+      "arp /a",
+      "All answers are correct.",
+      "ipconfig /all",
+      "arp /d",
+      "ipconfig"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "UDP is not connection-oriented",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following is not a characteristic of the IP protocol?",
+    "answers": [
+      "Is a connection-oriented protocol.",
+      "It defines the Internet addressing system.",
+      "It affects packet routing.",
+      "Is considered an unreliable protocol."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "The maximum number of actual hosts for a class C network is",
+    "answers": [],
+    "correct": "254"
+  },
+  {
+    "question": "How many hosts can be addressed on 10.0.0.0/16?",
+    "answers": [],
+    "correct": "65534"
+  },
+  {
+    "question": "Represent /26 in doted decimal format:",
+    "answers": [],
+    "correct": "255.255.255.192"
+  },
+  {
+    "question": "Which of the following is not a characteristic of the IP protocol?",
+    "answers": [
+      "It affects packet routing",
+      "Is considered an unreliable protocol",
+      "Is a connection-oriented protocol",
+      "It defines the Internet addressing system"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Having more than one DHCP server on the same subnet of a network is:",
+    "answers": [
+      "possible, if all server besides one are offline, so that the client requests for IP addresses only reach that server",
+      "possible, as long as they share the same address pool to give to the clients",
+      "possible only if each of them has a different pool of addresses, without sharing any address",
+      "not possible"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What is the main function of DNS?",
+    "answers": [
+      "maps a known IP address to a MAC layer address",
+      "provides host names to TCP/IP address resolution",
+      "automatically assigns IP addresses to the devices across the network",
+      "provides network connectivity to a computer"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Gateways are used for:",
+    "answers": [
+      "providing connectivity between two or more network segments",
+      "providing network connectivity to a computer",
+      "tracing the route taken by data from the router to the destination network",
+      "transfer files between different platforms"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is the maximum number of hosts for a class C network?",
+    "answers": ["65.534", "65.535", "128", "254"],
+    "correct": "c"
+  },
+  {
+    "question": "What is the maximum number of networks in a class A network?",
+    "answers": ["126", "128", "16,384", "254"],
+    "correct": "a"
+  },
+  {
+    "question": "Which one of the following addresses is a public IP address?",
+    "answers": ["10.0.0.0/8", "207.46.130.0/24", "172.16.0.0/12", "1.0.0.0/8"],
+    "correct": "d"
+  },
+  {
+    "question": "NAT is:",
+    "answers": [
+      "a connection between computers and other network devices that are located within a small physical location",
+      "a protocol providing a way for multiple computers on a common network to share a single connection to the Internet",
+      "a protocol used by routers to send data from one network to another",
+      "a set of protocol layers designed to make data exchange possible on different types of computer networks"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which one is not true about classless routing protocols:",
+    "answers": [
+      "RIPv1 supports classless routing protocols",
+      "RIPv2 supports classless routing protocols",
+      "It is allowed to use a variable length mask",
+      "It is allowed to use discontiguous network"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which one of these is a RIPv2 characteristic?",
+    "answers": [
+      "maintains a routing table as in RIPv1 without the mask information",
+      "is a classful routing protocol",
+      "supports maximum metric (hop count) value up to 15. Any router further than 15 hops is considered unreachable",
+      "does not support triggered updates or authentication of RIPv2 update messages"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which one is true about RIPv1?",
+    "answers": [
+      "It is easier to configure than RIPv2",
+      "It maintains a routing table as in RIPv2, including mask information",
+      "It has a lower administrative distance than RIPv2",
+      "It has the same timers as RIPv2"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "An IP address is:",
+    "answers": ["64 bits", "32 bytes", "128 bytes", "32 bits"],
+    "correct": "d"
+  },
+  {
+    "question": "Which of the following are valid IP addresses to mark a subnetwork?",
+    "answers": [
+      "177.91.107.144/29",
+      "177.91.107.0/32",
+      "177.91.107.1/25",
+      "177.91.154/30"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is the range of network IPs in which the following given IP resides: 194.168.19.65/28?",
+    "answers": [
+      "194.168.19.64 – 194.168.19.87",
+      "194.168.19.64 – 194.168.19.79",
+      "194.167.19.62 – 194.167.19.87",
+      "194.168.19.0 - 194.168.19.64"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is the correct host range for the subnet in which we can find the IP address 192.168.168.188 255.255.255.192?",
+    "answers": [
+      "192.168.168.129-191",
+      "192.168.168.128-190",
+      "192.168.168.128-192",
+      "192.168.168.129-190"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which protocol does DHCP use at the Transport Layer?",
+    "answers": ["IP", "UDP", "TCP", "ARP"],
+    "correct": "b"
+  },
+  {
+    "question": "Which class of IP address has the most host addresses available by default?",
+    "answers": ["A", "B", "C"],
+    "correct": "a"
+  },
+  {
+    "question": "Which protocol does Ping use?",
+    "answers": ["TCP", "ARP", "ICMP", "IP"],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following does not use TCP?",
+    "answers": ["HTTP", "DHCP", "FTP", "SMTP"],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is a private IP address?",
+    "answers": ["12.0.0.2", "168.172.19.40", "172.15.14.36", "192.168.24.43"],
+    "correct": "d"
+  },
+  {
+    "question": "Which class of IP address provides a maximum of only 254 host addresses per network ID?",
+    "answers": ["class A", "class B", "class C", "class B and C"],
+    "correct": "c"
+  },
+  {
+    "question": "Which one is true about ICMP packets?",
+    "answers": [
+      "They are encapsulated within IP datagrams.",
+      "ICMP is encapsulated within UDP datagrams.",
+      "They do not provide hosts with information about network problems.",
+      "They guarantee datagram delivery."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following is considered to be the destination host before translation?",
+    "answers": [
+      "Inside local host",
+      "Outside local host",
+      "Inside global host",
+      "Outside global host"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is considered to be the address after translation?",
+    "answers": [
+      "Inside local host",
+      "Outside local host",
+      "Inside global host",
+      "Outside global host"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following is not a way to configure NAT?",
+    "answers": ["IP NAT pool", "Static", "Dynamic", "NAT overload"],
+    "correct": "a"
+  },
+  {
+    "question": "Which one of the following is not an advantage of using NAT?",
+    "answers": [
+      "Conserves legally registered addresses.",
+      "Translation introduces switching path delays",
+      "Increases flexibility when connecting to the Internet",
+      "Reduces address overlap occurrence"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which one is true about NAT?",
+    "answers": [
+      "Causes loss of end-to-end IP traceability",
+      "Does not conserve legally registered addresses",
+      "Decreases flexibility when connecting to the Internet and certain applications will not function with NAT enabled",
+      "Increases address overlap occurrence"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following is true about the IP address 10.16.3.65/23?",
+    "answers": [
+      "The subnet address is 10.16.3.0 255.255.254.0",
+      "The last valid host address in the subnet is 10.16.2.254 255.255.254.0",
+      "The broadcast address of the subnet is 10.16.3.0 255.255.254.0",
+      "The lowest host address in the subnet is 10.16.2.1 255.255.254.0"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which of the following are valid subnet addresses?",
+    "answers": [
+      "177.91.107.0, 177.92.107.97, 177.92.107.144",
+      "177.91.107.0, 1.0.0.0, 0.0.0.0",
+      "191.91.168.1, 177.91.107.152, 177.91.168.127",
+      "177.91.107.0, 177.91.107.144, 1.0.0.112"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What is the maximum number of IP addresses that can be assigned to hosts on a local subnet that uses the 255.255.255.224 subnet mask?",
+    "answers": ["14", "15", "16", "30"],
+    "correct": "d"
+  },
+  {
+    "question": "What does a mask /28 mean?",
+    "answers": [
+      "the maximum number of IP addresses that can be assigned to hosts is 16",
+      "the maximum number of IP addresses that can be assigned to hosts is 14",
+      "the maximum number of IP addresses that can be assigned to hosts is 8",
+      "the maximum number of IP addresses that can be assigned to hosts is 30"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "A submask /30 can be given to:",
+    "answers": [
+      "a subnet with 3 PC’s, connected to a router by a switch",
+      "a subnet with 2 PC’s and a Server, connected to a router by a switch",
+      "a subnet with 2 PC’s connected directly to the router",
+      "a subnet with 2 routers connected"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "You need to subnet a network that has 7 subnets, each with at least 16 hosts. Which classful subnet mask would you use?",
+    "answers": [
+      "255.255.255.192",
+      "255.255.255.224",
+      "255.255.255.240",
+      "255.255.255.252"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "You have an interface on a router with the IP address of 192.168.192.10/29. Including the router interface, how many hosts can have IP addresses on the LAN attached to the router interface?",
+    "answers": ["6", "7", "8", "14"],
+    "correct": "a"
+  },
+  { 
+    "question": "The network address of 172.16.0.0/19 provides how many subnets and hosts?",
+    "answers": [
+      "7 subnets, 30 hosts each",
+      "8 subnets, 8,190 hosts each",
+      "8 subnets, 2,046 hosts each",
+      "7 subnets, 2,046 hosts each"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following affirmations about UDP is not true?",
+    "answers": [
+      "Writes packets of bytes",
+      "No read bytes from a packet are lost",
+      "Neither party can overflow the other. Traffic is controlled by the OS",
+      "Not read bytes from a packet are lost"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which one is not a principle of the OSI model?",
+    "answers": [
+      "A layer should be created where a different abstraction is needed.",
+      "Each layer should perform a well-defined function.",
+      "The layer boundaries should be chosen to maximize the information flow across the interfaces.",
+      "The function of each layer should be chosen with an eye toward defining internationally standardized protocols."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following layers controls the operation of a subnet and handles how packets are routed from source to destination?",
+    "answers": [
+      "The Network Layer",
+      "The Transport Layer",
+      "The Session Layer",
+      "The Presentation Layer"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which protocol handles mail exchange?",
+    "answers": ["FTP", "TELNET", "SSH", "SMTP"],
+    "correct": "d"
+  },
+  {
+    "question": "Which one of the following is a Natural Mask?",
+    "answers": [
+      "255.255.255.255",
+      "255.255.255.0",
+      "255.255.255.128",
+      "255.255.255.64"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "IP - best effort protocol - does its best effort to transport datagram from one machine to another with no guarantee of",
+    "answers": [
+      "Successful delivery",
+      "Duplication/Unicity",
+      "Data integrity",
+      "All of the above"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which affirmation is not true about The Network Address Translation?",
+    "answers": [
+      "No need to be allocated a range of addresses from ISP: just one IP address is used for all devices",
+      "Can change addresses of devices in the local network without notifying the outside world",
+      "Can change ISP only by changing addresses of devices in the local network",
+      "Devices inside the local net not explicitly addressable, visible by the outside world"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following affirmations about TCP is not true?",
+    "answers": [
+      "Client process must first be running",
+      "Server must have created a socket that welcomes client’s contact",
+      "Allows the server to talk with multiple clients",
+      "Source port numbers are used to distinguish clients"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "IP Routing is based on the:",
+    "answers": [
+      "Source IP",
+      "Destination IP",
+      "Network Address",
+      "Broadcast Address"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which is not a Service of a Data Link Layer?",
+    "answers": [
+      "Framing and link access",
+      "Flow Control",
+      "Error Correction",
+      "Traffic isolation"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Consider a network 60.20.30.0/24. Computers within the network have the default gateway 60.20.30.1, which is the ip of the router. The DNS server has the ip 60.20.30.2 and has the following entries in the DNS Table\ngoogle.ro 120.30.4.5\nmywebsite.ro 60.20.30.3\nA computer having the ip 60.20.30.4 opens the web browser and visits the website mywebsite.ro.\nWhat is the packet route through the network?",
+    "answers": [
+      "60.20.30.4 -> 60.20.30.2 -> 60.20.30.1 -> 60.20.30.3 -> 60.20.30.4 -> 60.20.30.2 -> 60.20.30.4",
+      "60.20.30.4 -> 60.20.30.1 -> 60.20.30.2 -> 60.20.30.1 -> 60.20.30.4 -> 60.20.30.1 -> 60.20.30.3 -> 60.20.30.1 -> 60.20.30.4",
+      "60.20.30.4 -> 60.20.30.1 -> 60.20.30.3 -> 60.20.30.1 -> 60.20.30.3 -> 60.20.30.2 -> 60.20.30.4",
+      "60.20.30.4 -> 60.20.30.1 -> 60.20.30.2 -> 60.20.30.3 -> 60.20.30.1 -> 60.20.30.4 -> 60.20.30.2 -> 60.20.30.4"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What are the protocols involved in sending an email?",
+    "answers": ["FTP", "SMTP", "TCP", "POP3", "HTTP"],
+    "correct": "bde"
+  },
+  {
+    "question": "TCP stands for...",
+    "answers": [
+      "Transfer Control Protocol",
+      "Transmission Connection Protocol",
+      "Transformation Central Protocol",
+      "Transmission Control Protocol"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What is a datagram?",
+    "answers": [
+      "A structure used to get data from the user in order to synchronize the server",
+      "A basic transfer unit used in packet-switched networks, providing a connectionless communication service",
+      "Information that can harm your computer if you're not careful with it",
+      "Millions of bytes configured in a big cluster that can be easily transferred"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "ARP can be used for...",
+    "answers": [
+      "Mapping network addresses to physical (MAC) addresses",
+      "Mapping public virtual addresses to private IP addresses",
+      "Publishing websites to the internet",
+      "Sending emails very fast"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "TCP, UDP, and SCTP are part of...",
+    "answers": [
+      "Application Layer",
+      "Internet Layer",
+      "Transport Layer",
+      "Link Layer"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "TCP Header contains the following entries:",
+    "answers": [
+      "Source Port, Destination Port, Sequence Number, Acknowledgment Number, Flags, Data Offset, Checksum, Urgent Pointer",
+      "Source IP, Destination IP, Pointer to MAC address, Connection unique identifier, Router IP, NAT tables",
+      "Source Port, Destination Port, Length, Checksum",
+      "Source Mac, Destination Mac, Connection object, Checksum, Data hash"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What would be a network security recommendation?",
+    "answers": [
+      "Forwarding all traffic from the router ports to computer ports",
+      "Activate firewall and use good firewall rules",
+      "Use the default router password, everybody will expect that you change it, so not changing it is a good strategy",
+      "Allow RDP connections on your computers"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What is DSL and what is it used for?",
+    "answers": [
+      "Digital Subscriber Line; used to give access to the internet through telephone lines",
+      "Digital Supplier Limit; verifies if the maximum connected users in a Wi-Fi network has been reached",
+      "Describer Serial Link; used for serial cables to assure their connectivity in a network",
+      "Destination Source Limit; limits the number of packets sent and received, used for security reasons"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is the difference between a switch and a hub?",
+    "answers": [
+      "The hub sends a packet specifically to an endpoint or more, the switch broadcasts the message to all the network",
+      "The switch sends a packet specifically to an endpoint or more, the hub broadcasts the message to all the network",
+      "The hub can send packets over large distances, but the switch is generally for home usage",
+      "There is no difference"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "The last address of the IP address represents?",
+    "answers": ["Broadcast", "Network", "Unicast address", "Multicast"],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following IP addresses class is multicast?",
+    "answers": ["Class A", "Class B", "Class C", "Class D"],
+    "correct": "d"
+  },
+  {
+    "question": "Which of the following is correct regarding Class B address of IP address",
+    "answers": ["Network 18 , Host 16", "Network 14 , Host 16", "Network 16 , Host 14", "Network 12 , Host 14"],
+    "correct": "b"
+  },
+  {
+    "question": "How many layers are in TCP/IP?",
+    "answers": ["7 layers", "4 layers", "6 layers", "5 layers"],
+    "correct": "b"
+  },
+  {
+    "question": "IPv4 Address is",
+    "answers": ["64 bit", "16 bit", "48 bit", "32 bit"],
+    "correct": "d"
+  },
+  {
+    "question": "DNS is the abbreviation for",
+    "answers": ["Dynamic Network System", "Domain Name System", "Domain Network Server", "Dynamic Name System"],
+    "correct": "b"
+  },
+  {
+    "question": "What is the size of a MAC address?",
+    "answers": ["16 bits", "32 bits", "48 bits", "64 bits"],
+    "correct": "c"
+  },
+  {
+    "question": "MAC address is an example of?",
+    "answers": ["Transport layer", "Data link layer", "Application layer", "Physical layer"],
+    "correct": "b"
+  },
+  {
+    "question": "For error detection in TCP/IP, we use?",
+    "answers": ["Bit sum", "Check sum", "Error Flag", "Error bit"],
+    "correct": "b"
+  },
+  {
+    "question": "The amount of data that can be carried in a given time is called?",
+    "answers": ["Capacity", "Scope", "Bandwidth", "Limitation"],
+    "correct": "c"
+  },
+  {
+    "question": "What is the size of Host in Class B of an IP address?",
+    "answers": ["4", "8", "16", "32"],
+    "correct": "c"
+  },
+  {
+    "question": "What is the use of the ping command?",
+    "answers": [
+      "To test if your connection is wired or wireless",
+      "To test if a device on the network is reachable",
+      "To get your MAC address",
+      "To get your IP address"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What is a normal mask for a Class C network?",
+    "answers": ["255.255.255.1", "255.255.255.128", "255.255.0.0", "255.255.255.0"],
+    "correct": "d"
+  },
+  {
+    "question": "What does a protocol define?",
+    "answers": [
+      "What data is communicated",
+      "How data is communicated",
+      "When data is communicated",
+      "None of the above"
+    ],
+    "correct": "abc"
+  },
+  {
+    "question": "What is the use of Subnetting?",
+    "answers": ["It divides one network into several smaller networks", "It divides a network into network classes", "It speeds up the network", "All of the above"],
+    "correct": "a"
+  },
+  {
+    "question": "What is TTL?",
+    "answers": ["Time To Leave", "Total Time Limit", "Time To Live", "Time Tracking Limit"],
+    "correct": "c"
+  },
+  {
+    "question": "The following system calls are/is optional at the level of a TCP client:",
+    "answers": ["socket()", "listen()", "bind()", "connect()"],
+    "correct": "c"
+  },
+  {
+    "question": "Which one/ones of the following addresses have to be identical for all computers located in the same local network?",
+    "answers": ["Network address", "Broadcast address", "IP address", "MAC address"],
+    "correct": "ab"
+  },
+  {
+    "question": "What does the ARP protocol help with?",
+    "answers": ["Determining the IP address when the MAC address is known", "Determining the MAC address when the IP address is known", "Determining the IP address when the DNS server is known"],
+    "correct": "b"
+  },
+  {
+    "question": "DHCP is a client/server protocol that automatically provides an Internet Protocol host with its:",
+    "answers": ["IP address", "Subnet mask", "MAC address", "Default gateway"],
+    "correct": "ad"
+  },
+  {
+    "question": "The maximum number of hosts a network with the netmask 255.255.255.224 is capable of supporting is:",
+    "answers": ["2^(number of zeros in netmask)", "32", "30", "16"],
+    "correct": "c"
+  },
+  {
+    "question": "The natural mask for a class A address is:",
+    "answers": ["255.255.255.0", "255.226.255.0", "255.0.0.0", "255.255.0.0"],
+    "correct": "c"
+  },
+  {
+    "question": "Consider the following netmask: 255.255.0.0, the network part (network length) is formed by a number of bits equal to:",
+    "answers": ["24", "16", "8", "Impossible to determine"],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following describes 'big endian'?",
+    "answers": ["Most significant byte first", "Most significant byte last", "Least significant byte in the middle", "Most significant byte in the middle"],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following describes 'little endian'?",
+    "answers": ["Least significant byte first", "Least significant byte last", "Least significant byte in the middle", "Most significant byte in the middle"],
+    "correct": "a"
+  },
+  {
+    "question": "What is the in-memory representation of 56E2 in little endian?",
+    "answers": ["56E2", "E256", "2E65", "652E"],
+    "correct": "b"
+  },
+  {
+    "question": "What is the in-memory representation of 56E2 in big endian?",
+    "answers": ["56E2", "E256", "2E65", "652E"],
+    "correct": "a"
+  },
+  {
+    "question": "How many bytes does 'double' use?",
+    "answers": ["1 byte", "4 bytes", "8 bytes", "16 bytes"],
+    "correct": "c"
+  },
+  {
+    "question": "How many bytes does 'float' use?",
+    "answers": ["1 byte", "4 bytes", "8 bytes", "16 bytes"],
+    "correct": "b"
+  },
+  {
+    "question": "What does TCP/IP stand for?",
+    "answers": ["Transport Control Protocol/Internet Protocol", "Transmission Check Protocol/Internet Protocol", "Transmission Control Protocol/Inverse Protocol", "Transmission Control Protocol/Internet Protocol"],
+    "correct": "d"
+  },
+  {
+    "question": "What type of connection does SOCK_STREAM indicate?",
+    "answers": ["TCP connection", "UDP connection", "Closed connection", "Open connection"],
+    "correct": "a"
+  },
+  {
+    "question": "What type of connection does SOCK_DGRAM indicate?",
+    "answers": ["TCP connection", "UDP connection", "Closed connection", "Open connection"],
+    "correct": "b"
+  },
+  {
+    "question": "What does UDP stand for?",
+    "answers": ["User Defined Protocol", "User Datalink Protocol", "User Datagram Protocol", "Utility Datagram Protocol"],
+    "correct": "c"
+  },
+  {
+    "question": "What does DNS stand for?",
+    "answers": ["Dynamic Name Server", "Dynamic Name System", "Domain Name Server", "Domain Name System"],
+    "correct": "d"
+  },
+  {
+    "question": "How many different network layers are there (according to the OSI Reference Model)?",
+    "answers": ["7 layers", "4 layers", "5 layers", "9 layers"],
+    "correct": "a"
+  },
+  {
+    "question": "The 4 bottom network layers (according to the OSI Reference Model), in order, are the following:",
+    "answers": ["Physical, Data link, Network, Transport", "Physical, Network, Data link, Transport", "Physical, Data link, Transport, Network", "Data link, Physical, Network, Transport"],
+    "correct": "a"
+  },
+  {
+    "question": "What does FTP stand for?",
+    "answers": ["File Transmission Protocol", "File Transfer Protocol", "File Translocation Protocol", "Folder Transmission Protocol"],
+    "correct": "b"
+  },
+  {
+    "question": "What is FTP used for?",
+    "answers": [
+      "It is a protocol used to check if the datalink layer is working properly.",
+      "Transfering files over a network.",
+      "It is a protocol used by mail servers.",
+      "Accessing the WEB, sending HTML pages."
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What does SSH stand for?",
+    "answers": [
+      "Secure Shell Hook",
+      "Structured Shell Hook",
+      "Secure Shell",
+      "Structured Shell"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What is SSH used for?",
+    "answers": [
+      "Remote connection to the terminal / command line of another computer (remote command).",
+      "Transfering files over a network.",
+      "It is a protocol used by mail servers.",
+      "Accessing the WEB, sending HTML pages."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is SMTP used for?",
+    "answers": [
+      "Remote connection to the terminal / command line of another computer (remote command).",
+      "Transfering files over a network.",
+      "It is a protocol used by mail servers (mail Exchange).",
+      "Accessing the WEB, sending HTML pages."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What does P2P stand for?",
+    "answers": [
+      "Peer to Peer.",
+      "Point to Point.",
+      "Point to Peer.",
+      "Peer to Point."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is the maximum bandwidth, the maximum amount of data that the optical fiber can carry?",
+    "answers": [
+      "100 Mb/s",
+      "1000 Mb/s",
+      "100 000 Mb/s",
+      "There is no maximum."
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Since optical fiber has no limit in bandwidth, what is a plausible reason for your lower internet speed?",
+    "answers": [
+      "There is a limit to how much end devices can send and receive.",
+      "Your router/modem is limited.",
+      "You don't use fiber.",
+      "The contract with your ISP limits your bandwidth.",
+      "All answers are correct."
+    ],
+    "correct": "e"
+  },
+  {
+    "question": "If I have a zip of size 1024 bytes and a connection of 32 bits/second to the computer I want to send the zip to, how long would it take for the zip to be sent?",
+    "answers": [
+      "128 seconds",
+      "1 second",
+      "10 seconds",
+      "1024 seconds"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What kind of signal flows through the optical fiber cable?",
+    "answers": [
+      "Electro-magnetic waves",
+      "Light waves",
+      "Both are of the above",
+      "Electric current"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What type of physical signal does wireless transmission use?",
+    "answers": [
+      "Electro-magnetic waves",
+      "Light waves",
+      "Both are of the above",
+      "Electric current"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "How long is an IPv4 address?",
+    "answers": [
+      "4 bytes",
+      "32 bytes",
+      "16 bytes",
+      "8 bytes"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What does TLD stand for?",
+    "answers": [
+      "Total Level Domain",
+      "Total Level Distribution",
+      "Top Level Domain",
+      "Top Level Distribution"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What does ISP stand for?",
+    "answers": [
+      "Internet Server Protocol",
+      "Inverse Service Protocol",
+      "Internet Service Provider",
+      "Internet Server Provider"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "Which of the following is a valid domain name?",
+    "answers": [
+      "nontendo.com",
+      "nds.nontendo.com",
+      "nds.nontendo.ro",
+      "All answers are correct"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What does ROTLD stand for?",
+    "answers": [
+      "Romanian Top Level Domain",
+      "Russian Overview Top Level Domain",
+      "Romanian Total Level Domain",
+      "Romanian Top Level Distribution"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What is the 'Whois Query' used for?",
+    "answers": [
+      "Checking if a domain name is already bought or not.",
+      "Checking if a domain name has a server active and running.",
+      "Checking if an IP is present on a network.",
+      "Getting the IP of a domain name."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following represents an FTP (File Transfer Protocol)?",
+    "answers": [
+      "The TCP/IP",
+      "The SMB or SAMBA Protocol",
+      "The SSH Protocol",
+      "The SMTP"
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "What is HTML?",
+    "answers": [
+      "HTML is a language that is used to describe web pages.",
+      "HTML is a language used for server programming.",
+      "HTML is a language used for browser programming.",
+      "All of the above are true."
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following is a correct mac address?",
+    "answers": [
+      "12-34-56-78-90-AB-CD",
+      "G2-H3-24-13-12-3E",
+      "G2-H3-24-13-12-3E-CD",
+      "12-34-56-78-90-AB"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "What command would you use to find your network adapter's mac address if you are on Windows?",
+    "answers": [
+      "ipconfig",
+      "arp /d",
+      "ipconfig /all",
+      "All of the above would work."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "What does ARP stand for?",
+    "answers": [
+      "Address Resolution Protocol",
+      "Address Refresh Protocol",
+      "Address Reconstruction Protocol",
+      "Address Read Protocol"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "What does LAN stand for?",
+    "answers": [
+      "Local Address Network",
+      "Local Address Name",
+      "Local Area Network",
+      "Local Area Name"
+    ],
+    "correct": "c"
+  }
 ]
