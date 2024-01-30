@@ -944,7 +944,7 @@
     "answers": ["6", "7", "8", "14"],
     "correct": "a"
   },
-  { 
+  {
     "question": "The network address of 172.16.0.0/19 provides how many subnets and hosts?",
     "answers": [
       "7 subnets, 30 hosts each",
@@ -1156,7 +1156,12 @@
   },
   {
     "question": "Which of the following is correct regarding Class B address of IP address",
-    "answers": ["Network 18 , Host 16", "Network 14 , Host 16", "Network 16 , Host 14", "Network 12 , Host 14"],
+    "answers": [
+      "Network 18 , Host 16",
+      "Network 14 , Host 16",
+      "Network 16 , Host 14",
+      "Network 12 , Host 14"
+    ],
     "correct": "b"
   },
   {
@@ -1171,7 +1176,12 @@
   },
   {
     "question": "DNS is the abbreviation for",
-    "answers": ["Dynamic Network System", "Domain Name System", "Domain Network Server", "Dynamic Name System"],
+    "answers": [
+      "Dynamic Network System",
+      "Domain Name System",
+      "Domain Network Server",
+      "Dynamic Name System"
+    ],
     "correct": "b"
   },
   {
@@ -1181,7 +1191,12 @@
   },
   {
     "question": "MAC address is an example of?",
-    "answers": ["Transport layer", "Data link layer", "Application layer", "Physical layer"],
+    "answers": [
+      "Transport layer",
+      "Data link layer",
+      "Application layer",
+      "Physical layer"
+    ],
     "correct": "b"
   },
   {
@@ -1211,7 +1226,12 @@
   },
   {
     "question": "What is a normal mask for a Class C network?",
-    "answers": ["255.255.255.1", "255.255.255.128", "255.255.0.0", "255.255.255.0"],
+    "answers": [
+      "255.255.255.1",
+      "255.255.255.128",
+      "255.255.0.0",
+      "255.255.255.0"
+    ],
     "correct": "d"
   },
   {
@@ -1226,12 +1246,22 @@
   },
   {
     "question": "What is the use of Subnetting?",
-    "answers": ["It divides one network into several smaller networks", "It divides a network into network classes", "It speeds up the network", "All of the above"],
+    "answers": [
+      "It divides one network into several smaller networks",
+      "It divides a network into network classes",
+      "It speeds up the network",
+      "All of the above"
+    ],
     "correct": "a"
   },
   {
     "question": "What is TTL?",
-    "answers": ["Time To Leave", "Total Time Limit", "Time To Live", "Time Tracking Limit"],
+    "answers": [
+      "Time To Leave",
+      "Total Time Limit",
+      "Time To Live",
+      "Time Tracking Limit"
+    ],
     "correct": "c"
   },
   {
@@ -1241,12 +1271,21 @@
   },
   {
     "question": "Which one/ones of the following addresses have to be identical for all computers located in the same local network?",
-    "answers": ["Network address", "Broadcast address", "IP address", "MAC address"],
+    "answers": [
+      "Network address",
+      "Broadcast address",
+      "IP address",
+      "MAC address"
+    ],
     "correct": "ab"
   },
   {
     "question": "What does the ARP protocol help with?",
-    "answers": ["Determining the IP address when the MAC address is known", "Determining the MAC address when the IP address is known", "Determining the IP address when the DNS server is known"],
+    "answers": [
+      "Determining the IP address when the MAC address is known",
+      "Determining the MAC address when the IP address is known",
+      "Determining the IP address when the DNS server is known"
+    ],
     "correct": "b"
   },
   {
@@ -1271,12 +1310,22 @@
   },
   {
     "question": "Which of the following describes 'big endian'?",
-    "answers": ["Most significant byte first", "Most significant byte last", "Least significant byte in the middle", "Most significant byte in the middle"],
+    "answers": [
+      "Most significant byte first",
+      "Most significant byte last",
+      "Least significant byte in the middle",
+      "Most significant byte in the middle"
+    ],
     "correct": "a"
   },
   {
     "question": "Which of the following describes 'little endian'?",
-    "answers": ["Least significant byte first", "Least significant byte last", "Least significant byte in the middle", "Most significant byte in the middle"],
+    "answers": [
+      "Least significant byte first",
+      "Least significant byte last",
+      "Least significant byte in the middle",
+      "Most significant byte in the middle"
+    ],
     "correct": "a"
   },
   {
@@ -1301,27 +1350,52 @@
   },
   {
     "question": "What does TCP/IP stand for?",
-    "answers": ["Transport Control Protocol/Internet Protocol", "Transmission Check Protocol/Internet Protocol", "Transmission Control Protocol/Inverse Protocol", "Transmission Control Protocol/Internet Protocol"],
+    "answers": [
+      "Transport Control Protocol/Internet Protocol",
+      "Transmission Check Protocol/Internet Protocol",
+      "Transmission Control Protocol/Inverse Protocol",
+      "Transmission Control Protocol/Internet Protocol"
+    ],
     "correct": "d"
   },
   {
     "question": "What type of connection does SOCK_STREAM indicate?",
-    "answers": ["TCP connection", "UDP connection", "Closed connection", "Open connection"],
+    "answers": [
+      "TCP connection",
+      "UDP connection",
+      "Closed connection",
+      "Open connection"
+    ],
     "correct": "a"
   },
   {
     "question": "What type of connection does SOCK_DGRAM indicate?",
-    "answers": ["TCP connection", "UDP connection", "Closed connection", "Open connection"],
+    "answers": [
+      "TCP connection",
+      "UDP connection",
+      "Closed connection",
+      "Open connection"
+    ],
     "correct": "b"
   },
   {
     "question": "What does UDP stand for?",
-    "answers": ["User Defined Protocol", "User Datalink Protocol", "User Datagram Protocol", "Utility Datagram Protocol"],
+    "answers": [
+      "User Defined Protocol",
+      "User Datalink Protocol",
+      "User Datagram Protocol",
+      "Utility Datagram Protocol"
+    ],
     "correct": "c"
   },
   {
     "question": "What does DNS stand for?",
-    "answers": ["Dynamic Name Server", "Dynamic Name System", "Domain Name Server", "Domain Name System"],
+    "answers": [
+      "Dynamic Name Server",
+      "Dynamic Name System",
+      "Domain Name Server",
+      "Domain Name System"
+    ],
     "correct": "d"
   },
   {
@@ -1331,12 +1405,22 @@
   },
   {
     "question": "The 4 bottom network layers (according to the OSI Reference Model), in order, are the following:",
-    "answers": ["Physical, Data link, Network, Transport", "Physical, Network, Data link, Transport", "Physical, Data link, Transport, Network", "Data link, Physical, Network, Transport"],
+    "answers": [
+      "Physical, Data link, Network, Transport",
+      "Physical, Network, Data link, Transport",
+      "Physical, Data link, Transport, Network",
+      "Data link, Physical, Network, Transport"
+    ],
     "correct": "a"
   },
   {
     "question": "What does FTP stand for?",
-    "answers": ["File Transmission Protocol", "File Transfer Protocol", "File Translocation Protocol", "Folder Transmission Protocol"],
+    "answers": [
+      "File Transmission Protocol",
+      "File Transfer Protocol",
+      "File Translocation Protocol",
+      "Folder Transmission Protocol"
+    ],
     "correct": "b"
   },
   {
@@ -1443,12 +1527,7 @@
   },
   {
     "question": "How long is an IPv4 address?",
-    "answers": [
-      "4 bytes",
-      "32 bytes",
-      "16 bytes",
-      "8 bytes"
-    ],
+    "answers": ["4 bytes", "32 bytes", "16 bytes", "8 bytes"],
     "correct": "a"
   },
   {
@@ -1791,7 +1870,7 @@
     "correct": "a"
   },
   {
-    "question": "UDP vs. TCP flow control: Which statement is false?",
+    "question": "UDP vs. TCP flow control: Which question is false?",
     "answers": [
       "UDP: one part can overflow, which results in lost packets",
       "TCP: Traffic is controlled by the OS",
@@ -1842,11 +1921,7 @@
   },
   {
     "question": "Which of these addresses is not private?",
-    "answers": [
-      "10.255.189.255",
-      "172.168.0.1",
-      "192.168.255.255"
-    ],
+    "answers": ["10.255.189.255", "172.168.0.1", "192.168.255.255"],
     "correct": "b"
   },
   {
@@ -1860,38 +1935,452 @@
   },
   {
     "question": "Which of the addresses is a valid private address?",
-    "answers": [
-      "10.255.256.0/29",
-      "10.255.255.0/28",
-      "193.168.0.0/29"
-    ],
+    "answers": ["10.255.256.0/29", "10.255.255.0/28", "193.168.0.0/29"],
     "correct": "b"
   },
   {
     "question": "Which is the third level in the OSI Reference Model Layer?",
-    "answers": [
-      "Network",
-      "Session",
-      "Transport"
-    ],
+    "answers": ["Network", "Session", "Transport"],
     "correct": "a"
   },
   {
     "question": "Which is the network address of the second subnet of a network having 93 computers, where the first contains 22 computers, and starts from 192.168.0.0?",
-    "answers": [
-      "192.168.0.33",
-      "192.168.0.32",
-      "192.168.0.24"
-    ],
+    "answers": ["192.168.0.33", "192.168.0.32", "192.168.0.24"],
     "correct": "b"
   },
   {
     "question": "The natural mask for a class B address is:",
+    "answers": ["255.0.0.0", "255.255.0.0", "255.255.255.0"],
+    "correct": "b"
+  },
+  {
+    "question": "What is a property of a computer network?",
     "answers": [
-      "255.0.0.0",
-      "255.255.0.0",
-      "255.255.255.0"
+      "all components are linked to a router.",
+      "all components are interconnected.",
+      "all components are linked using a coaxial cable.",
+      "it has only PCs and workstations."
     ],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is NOT a computer network?",
+    "answers": [
+      "The Internet.",
+      "Worldwide telephone system.",
+      "A PC connected to headphones.",
+      "Telephone system."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "If AB12 is represented in big endian as AB12, what is its representation in little endian?",
+    "answers": ["21BA", "12BA", "BA21", "12AB"],
+    "correct": "d"
+  },
+  {
+    "question": "If 43ED is represented in big endian as 43ED, what is its representation in little endian?",
+    "answers": ["DE34", "ED43", "DE43", "ED34"],
+    "correct": "b"
+  },
+  {
+    "question": "What function call you don't find in a UDP server?",
+    "answers": ["recvfrom", "bind", "sendto", "accept"],
+    "correct": "d"
+  },
+  {
+    "question": "What happens with the bytes that are not read by a TCP server?",
+    "answers": [
+      "Are lost forever.",
+      "Are sent back to source.",
+      "Stay available for the next read.",
+      "Are transferred to a special location in the network."
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "How many bits have an IP address?",
+    "answers": ["64", "32", "4", "16"],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is NOT a valid IP netmask combination?",
+    "answers": [
+      "168.220.186.8/225.255.225.252",
+      "156.198.186.8/255.255.255.254",
+      "209.198.186.8/255.255.255.246",
+      "168.220.186.64/255.255.255.240"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "When you have an IP address and the network mask what operation you need to do in order to find out the network address?",
+    "answers": [
+      "or between IP and netmask.",
+      "and between IP and netmask.",
+      "divide the IP by the mask.",
+      "you can't find the network address."
+    ],
+    "correct": "b"
+  },
+  {
+    "question": "Which of the following is NOT a valid IP netmask combination?",
+    "answers": [
+      "168.220.186.8/225.255.225.252",
+      "156.198.186.16/255.255.255.254",
+      "209.198.186.8/255.255.255.248",
+      "168.220.186.8/255.255.255.240"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "Which of the following is a class C IP address?",
+    "answers": [
+      "10.10.14.118",
+      "135.23.112.57",
+      "191.200.199.199",
+      "204.67.118.54"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "UDP packets are encapsulated in:",
+    "answers": [
+      "an Ethernet frame",
+      "a TCP segment",
+      "an IP diagram",
+      "none of the above"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "Which of the following functions does UDP perform?",
+    "answers": [
+      "process to process communication",
+      "improve the data transfer rate of large files (compared to TCP)",
+      "assure that the sent messages arrive in the order that have been sent",
+      "protect the data sent against any corruption while transferring it."
+    ],
+    "correct": "ab"
+  },
+  {
+    "question": "Which of the following is not an application layer protocol?",
+    "answers": ["HTTP", "IMAP", "SMTP", "TCP"],
+    "correct": "d"
+  },
+  {
+    "question": "A one-to-all communication between one source and all hosts on a network can be classified as:",
+    "answers": [
+      "unicast communication",
+      "broadcast communication",
+      "multicast communication",
+      "anycast communication"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "The data link layer takes packets from .............. and encapsulates them into frames for transmission",
+    "answers": [
+      "network layer",
+      "physical layer",
+      "transport layer",
+      "application layer"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "FTP uses the following channels:",
+    "answers": [
+      "the delta channel",
+      "the control channel",
+      "the bearer channel",
+      "the data channel"
+    ],
+    "correct": "cd"
+  },
+  {
+    "question": "Which IP address class can have 64 000 subnets with 64 000 hosts/subnet?",
+    "answers": ["class A", "class B", "class C", "class D"],
+    "correct": "b"
+  },
+  {
+    "question": "Which can be an Ethernet physical address?",
+    "answers": [
+      "07:01:02:01:2C:4B",
+      "07:01:02:01:2C:4B:2C",
+      "07:02:01:2C:4B",
+      "none of the above"
+    ],
+    "correct": "c"
+  },
+  {
+    "question": "The underlying transport layer protocol used by SMTP:",
+    "answers": ["TCP", "UDP", "both TCP and UDP", "none of the above"],
+    "correct": "a"
+  },
+  {
+    "question": "In HTTP Protocol, a client can directly connect to a server using:",
+    "answers": ["Web", "Domain", "TELNET", "HTTP"],
+    "correct": "c"
+  },
+  {
+    "question": "The last network address is reserved for: ",
+    "answers": ["broadcasting", "unicasting", "multicasting", "anycasting"],
+    "correct": "a"
+  },
+  {
+    "question": "The size of a class C IP Adresses per network is ",
+    "answers": ["128 hosts", "256 hosts", "64 hosts", "32 hosts"],
+    "correct": "b"
+  },
+  {
+    "question": "DHCP stands for ",
+    "answers": [
+      "Dynamic Host Control Protocol",
+      "Dynamic Host Configuration Program",
+      "Dynamic Host Control Program",
+      "Dynamic Host Configuration Protocol"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "The network address of the third subnet of a network having 93 computers that starts from 192.168.0.0, where the first contains 22 computers and the second has 10 hosts is",
+    "answers": [],
+    "correct": "192.168.0.48"
+  },
+  {
+    "question": "The networks can be classified on the types of transmission as .......... switching and .......... switching.",
+    "answers": [
+      "circuit, packet",
+      "circuit, message",
+      "message, packet",
+      "packet, circus"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "UDP guarantees datagram delivery:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "The socket type used by TCP is SOCK_STREAM:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "With UDP, one party can overflow the other => lost packets:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "The connect system call is normally called by the client process in order to connect to a server process:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "The listen system call indicates to the protocol that the client process is ready to accept new incoming connections on the socket:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "At the level of a TCP client, the bind system call is mandatory:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "The high order bits of an IP Address represent the host part:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "All the hosts from the same network can physically reach each other without an intervening router:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A network address can be determined based on an IP Address from the network and the netmask:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Always, in a class of addresses, the first and last IP addresses are reserved:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "For connecting a host with a private address to the Internet, it has to be translated to a public address, process named ARP:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "172.16.0.0/12 refers to a private address space:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A DNS server is responsible for translating numerical IP addresses to domain names:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "The network address can be obtained from an IP address and the netmask using the logical operation 'OR':",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "When NAT is involved, the local network uses just one IP address as far as the outside world is concerned:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "The number of IP addresses allocated for each subnet block has to be a power of 4:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "209.220.186.8/255.255.255.248 is an invalid IP/Netmask combination:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "The default gateway serves as an access point or IP router that a networked computer uses to send information to a computer in the same network or the Internet:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "A 255.255.255.240 netmask is capable of supporting 16 hosts:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A computer uses HTTP to look up domain names and get the associated IP address:",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "There is no routing based on MAC addresses:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A proxy server acts as an intermediary for requests from clients seeking resources from other servers:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "The combination DNS server = Default Gateway is not possible:",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "A collection of computers (PCs, Workstations) and other devices interconnected represent a computer network.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Hosts (computers), links (coaxial cable, twisted pair, optical fiber, radio, satellite), switches/routers (intermediate systems) are all components of a computer system.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Big Endian means 'most significant byte first' while little endian means 'least significant byte first.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "SOCK_STREAM is used for UDP connections.",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "SOCK_DGRAM is used for UDP connections.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "The optical fiber cable theoretically has unlimited bandwidth.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Every domain name that is not already in use is free to claim as your own.",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.255.128 starts with 1 zero and ends with 7 zeroes.",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.255.128 ends with 7 zeroes.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Port forwarding is a use of NAT.",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "Mac addresses are not guaranteed to be unique.",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "The netmask can't be determined using an IP address and the broadcast address",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "A web server can run on ports different than 80",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "11111111.11111111.11111100.00000000 = 255.255.254.0",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.128.0 = /23",
+    "answers": ["True", "False"],
+    "correct": "a"
+  },
+  {
+    "question": "The broadcast address cannot be calculated using the IP address and the netmask",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP, UDP are part of",
+    "answers": [
+      "Transport Layer",
+      "Link Layer",
+      "Application Layer",
+      "Internet Layer"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "TCP Header contains the following entries:",
+    "answers": [
+      "Source Port, Destination Port, Route ID, Checksum",
+      "Source Mac, Destination Mac, Connection object, Checksum, Data hash",
+      "Source IP, Destination IP, Pointer to MAC address, Connection unique identifier, Router IP, NAT tables",
+      "Source Port, Destination Port, Sequence Number, Acknowledgement Number, Flags, Data Offset, Checksum, Urgent Pointer"
+    ],
+    "correct": "d"
+  },
+  {
+    "question": "The network address cannot be calculated using the broadcast address and the netmask",
+    "answers": ["True", "False"],
+    "correct": "b"
+  },
+  {
+    "question": "bind() cannot be used in UDP clients",
+    "answers": ["True", "False"],
     "correct": "b"
   }
 ]
