@@ -1662,17 +1662,6 @@
     "correct": "a"
   },
   {
-    "question": "Which of the following is a valid IP/Netmask combination?",
-    "answers": [
-      "209.220.186.8/255.255.255.240",
-      "209.220.186.8/255.255.255.0",
-      "209.220.186.8/255.255.255.248",
-      "209.220.186.8/255.255.255.252",
-      "C and D are both correct."
-    ],
-    "correct": "e"
-  },
-  {
     "question": "How many bits of zero does the following netmask have? 255.255.255.248",
     "answers": ["2 bits", "3 bits", "4 bits", "8 bits"],
     "correct": "b"
