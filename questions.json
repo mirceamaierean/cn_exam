@@ -1,0 +1,482 @@
+﻿[
+    {
+        "question": "How many bits of zero does the following netmask have? 255.255.255.248",
+        "answers": ["3", "4", "8", "2"],
+        "correct": "a"
+    },
+    {
+        "question": "The ARP protocol helps with:",
+        "answers": [
+            "Determining the MAC address when the IP address is known",
+            "Determining the IP address when the MAC address is known",
+            "Determining the IP address when the DNS server is known"
+        ],
+        "correct": "a"
+    },
+    {
+        "question": "Which of the following is the correct host range for the subnet in which we can find the IP address 192.168.168.188/255.255.255.192 ?",
+        "answers": [
+            "192.168.168.128-192",
+            "192.168.168.129-191",
+            "192.168.168.128-190",
+            "192.168.168.129-190"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "What is the broadcast address for subnet 200.35.1.192/27?",
+        "answers": [],
+        "correct": "200.35.1.223"
+    },
+    {
+        "question": "Consider the following netmask: 255.255.0.0, the network part(network length) is formed by a number of bits equal to",
+        "answers": ["8", "24", "16", "impossible to determine"],
+        "correct": "c"
+    },
+    {
+        "question": "In TCP, bytes not read from the stream:",
+        "answers": [
+            "A stream does not have bytes into his composition",
+            "are lost - but their count is reported as an error to the user",
+            "Are lost",
+            "Stay available for the next read"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "What are the values of the network address and the netmask in the default route?",
+        "answers": [
+            "0.0.0.0 255.255.255.0",
+            "255.255.255.255 0.0.0.0",
+            "127.0.0.1 255.255.255.0",
+            "0.0.0.0 0.0.0.0"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "Which of the following address can be a valid host IP that can be allocated to a host:",
+        "answers": [
+            "193.231.21.0",
+            "18.19.20.255",
+            "223.245.256.17"
+        ],
+        "correct": "ab"
+    },
+    {
+        "question": "Not all IP addresses from the class 192.168.0.0/8 are private",
+        "answers": ["true", "false"],
+        "correct": "a"
+    },
+    {
+        "question": "A TCP header is larger than a UDP header by how many bytes?",
+        "answers": [],
+        "correct": "12"
+    },
+    {
+        "question": "The checksum in the IP header is computed:",
+        "answers": [
+            "when passing through each switch and hub in order to ensure consistency",
+            "on each router",
+            "on the source and destination hosts",
+            "every time a router believes the packet has been altered"
+        ],
+        "correct": "bc"
+    },
+    {
+        "question": "Which of the following is a valid IP/Netmask combination?",
+        "answers": [
+            "209.220.186.8/255.255.255.248",
+            "None of the combinations are correct",
+            "209.220.186.8/255.255.255.240",
+            "209.220.186.8/255.255.255.252",
+            "209.220.186.8/255.255.255.240"
+        ],
+        "correct": "ad"
+    },
+    {
+        "question": "Which of the following IP addresses cannot be broadcast addresses?",
+        "answers": [
+            "192.168.0.255",
+            "200.0.0.33",
+            "10.0.1.254",
+            "25.0.2.31"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "Which of the following addresses can be valid network addresses provided appropriate network masks?",
+        "answers": [
+            "193.231.20.2",
+            "193.231.20.4",
+            "193.231.20.1",
+            "193.231.20.0",
+            "193.231.20.3"
+        ],
+        "correct": "bd"
+    },
+    {
+        "question": "A company has three departments: Offices, Public and Managers. The offices have 123 computers, Public Relationship has 29 computers and Managers have 5 computers. The company wants to make a network such that: - every computer has access to the internet - have minimum costs - it must be certainly known from which department some webpages are accessed from the HQ in another city Provide a good configuration for these requirements:",
+        "answers": [
+            "3 subnetworks, 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24 for every department and connect every subnet directly to the internet, using NAT, through a different provider",
+            "1 subnetwork for all the company, 192.168.0.0/24, connect computers to internet through a router which translates every address IP to a public IP address with different class depending on department",
+            "3 subnetworks, 192.168.0.0/25, 192.168.0.128/27, 192.168.0.160/29, one router which translates the first network to 30.0.0.1, second to 30.0.0.2, and third to 30.0.0.3",
+            "3 subnetworks, 192.168.0.0/25, 192.168.0.128/27, 192.168.0.160/29 and connect them to a central router which translates all the IPs on 192.168.0.0/24 with the IP 30.0.0.5"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "Which of the following are not contained in a routing table?",
+        "answers": ["gateway", "the network interface", "the netmask", "source address"],
+        "correct": "d"
+    },
+    {
+        "question": "What is the broadcast address of the network 190.60.16.0/28?",
+        "answers": [
+            "190.60.16.31",
+            "190.60.16.255",
+            "190.60.16.15",
+            "190.60.16.7"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "What happens after receiving one duplicate Acknowledgment?",
+        "answers": [
+            "none of the answers are correct",
+            "Congestion Window is set to 1 MSS",
+            "Congestion Window is cut in half",
+            "Congestion Window is cut in half and grows exponentially"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "What is the last valid host on the network that 10.215.81.114 / 255.240.0.0 is a part of?",
+        "answers": [],
+        "correct": "10.223.255.254"
+    },
+    {
+        "question": "Consider the following network address: 192.0.2.64 . How many net masks can it be used with?",
+        "answers": [],
+        "correct": "5"
+    },
+    {
+        "question": "accept() is required in any UDP server",
+        "answers": ["true", "false"],
+        "correct": "b"
+    },
+    {
+        "question": "Consider one SWITCH and 10 PC's connected to it. Which of the following is false?",
+        "answers": [
+            "when PC1 sends a message to PC5, the message will be received and processed just by PC5 and the answer of PC5 will be received and processed just by PC1",
+            "when PC1 sends a message to PC5, the message will be received by all the PC's, but only PC5 processes it; the answer is sent back and received only by PC1",
+            "when PC1 sends a message to PC5, the message will be received by all the PC's, each of them sending back an answer",
+            "when PC1 sends a message to PC5, the message will be received by all the PC's but only PC5 processes it; the answer will be also received by all the PC's but only PC1 will process it"
+        ],
+        "correct": "bcd"
+    },
+    {
+        "question": "What is the netmask of the minimum sized network that has as broadcast 70.71.79.255 and also contains the host IP address 70.71.79.240 ?",
+        "answers": [],
+        "correct": "255.255.255.224"
+    },
+    {
+        "question": "Why would an ISP aggregate smaller networks into a larger one?",
+        "answers": [
+            "It does not ever aggregate networks.",
+            "It can't store information about each network individually",
+            "In order to reduce the number of entries in the routing table of the router connecting the ISP to the Internet",
+            "In order to group all networks for a specific client together"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "How many bits of 0 are in the following netmask? 255.255.255.254?",
+        "answers": [],
+        "correct": "1"
+    },
+    {
+        "question": "What is the netmask of the largest network with the address 84.176.0.0 ? (as x.y.z.t)",
+        "answers": [],
+        "correct": "255.240.0.0"
+    },
+    {
+        "question": "When the Congestion Window is below the Threshold:",
+        "answers": [
+            "The window grows linearly",
+            "The congestion window grows exponentially",
+            "The window is set to 1 MSS"
+        ],
+        "correct": "b"
+    },
+    {
+        "question": "Given the address 137.25.28.0/255.255.254.0 provide the maximum number of valid subnets that can be obtained from splitting this network",
+        "answers": [],
+        "correct": "128"
+    },
+    {
+        "question": "Which of the following can be a mask, such that 62.244.89.16 is a valid network address?",
+        "answers": ["255,255,255,252", "/29", "255,255,255,248", "/27", "255.255.255.128"],
+        "correct": "abd"
+    },
+    {
+        "question": "What does a mask /29 mean?",
+        "answers": [
+            "Is equivalent to 255.255.255.248",
+            "The maximum number of IP addresses that can be assigned to hosts is 29",
+            "The maximum number of IP addresses that can be assigned to hosts is 6",
+            "The maximum number of IP addresses that can be assigned to hosts is 8"
+        ],
+        "correct": "ac"
+    },
+    {
+        "question": "What netmask is needed to split a network with address 133.25.0.0/16 in 1000 subnets of 14 hosts each?",
+        "answers": ["/21", "/28", "/19", "/15"],
+        "correct": "b"
+    },
+    {
+        "question": "Which of the following is a private IP address ?",
+        "answers": ["192.168.24.43", "172.15.14.36", "168.172.19.40", "12.0.0.2"],
+        "correct": "a"
+    },
+    {
+        "question": "Which of the following are valid subnetwork addresses ?",
+        "answers": [
+            "177.91.107.0/30",
+            "177.91.154.2/30",
+            "177.91.107.144/29",
+            "177.91.107.1/25"
+        ],
+        "correct": "cd"
+    },
+    {
+        "question": "connect() is required in any TCP server",
+        "answers": ["true", "false"],
+        "correct": "b"
+    },
+    {
+        "question": "UDP is not located at the Link layer",
+        "answers": ["true", "false"],
+        "correct": "a"
+    },
+    {
+        "question": "What happens if the Gateway in a Routing table entry is 0.0.0.0?",
+        "answers": [
+            "The router drops the packet as there is no such gateway IP address",
+            "This is not possible",
+            "All packets will be directed to 0.0.0.0",
+            "The router puts the packet on the associated network interface with this route"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "Which IP field helps to check the order of the fragments?",
+        "answers": ["identifier", "ttl", "flag", "offset"],
+        "correct": "d"
+    },
+    {
+        "question": "Which is the closest number to the largest routing table in the case of class full IP Addressing?",
+        "answers": ["2^16", "2^7+2^14+2^21", "2^32", "2^8+2^16"],
+        "correct": "b"
+    },
+    {
+        "question": "A TCP connection is terminated through:",
+        "answers": [
+            "a  4-way handshake",
+            "a 3-way handshake",
+            "a 2-way handshake",
+            "none of the answers are correct"
+        ],
+        "correct": "ab"
+    },
+    {
+        "question": "254.255.0.0 is a valid netmask",
+        "answers": ["true", "false"],
+        "correct": "b"
+    },
+    {
+        "question": "Which of the following is not a characteristic of the IP protocol?",
+        "answers": [
+            "Is considered an unreliable protocol",
+            "It affects packet routing",
+            "Is a connection-oriented protocol",
+            "It defines the Internet addressing system"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "Write as [network address]/[xx] - in the most compact and ordered way - the addressing space 62.255.254.224...63.64.0.31. (if multiple combinations are needed write them separated by comas without spaces or other characters)",
+        "answers": [],
+        "correct": "62.255.254.224/27,62.255.255.0/24,63.0.0.0/10,63.64.0.0/27"
+    },
+    {
+        "question": "The broadcast for 192.120.0.1/16 is 192.120.255.255",
+        "answers": ["true", "false"],
+        "correct": "a"
+    },
+    {
+        "question": "What is the range of all IPs in which the following given IP resides :194.168.19.69/28 ?",
+        "answers": [
+            "194.167.19.68 – 194 .167.19.83",
+            "194.168.19.64 – 194.168.19.87",
+            "194.168.19.0 - 194.168.19.15",
+            "194.168.19.64 – 194.168.19.79"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "The network address cannot be calculated using the netmask and an IP address",
+        "answers": ["true", "false"],
+        "correct": "b"
+    },
+    {
+        "question": "The following code is a: \n listen(s, 5); while (1) {\n memset(&client, 0, sizeof(client));\nl = sizeof(client);\n c = accept(s, (struct sockaddr *) &client, &l);\nif (fork() == 0) {\nworker(); }\nwait(0); }",
+        "answers": ["iterative server", "concurrent server", "peer to peer server", "concurrent multiplexed server"],
+        "correct": "a"
+    },
+    {
+        "question": "Which of the following IP sets belong to 209.220.186.12/255.255.255.252 ip class?",
+        "answers": [
+            "209.220.186.10, 209.220.186.11, 209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17",
+            "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16, 209.220.186.17, 209.220.186.14, 209.220.186.18",
+            "209.220.186.12, 209.220.186.13, 209.220.186.14, 209.220.186.15",
+            "209.220.186.13, 209.220.186.14, 209.220.186.15, 209.220.186.16"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "Two connected routers are configured with RIP routing. What will be the result when a router received a routing update that contains a higher-cost path to a network already in its routing table?",
+        "answers": [
+            "the updated information will be added to the existing routing table",
+            "the update will be ignored and no further action will occur",
+            "the updated information will replace the existing routing table entry",
+            "the existing routing table entry will be deleted from the routing table and all routers will exchange routing updates to reach convergence"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "Which one of the following addresses is a public IP address assignable to a computer ?",
+        "answers": ["172.16.23.201", "1.0.0.1", "10.5.125.4", "225.46.130.1"],
+        "correct": "b"
+    },
+    {
+        "question": "How many /27 networks are needed such that they can be supernetted to a /24 network?",
+        "answers": [],
+        "correct": "8"
+    },
+    {
+        "question": "193.231.20.0/24 can be divided in exactly X subnets of equal sizes. X=?",
+        "answers": ["7 subnets", "14 subnets", "5 subnets", "8 subnets", "4 subnets"],
+        "correct": "de"
+    },
+    {
+        "question": "In which host range is the IP address 175.156.68.80 255.255.255.192?",
+        "answers": ["175.156.68.64-128", "175.156.68.64-126", "175.156.68.65-126", "175.156.68.65-128"],
+        "correct": "c"
+    },
+    {
+        "question": "ARP can be used for...",
+        "answers": [
+            "Mapping public virtual addresses to private IP addresses",
+            "publishing websites to the internet",
+            "sending emails very fast",
+            "Mapping network addresses to physical (MAC) addresses"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "TCP is located at the Transport layer",
+        "answers": ["true", "false"],
+        "correct": "a"
+    },
+    {
+        "question": "Broadcasting is",
+        "answers": [
+            "When a transmitted packet is received and processed by every machine on the network",
+            "When a transmitted packet is received by every machine on the network but processed by only one of them",
+            "When a transmitted packet is received by every machine on the network but processed by none of them",
+            "A mechanism which is used when the transmission of a packet fails"
+        ],
+        "correct": "a"
+    },
+    {
+        "question": "255.192.0.0 is a valid netmask for the network",
+        "answers": ["132.128.0.0", "192.128.0.0", "None of the choices", "192.193.1.0"],
+        "correct": "ab"
+    },
+    {
+        "question": "The time-to-live for a packet(TTL) is expressed in:",
+        "answers": [
+            "seconds",
+            "the number of routers the packet has already passed through( incremented by 1)",
+            "routers/second",
+            "the number of routers the packet is allowed to pass",
+            "milliseconds"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "Which is the correct expression for the length of UDP datagram payload ?",
+        "answers": [
+            "UDP length = UDP length + UDP header’s length",
+            "UDP length = UDP length – UDP header’s length",
+            "UDP length = IP length + IP header’s length",
+            "UDP length = IP length – IP header’s length -UDP header length"
+        ],
+        "correct": "d"
+    },
+    {
+        "question": "What will you get if you 'or' together the netmask of a network and one IP in that network?",
+        "answers": ["Nothing significant", "The first IP address in the class of the given IP", "The last IP in the class of the given IP", "The class of the IP."],
+        "correct": "a"
+    },
+    {
+        "question": "Write the network mask (only as /x.y.z.t) of the minimum sized network that contain both 80.81.82.83 and 80.83.84.85.",
+        "answers": [],
+        "correct": "255.252.0.0"
+    },
+    {
+        "question": "What is true about ICMP packets ?",
+        "answers": [
+            "They do not provide hosts with information about network problems.",
+            "They guarantee datagram delivery.",
+            "They are encapsulated within IP datagrams.",
+            "ICMP is encapsulated within UDP datagrams"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "Which of the following cannot be a broadcast address ?",
+        "answers": ["192.168.1.255", "22.21.20.19", "10.20.30.255", "20.19.18.17", "21.20.19.18"],
+        "correct": "de"
+    },
+    {
+        "question": "All IP addresses from the class 10.0.0.0/16 are private",
+        "answers": ["true", "false"],
+        "correct": "a"
+    },
+    {
+        "question": "Which of the following is true about the IP address 10.16.3.65/23?",
+        "answers": [
+            ". The broadcast address of the subnet is 10.16.3.254",
+            "The subnet address is 10.16.3.0/255.255.254.0",
+            "The lowest host address in the subnet is 10.16.2.1",
+            "The last valid host address in the subnet is 10.16.2.254"
+        ],
+        "correct": "c"
+    },
+    {
+        "question": "You have an interface on a router with the IP address of 192.168.192.10/29. Including the router interface, how many hosts can have IP addresses on the LAN attached to the router interface?",
+        "answers": ["5", "6", "8", "7"],
+        "correct": "a"
+    },
+    {
+        "question": "What is the broadcast address for IP combination 132.45.99.0/19?",
+        "answers": [],
+        "correct": "132.45.127.255"
+    },
+    {
+        "question": "What is the network address and mask of the smallest subnet that fits these two IP addresses: 180.181.182.183 and 180.186.12.180? (addr/x.y.z.t format)",
+        "answers": [],
+        "correct": "180.176.0.0/255.240.0.0"
+    }
+]
