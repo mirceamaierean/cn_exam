@@ -2,6 +2,8 @@
 
 This is a simple Python quiz application that asks the user a series of multiple choice questions, for Computer Networks exam.
 
+##### IMPORTANT NOTE: Some answers may not be correct, so please check the answers before using this application, and if you find any mistakes, please let me know.
+
 ## How it works
 
 The application starts by welcoming the user and explaining how the quiz works. The user is then asked how many questions they would like to answer. They can choose to answer all questions or specify a number.
