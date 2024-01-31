@@ -207,13 +207,13 @@
   {
     "question": "Which of the following can be a mask, such that 62.244.89.16 is a valid network address?",
     "answers": [
-      "255,255,255,252",
+      "255.255.255.252",
       "/29",
-      "255,255,255,248",
+      "255.255.255.248",
       "/27",
       "255.255.255.128"
     ],
-    "correct": "abd"
+    "correct": "abc"
   },
   {
     "question": "What does a mask /29 mean?",
@@ -1995,7 +1995,7 @@
   {
     "question": "Which of the following is NOT a valid IP netmask combination?",
     "answers": [
-      "168.220.186.8/255.255.225.252",
+      "168.220.186.8/255.255.255.252",
       "156.198.186.8/255.255.255.254",
       "209.198.186.8/255.255.255.246",
       "168.220.186.64/255.255.255.240"
@@ -2015,7 +2015,7 @@
   {
     "question": "Which of the following is NOT a valid IP netmask combination?",
     "answers": [
-      "168.220.186.8/255.255.225.252",
+      "168.220.186.8/255.255.255.252",
       "156.198.186.16/255.255.255.254",
       "209.198.186.8/255.255.255.248",
       "168.220.186.8/255.255.255.240"
