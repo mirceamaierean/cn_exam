@@ -712,7 +712,7 @@
   {
     "question": "What is the maximum number of hosts for a class C network?",
     "answers": ["65.534", "65.535", "128", "254"],
-    "correct": "c"
+    "correct": "d"
   },
   {
     "question": "What is the maximum number of networks in a class A network?",
@@ -1291,7 +1291,7 @@
   {
     "question": "DHCP is a client/server protocol that automatically provides an Internet Protocol host with its:",
     "answers": ["IP address", "Subnet mask", "MAC address", "Default gateway"],
-    "correct": "ad"
+    "correct": "abd"
   },
   {
     "question": "The maximum number of hosts a network with the netmask 255.255.255.224 is capable of supporting is:",
@@ -1696,7 +1696,7 @@
       "255.255.0.0",
       "All netmasks are correct."
     ],
-    "correct": "d"
+    "correct": "c"
   },
   {
     "question": "How do you find the network address if you have the network mask and one random IP address in the network?",
@@ -2065,7 +2065,7 @@
       "multicast communication",
       "anycast communication"
     ],
-    "correct": "c"
+    "correct": "b"
   },
   {
     "question": "The data link layer takes packets from .............. and encapsulates them into frames for transmission",
@@ -2085,12 +2085,12 @@
       "the bearer channel",
       "the data channel"
     ],
-    "correct": "cd"
+    "correct": "bd"
   },
   {
     "question": "Which IP address class can have 64 000 subnets with 64 000 hosts/subnet?",
     "answers": ["class A", "class B", "class C", "class D"],
-    "correct": "b"
+    "correct": "a"
   },
   {
     "question": "Which can be an Ethernet physical address?",
