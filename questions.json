@@ -1709,14 +1709,14 @@
     "correct": "a"
   },
   {
-    "question": "What will you get if you 'or' together the natmaks of a network and one random IP in the network?",
+    "question": "What will you get if you 'or' together the netmaks of a network and one random IP in the network?",
     "answers": [
       "The ip class.",
       "The first IP in the class of the random IP.",
       "The last IP in the class of the random IP.",
       "Nothing significant."
     ],
-    "correct": "c"
+    "correct": "d"
   },
   {
     "question": "What does NAT stand for?",
