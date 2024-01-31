@@ -31,6 +31,7 @@ while True:
     indexes_of_questions = [i for i in range(len(questions))]
 
     for i in range(nr_of_questions):
+        print(bcolors.NORMAL + "Question " + str(i + 1) + "/" + str(nr_of_questions))
         # wait 1 second before displaying next question
         time.sleep(1)
         
@@ -70,3 +71,4 @@ while True:
         break
     else:
         print("Starting again...")
+        time.sleep(3)

@@ -84,15 +84,14 @@
       "209.220.186.8/255.255.255.248",
       "None of the combinations are correct",
       "209.220.186.8/255.255.255.240",
-      "209.220.186.8/255.255.255.252",
-      "209.220.186.8/255.255.255.240"
+      "209.220.186.8/255.255.255.252"
     ],
     "correct": "ad"
   },
   {
     "question": "Which of the following IP addresses cannot be broadcast addresses?",
     "answers": ["192.168.0.255", "200.0.0.33", "10.0.1.254", "25.0.2.31"],
-    "correct": "c"
+    "correct": "bc"
   },
   {
     "question": "Which of the following addresses can be valid network addresses provided appropriate network masks?",
@@ -243,7 +242,7 @@
       "177.91.107.144/29",
       "177.91.107.1/25"
     ],
-    "correct": "cd"
+    "correct": "ac"
   },
   {
     "question": "connect() is required in any TCP server",
@@ -492,11 +491,6 @@
       "The last valid host address in the subnet is 10.16.2.254"
     ],
     "correct": "c"
-  },
-  {
-    "question": "You have an interface on a router with the IP address of 192.168.192.10/29. Including the router interface, how many hosts can have IP addresses on the LAN attached to the router interface?",
-    "answers": ["5", "6", "8", "7"],
-    "correct": "a"
   },
   {
     "question": "What is the broadcast address for IP combination 132.45.99.0/19?",
@@ -777,7 +771,7 @@
       "177.91.107.1/25",
       "177.91.154/30"
     ],
-    "correct": "a"
+    "correct": ""
   },
   {
     "question": "What is the range of network IPs in which the following given IP resides: 194.168.19.65/28?",
@@ -1768,7 +1762,7 @@
     "answers": [
       "221.17.123.255",
       "255.255.255.255",
-      "221.17.123.64",
+      "221.17.123.63",
       "221.17.123.65"
     ],
     "correct": "c"
@@ -2260,7 +2254,7 @@
   {
     "question": "The combination DNS server = Default Gateway is not possible:",
     "answers": ["True", "False"],
-    "correct": "a"
+    "correct": "b"
   },
   {
     "question": "A collection of computers (PCs, Workstations) and other devices interconnected represent a computer network.",
