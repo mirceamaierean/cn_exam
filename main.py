@@ -7,6 +7,7 @@ class bcolors:
     CORRECT = '\033[92m'
     INCORRECT = '\033[91m'
     NORMAL = '\033[0m'
+    BLUE = '\033[94m'
 
 # import questions from questions.json
 print("Welcome to the quiz!")
@@ -61,7 +62,7 @@ while True:
         
     # convert user score to percentage
     user_score = user_score / nr_of_questions * 100
-    print("You got " + str(user_score) + "%")
+    print(bcolors.BLUE + "You got " + str(user_score) + "%")
 
     # ask user if they want to play again
     user_input = input("Do you want to play again?(y/n): ")

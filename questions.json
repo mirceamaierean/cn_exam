@@ -137,7 +137,7 @@
       "Congestion Window is cut in half",
       "Congestion Window is cut in half and grows exponentially"
     ],
-    "correct": "c"
+    "correct": "a"
   },
   {
     "question": "What is the last valid host on the network that 10.215.81.114 / 255.240.0.0 is a part of?",
@@ -325,7 +325,7 @@
     "correct": "b"
   },
   {
-    "question": "The following code is a: \n listen(s, 5); while (1) {\n memset(&client, 0, sizeof(client));\nl = sizeof(client);\n c = accept(s, (struct sockaddr *) &client, &l);\nif (fork() == 0) {\nworker(); }\nwait(0); }",
+    "question": "The following code is a: \n listen(s, 5); \nwhile (1) {\n\tmemset(&client, 0, sizeof(client));\n\tl = sizeof(client);\n\tc = accept(s, (struct sockaddr *) &client, &l);\n\tif (fork() == 0) {\n\t\tworker(); \n}\n\twait(0);\n}",
     "answers": [
       "iterative server",
       "concurrent server",
@@ -352,7 +352,7 @@
       "the updated information will replace the existing routing table entry",
       "the existing routing table entry will be deleted from the routing table and all routers will exchange routing updates to reach convergence"
     ],
-    "correct": "c"
+    "correct": "b"
   },
   {
     "question": "Which one of the following addresses is a public IP address assignable to a computer ?",
@@ -437,7 +437,7 @@
       "UDP length = UDP length + UDP header’s length",
       "UDP length = UDP length – UDP header’s length",
       "UDP length = IP length + IP header’s length",
-      "UDP length = IP length – IP header’s length -UDP header length"
+      "UDP length = IP length – IP header’s length - UDP header length"
     ],
     "correct": "d"
   },
@@ -485,7 +485,7 @@
   {
     "question": "Which of the following is true about the IP address 10.16.3.65/23?",
     "answers": [
-      ". The broadcast address of the subnet is 10.16.3.254",
+      "The broadcast address of the subnet is 10.16.3.254",
       "The subnet address is 10.16.3.0/255.255.254.0",
       "The lowest host address in the subnet is 10.16.2.1",
       "The last valid host address in the subnet is 10.16.2.254"
@@ -1371,16 +1371,6 @@
       "Open connection"
     ],
     "correct": "b"
-  },
-  {
-    "question": "What does UDP stand for?",
-    "answers": [
-      "User Defined Protocol",
-      "User Datalink Protocol",
-      "User Datagram Protocol",
-      "Utility Datagram Protocol"
-    ],
-    "correct": "c"
   },
   {
     "question": "What does DNS stand for?",
