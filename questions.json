@@ -2119,7 +2119,7 @@
   },
   {
     "question": "The size of a class C IP Adresses per network is ",
-    "answers": ["128 hosts", "256 hosts", "64 hosts", "32 hosts"],
+    "answers": ["128", "256", "64", "32"],
     "correct": "b"
   },
   {
