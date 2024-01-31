@@ -2037,10 +2037,10 @@
     "answers": [
       "an Ethernet frame",
       "a TCP segment",
-      "an IP diagram",
+      "an IP datagram",
       "none of the above"
     ],
-    "correct": "a"
+    "correct": "c"
   },
   {
     "question": "Which of the following functions does UDP perform?",
