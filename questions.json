@@ -1732,7 +1732,7 @@
   {
     "question": "Which of the following involve NAT?",
     "answers": [
-      "Prot forwarding.",
+      "Port forwarding.",
       "Accessing the web from an internal network. Your PC's network will be translated to your public IP (i.e., home network)",
       "Both answers involve NAT."
     ],
@@ -2210,7 +2210,7 @@
   {
     "question": "A DNS server is responsible for translating numerical IP addresses to domain names:",
     "answers": ["True", "False"],
-    "correct": "b"
+    "correct": "a"
   },
   {
     "question": "The network address can be obtained from an IP address and the netmask using the logical operation 'OR':",
@@ -2240,7 +2240,7 @@
   {
     "question": "A 255.255.255.240 netmask is capable of supporting 16 hosts:",
     "answers": ["True", "False"],
-    "correct": "a"
+    "correct": "b"
   },
   {
     "question": "A computer uses HTTP to look up domain names and get the associated IP address:",
@@ -2335,7 +2335,7 @@
   {
     "question": "255.255.128.0 = /23",
     "answers": ["True", "False"],
-    "correct": "a"
+    "correct": "b"
   },
   {
     "question": "The broadcast address cannot be calculated using the IP address and the netmask",
