@@ -429,7 +429,7 @@
       "the number of routers the packet is allowed to pass",
       "milliseconds"
     ],
-    "correct": "a"
+    "correct": "d"
   },
   {
     "question": "Which is the correct expression for the length of UDP datagram payload ?",

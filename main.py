@@ -36,7 +36,7 @@ while True:
     for i in range(nr_of_questions):
         print(bcolors.NORMAL + "Question " + str(i + 1) + "/" + str(nr_of_questions))
         # wait 1 second before displaying next question
-        time.sleep(1)
+        # time.sleep(1)
         
         # select a random question
         index_of_question = random.choice(indexes_of_questions)
