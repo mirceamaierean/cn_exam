@@ -771,7 +771,7 @@
       "177.91.107.1/25",
       "177.91.154/30"
     ],
-    "correct": ""
+    "correct": "a"
   },
   {
     "question": "What is the range of network IPs in which the following given IP resides: 194.168.19.65/28?",
@@ -3696,7 +3696,7 @@
   {
     "question": "255.255.128.0 = /17",
     "answers": ["true", "false"],
-    "correct": "b"
+    "correct": "a"
   },
   {
     "question": "11111111 10000000 00000000 00000000 = 255.128.0.0",
@@ -3704,9 +3704,9 @@
     "correct": "a"
   },
   {
-    "question": "193.55.44.170 & 255.255.255.128 = 19355.43.128",
+    "question": "193.55.44.170 & 255.255.255.128 = 193.55.43.128",
     "answers": ["true", "false"],
-    "correct": "a"
+    "correct": "b"
   },
   {
     "question": "11111111 10000000 00000000 00000000 = 255.1.0.0",
