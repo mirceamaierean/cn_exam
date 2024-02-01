@@ -716,7 +716,7 @@
   {
     "question": "Which one of the following addresses is a public IP address?",
     "answers": ["10.0.0.0/8", "207.46.130.0/24", "172.16.0.0/12", "1.0.0.0/8"],
-    "correct": "d"
+    "correct": "bd"
   },
   {
     "question": "NAT is:",
