@@ -61,8 +61,6 @@ while True:
         else:
             print(bcolors.INCORRECT + "Incorrect!")
             print("The correct answer was " + q['correct'])
-            if q['correction'] != "":
-                print(bcolors.BLUE + q['correction'])
         
     # convert user score to percentage
     user_score = user_score / nr_of_questions * 100
