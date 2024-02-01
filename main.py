@@ -25,7 +25,9 @@ while True:
     user_input = input("How many questions do you want to answer?(write all if you want to answer all questions): ")
     nr_of_questions = len(questions)
     if user_input != "all":
-        nr_of_questions = int(user_input)
+        user_input = int(user_input)
+        if user_input < nr_of_questions:
+            nr_of_questions = user_input
 
     user_score = 0
     # remember the questions that have already been asked
@@ -59,6 +61,8 @@ while True:
         else:
             print(bcolors.INCORRECT + "Incorrect!")
             print("The correct answer was " + q['correct'])
+            if q['correction'] != "":
+                print(bcolors.BLUE + q['correction'])
         
     # convert user score to percentage
     user_score = user_score / nr_of_questions * 100

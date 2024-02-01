@@ -429,7 +429,7 @@
       "the number of routers the packet is allowed to pass",
       "milliseconds"
     ],
-    "correct": "d"
+    "correct": "a"
   },
   {
     "question": "Which is the correct expression for the length of UDP datagram payload ?",
@@ -504,8 +504,8 @@
   },
   {
     "question": "SOCK_DGRAM is used for UDP connections.",
-    "answers": ["False", "True"],
-    "correct": "b"
+    "answers": ["true", "false"],
+    "correct": "a"
   },
   {
     "question": "All IP addresses from the class 172.0.0.0/8 are private",
@@ -2355,5 +2355,1957 @@
     "question": "bind() cannot be used in UDP clients",
     "answers": ["True", "False"],
     "correct": "b"
+  },
+  {
+    "question": "Internet API is a set of rules that the sending program must follow so that the Internet can deliver the data to the destination program.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "UDP is used together with IP when small amounts of information are involved, but it uses more system resources than TCP.",
+    "answers": ["true", "false"],
+    "correction": "Correct: UDP is used together with IP when small amounts of information are involved, but it uses fewer system resources than TCP.",
+    "correct": "b"
+  },
+  {
+    "question": "When configuring email clients, an Internet address for an SMTP server must be entered.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "File Transfer Protocol (FTP) provides the transmission in encrypted form to provide security for sensitive data.",
+    "answers": ["true", "false"],
+    "correction": "Correct: File Transfer Protocol (FTP) provides a method for copying files over a network from one computer to another.",
+    "correct": "b"
+  },
+  {
+    "question": "The Open System Interconnection (OSI) model defines a networking framework to implement protocols in layers, with control passed from one layer to the next.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The Transport Layer manages the mapping between these logical addresses and physical addresses. In IP networking, this mapping is accomplished through the Address Resolution Protocol (ARP).",
+    "answers": ["true", "false"],
+    "correction": "Correct: The Network Layer manages the mapping between these logical addresses and physical addresses. In IP networking, this mapping is accomplished through the Resolution Protocol (ARP).",
+    "correct": "b"
+  },
+  {
+    "question": "The maximum number of IP addresses that can be assigned to hosts on a local subnet that uses the 255.255.255.224 subnet mask is 40.",
+    "answers": ["true", "false"],
+    "correction": "Correct: 255.255.255.224 is a class A/27 and its last 5 bits are zero => provides 8 subnets, each with 30 hosts.",
+    "correct": "b"
+  },
+  {
+    "question": "The subnetwork address of a host with an IP address of 172.16.66.0/21 is 172.16.64.0.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "To test the IP stack on your local host, you would ping the IP address 127.0.0.0.",
+    "answers": ["true", "false"],
+    "correction": "Correct: 127.0.0.1",
+    "correct": "b"
+  },
+  {
+    "question": "A switch does not keep a record of the MAC addresses of the devices connected to it.",
+    "answers": ["true", "false"],
+    "correction": "Correct: A switch keeps a record of the MAC addresses of all the devices connected to it.",
+    "correct": "b"
+  },
+  {
+    "question": "The UDP … identifies the destination port and a reply port.",
+    "answers": ["header", "payload", "checksum", "datagram"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP/IP allows a packet to be sent without waiting for the … of the previous packet.",
+    "answers": ["rejection", "acknowledgement", "confirmation", "acceptance"],
+    "correct": "b"
+  },
+  {
+    "question": "A 10/100 Mbps hub must share its … with each and every one of its ports.",
+    "answers": ["latency", "speed", "bandwidth", "throughput"],
+    "correct": "c"
+  },
+  {
+    "question": "A router is typically connected to at least two networks, commonly two … or … or a LAN and its ISP’S network.",
+    "answers": [
+      "LOCAL AREA NETWORKS(LANs), WIDE AREA NETWORKS(WANs)",
+      "VIRTUAL PRIVATE NETWORKS(VPNs), METROPOLITAN AREA NETWORKS(MANs)"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "… is a Computer Network diagnostic tool for displaying the route (path) and measuring transit delays of packets across an (IP) network.",
+    "answers": ["ping", "traceroute", "netstat", "nslookup"],
+    "correct": "b"
+  },
+  {
+    "question": "A … defines the format and the order of messages exchanged between two or more communicating entities.",
+    "answers": ["protocol", "network", "interface", "socket"],
+    "correct": "a"
+  },
+  {
+    "question": "The TCP/IP … is used to detect corruption of data over a TCP or IPv4 connection.",
+    "answers": ["header", "payload", "checksum", "datagram"],
+    "correct": "c"
+  },
+  {
+    "question": "… in a network may occur when the load on the network is greater than the capacity of the network.",
+    "answers": ["congestion", "collision", "corruption", "duplication"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTP Protocol allows exchange of … and … .",
+    "answers": ["html, web data", "xml, json", "csv, xml"],
+    "correct": "a"
+  },
+  {
+    "question": "Address Resolution Protocol (ARP) is a protocol for mapping an … to a … that is recognized in the local network.",
+    "answers": [
+      "INTERNET PROTOCOL ADDRESS(IP), PHYSICAL MACHINE ADDRESS",
+      "MAC ADDRESS, IP ADDRESS"
+    ],
+    "correct": "a"
+  },
+  {
+    "question": "With UDP, one party can overflow the other, which results in lost packets.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Always, in a class of addressed, the first and last IP addresses are reserve.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A DNS server is responsible with translating numerical IP addresses to domain names.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A switch has a lot of ports.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A switch doesn’t understand MAC addresses.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A switch understands MAC addresses.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A switch is more performant than a hub.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A switch can transport UDP packets.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A switch can’t transport TCP packets.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A switch can transport TCP packets.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A switch can transport IP packets.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A switch can’t transport IP packets.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A hub doesn’t understand MAC addresses.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A hub is more performant than a switch.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A hub doesn’t have many ports.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A hub understands MAC addresses.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A hub has many ports.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A hub doesn’t understand MAC addresses.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A hub is more performant than a switch.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A hub doesn’t have many ports.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A hub understands MAC addresses.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A hub has many ports.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The recvfrom() call sends data to the UDP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The MAC address is represented on 6 hexa digits.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The MAC address is represented on 6 groups of 2 hexa digits.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The MAC address is represented on 6 bytes.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The MAC address can’t be changed.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The MAC address can be changed.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "FF:FF:FF:FF:FF is the broadcast MAC address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "172.31.255.255 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "00:00:00:00:00:00 is not the broadcast MAC address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The routers use MAC addresses to send frames to other networks.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.255.255 is the broadcast MAC address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The MAC address is represented on 12 hexa digits.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "255.255.255.255 is not the broadcast MAC address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "FF:FF:FF:FF:FF:FF is the broadcast MAC address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "All the network boards have the same MAC address (Media Access Control Address).",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "FF:FF:FF:FF:FF is not the broadcast MAC address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The MAC address has 64 bits.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "FF:FF:FF:FF:FF:FF is not the broadcast MAC address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SSH is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SSH is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SSH is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SSH is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SSH is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SSH is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SSH is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SSH is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "IP is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "IP is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "IP is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "IP is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "IP is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "IP is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "IP is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "IP is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTP is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTP is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTP is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTP is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SMTP is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SMTP is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SMTP is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SMTP is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SMTP is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SMTP is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "SMTP is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SMTP is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "SMTP is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "DNS is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "DNS is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "DNS is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "DNS is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "DNS is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "DNS is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "DNS is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "DNS is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "FTP is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "FTP is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "FTP is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "FTP is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "FTP is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "FTP is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "FTP is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "FTP is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "UDP is on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "UDP is on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is not on the Transport Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is not on the Application Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "UDP is not on the Network Layer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is not on the Link Layer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 192.168.0.255 can’t be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 127.0.0.1 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 193.231.20.2 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 193.256.20.0 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 192.231.20.1 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 192.231.20.3 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 43.29.45.80/27 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 192.168.2.160/24 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 43.23.87.68/26 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 192.168.2.160/25 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 192.168.0.255 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 193.255.20.0 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 193.231.20.0 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 193.231.20.4 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 193.255.20.0 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 192.168.2.32/27 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 43.23.87.64/27 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 192.168.2.128/25 can be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The network address can be computed with the broadcast address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The network address can be computed with the broadcast address and the IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The network address can’t be computed with the broadcast address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The network address can’t be computed with the IP address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The network address can’t be computed with the broadcast address and the IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The network address can be computed with the IP address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "There is only one computer with the address 127.0.0.1.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "All the IP addresses in the class 172.0.0.0/8 are private.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Not all the IP addresses in the class 172.0.0.0/8 are private.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "168.168.168.168 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "168.168.168.168 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "1.1.1.1 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Not all the IP addresses from the class 10.0.0.0/6 are private.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "127.16.0.1 is not a private address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "All the IP addresses from the class 172.0.0.0/12 are private.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "127.16.0.1 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "172.32.0.1 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "1.1.1.1 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "172.15.0.1 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Not all the IP addresses in the class 192.168.0.0/8 are private.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "All the IP addresses from the class 172.16.0.0/12 are private.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "172.16.0.1 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "172.31.0.1 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Not all the IP addresses in the class 192.168.0.0/16 are private.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "All the IP addresses from the class 10.0.0.0/16 are private.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "192.168.168.168 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "172.31.255.255 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "172.31.255.255 is not a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Not all the IP addresses from the class 10.0.0.0/8 are private.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "10.10.10.10 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "All the IP addresses from the class 10.0.0.0/8 are private.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "172.16.0.1 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Not all the IP addresses from the class 172.16.0.0/12 are private.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "192.168.168.168 is a private IP address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Not all the IP addresses from the class 10.0.0.0/16 are private.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "CLI comes from Command Line Interface.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "ARP means Address Resolution Protocol.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "MAC means Media Access Control.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "DNS means Domain Name System.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Two computers from the Internet can have the same IP address if they have the same MAC address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "LAN is an acronym for Limited Area Network.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP means Hyperspeed Transfer Protocol.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP means Hypertext Transfer Protocol.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "MAC means Media Address Control.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "CLI comes from Coding Line Interface.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "ARP doesn’t mean Address Resolution Protocol.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "DNS means Domain Name Service.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "There are only two standard network topologies: Bus and Star.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Ring is a network topology.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Ring is not a network topology.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "Star is not a network topology.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "There are more than two standard network topologies.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Bus is a network topology.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Star is a network topology.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Bus is not a network topology.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP does not use the TCP protocol.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "HTTP uses the UDP protocol.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "DNS uses the TCP protocol.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "DNS uses the UDP protocol.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTP uses the TCP protocol.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "UDP is connection-oriented.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is not connection-oriented.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP is connection-oriented.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP is not connection-oriented.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The dimension of an IP address class doesn’t have to be a power of 2.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The dimension of an IP address class has to be a power of 2.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The dimension of a network is 2^n, where n is the number of 0’s in the IP.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The dimension of a network is 2^n, where n is the number of 0’s in the netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The dimension of a network is 2^n, where n is the number of 1’s in the netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A computer can have more network boards.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A computer can have only one network board.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "There can’t exist computers with the address 192.168.1.0.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A computer can have more IP addresses.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A computer can’t have 2 gateways.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The DNS server configured on a computer has to be in the same network with the computer.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "In a LAN there can’t be more computers with the address 192.168.1.1.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "There can be computers with the address 192.168.1.0.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "2 computers from the Internet can have the same IP address if they have the same MAC address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A computer can have only one IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A computer is connected to a switch through a Straight-Through cable.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "2 computers from the same network both physically and logically can’t have different default gateways.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A router is connected to a computer with a Cross-Over cable.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A web server can’t run on ports different than 80.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The DNS server configured on a computer can be in the same network with the computer.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A DNS server can be default gateway.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "More websites can’t be hosted on the same web server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The netmask can’t contain 0 bits embedded with 1 bits.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The netmask can be determined using the IP address and the network address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The netmask can be determined using the IP address and the broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "0.0.0.0 represents a valid netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "255.255.224.0 represents a valid netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The netmask of a network with 1024 IP addresses is /10.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.0.0 represents a valid netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A network with the netmask 255.255.255.0 can have max. 254 computers.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The netmask of a network with 1024 IP addresses is /12.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The netmask of a network with 512 IP addresses is /23.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "0.0.0.0 is not a valid netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "255.254.0.0 is a valid netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The netmask can’t be determined using the IP address and the network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The netmask of a network with 1024 IP addresses is /22.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The netmask can’t be determined using the IP address and the broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A netmask is a binary number on 48 bits.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A network with the netmask 255.255.255.0 has 128 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.225.0 is a valid netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The netmask of a network with 512 IP addresses is /24.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The netmask of a network with 1024 IP addresses is /23.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The netmask can be computed using the broadcast address and the network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The netmask can contain 0 bits embedded with 1 bits.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "254.255.0.0 represents a valid netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A network with the netmask 255.255.255.0 can have max. 256 computers.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A netmask is a binary number on 32 bits.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "There are other types of sockets besides TCP and UDP.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "There are only TCP and UDP sockets.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "There can’t be more computers with the address 127.0.0.1.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "There are more computers with the address 127.0.0.1.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 127.0.0.1 can be a broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "127.0.0.1 can’t be configured on a system as default gateway.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "127.0.0.1 can’t be configured on a system as a DNS server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The localhost is not 172.0.0.1.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The localhost is 172.0.0.1.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 127.0.0.1 can’t be a network address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "83.255.255.128.0 = /23",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "255.255.128.0 = /17",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "11111111 10000000 00000000 00000000 = 255.128.0.0",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "193.55.44.170 & 255.255.255.128 = 19355.43.128",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "11111111 10000000 00000000 00000000 = 255.1.0.0",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP is always faster than UDP.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is sometimes faster than TCP.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "TCP is sometimes faster than UDP.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "UDP is always faster than TCP.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP is safer than UDP.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The accept() call is mandatory in any TCP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The accept() call is mandatory in any UDP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The accept() call can be used in any TCP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The accept() call is mandatory in any TCP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The accept() call is not mandatory in any TCP client.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The recvfrom() call reads data from the UDP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The recvfrom() call reads data from the TCP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The recvfrom() call sends data to the TCP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The recvfrom() call sends data to the UDP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The recvfrom() call doesn’t send data to the TCP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The recvfrom() call doesn’t send data to the TCP client.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The recvfrom() call sends data to the UDP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The recvfrom() call sends data to the TCP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The recvfrom() call doesn’t send data to the UDP client.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The recvfrom() call reads data from the UDP client.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The recvfrom() call reads data from the TCP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The connect() call is mandatory in any TCP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The connect() call is mandatory in any UDP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The connect() call can’t be used in UDP clients.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The connect() call can’t be used in TCP clients.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The connect() call can be used in UDP clients.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The connect() call can be used in TCP clients.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The connect() call is mandatory in any UDP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The connect() call is mandatory in any TCP client.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The sento() call sends data to the UDP client.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The sento() call sends data to the UDP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The sento() call sends data to the TCP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The sento() call sends data to the TCP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The listen() call is mandatory in any TCP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The listen() call is not mandatory in any TCP client.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The listen() call is mandatory in any UDP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The listen() call can be used in any TCP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The listen() call is mandatory in any TCP server.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The bind() call can be used in UDP clients.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The bind() call can be used in TCP clients.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The bind() call can’t be used in TCP clients.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The bind() call can’t be used in UDP clients.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The bind() call is mandatory in any TCP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The bind() call is mandatory in any TCP client.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The bind() call is mandatory in any UDP server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A /24 class can be divided in 2 /25 subclasses.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A class of IP addresses has to start at a multiple of the dimension of the class.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A class of IP addresses doesn’t have to start at a multiple of the dimension of the class.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A /24 class can be divided in 2 subclasses of 128 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A /24 class can be divided in 3 subclasses of 128 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "192.168.2.155 is part of the 192.168.0.0/23 class.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "192.168.1.2/24 and 192.168.1.6/22 are part of the same network.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A network with the mask 255.255.255.0 has 256 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A /24 class can be divided in 2 subclasses of 256 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "192.168.1.155 is part of the class 192.168.1.0/24.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The class 193.231.20.0/24 can be divided in 2 subclasses of 128 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "192.168.2.155 is part of the class 192.168.0.0/22.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A class /16 can’t be divided in 16 /20 classes.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A /24 class can be divided in 3 /26 classes.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "192.168.1.155 is part of the class 192.168.1.0/25.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "192.168.1.155 is part of the class 192.168.0.0/24.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A /8 class can be divided in 4 /10 classes.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The class 192.231.20.0/24 can be divided in 3 subclasses of 128 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "192.168.0.2/24 and 192.168.1.6/24 are part of the same network.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A /16 class can be divided in 16 /20 classes.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "192.168.0.2/23 and 192.168.1.6/23 are part of the same network.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A /24 class can be divided in 3 /25 subclasses.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "192.168.1.155 is part of the class 192.168.0.0/23.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A /24 class can be divided in 2 subclasses of 512 IP’s.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A /8 class can be divided in 4 /9 classes",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The subnetwork address for the station with the IP address 192.120.0.1/16 is 192.120.0.1.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The subnetwork address for the station with the IP address 192.120.0.1/16 is 192.120.0.0.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "There can’t exist computers with the address 192.168.1.0.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The network board acts as a physical interface between the computer and the network cable.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "LAN is a global network.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "LAN is not a global network.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Mobile phones can’t connect to the internet without a network board.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The logical AND between the mask and IP address has as result the broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The IP address can’t be determined using the network address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "UDP waits for the confirmation that the packets were received.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "UDP is safer than TCP.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The routers use the IP addresses to transfer frames to other networks.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A wireless access point has a limited area coverage.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "More websites can be hosted on the same web server.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "An IP address is a binary number on 32 bits.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A router connects to a computer with a Straight-through cable.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "TCP waits for the confirmation that the packets were received.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "An IP address is a unique identifier for every computer in an IP network.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The network board doesn’t transfer data to other computers.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A UDP socket is created with the parameters AF_INET and SOCK_DGRAM.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "An IP address is a common identifier for more computers in an IP network.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The IP address can be determined with the network address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "There can be more computers with the address 192.168.1.1 in a LAN.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A TCP is created with the parameters AF_INET and SOCK_DGRAM.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The DNS service runs on the TCP port 53.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The DNS service runs on the UDP port 53.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A UDP socket is created with the parameters AF_INET and SOCK_STREAM.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A TCP socket is created with the parameters AF_INET and SOCK_STREAM.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTPS transfers encrypted data.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "HTTP transfers encrypted data.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "LAN is a global network.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "LAN is not a global network.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "A network board can have only one IP address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "A network board can have more IP addresses.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 87.35.15.63/26 can be a broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The broadcast address can be computed using the network address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The broadcast address can be computed using the IP address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The address 83.35.15.8/28 can be a broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 127.0.0.1 can’t be a broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The broadcast address can’t be computed using the network address and the netmask.",
+    "answers": ["true", "false"],
+    "correct": "b"
+  },
+  {
+    "question": "The address 87.35.15.7/29 can be a broadcast address.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The broadcast address for the station with the IP address 192.120.0.1/16 is 192.120.255.255.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The network board can be external.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "The BUS topology consists of a single cable which connects in series all the computers from the network.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Choose the true statements:",
+    "answers": [
+      "Using UDP protocols packets can be lost",
+      "UDP reads bytes from a packet",
+      "TCP writes stream of bytes",
+      "TCP reads bytes from a packet"
+    ],
+    "correct": "abc"
+  },
+  {
+    "question": "Two computers from the Internet can have the same IP address if they use private IP addresses.",
+    "answers": ["true", "false"],
+    "correct": "a"
+  },
+  {
+    "question": "Broadcasting is:",
+    "answers": [
+      "A mechanism which is used when the transmission of a packet fails",
+      "When a transmitted packet is received by every machine on the network, but processed by none of them",
+      "When a transmitted packet is received by every machine on the network, but processed by only one of them",
+      "When a transmitted packet is received and processed by every machine on the network"
+    ],
+    "correct": "d"
   }
 ]
