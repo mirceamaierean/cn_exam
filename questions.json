@@ -325,7 +325,7 @@
     "correct": "b"
   },
   {
-    "question": "The following code is a: \n listen(s, 5); \nwhile (1) {\n\tmemset(&client, 0, sizeof(client));\n\tl = sizeof(client);\n\tc = accept(s, (struct sockaddr *) &client, &l);\n\tif (fork() == 0) {\n\t\tworker(); \n}\n\twait(0);\n}",
+    "question": "The following code is a: \nlisten(s, 5); \nwhile (1)\n{\n\tmemset(&client, 0, sizeof(client));\n\tl = sizeof(client);\n\tc = accept(s, (struct sockaddr *) &client, &l);\n\tif (fork() == 0)\n{\n\t\tworker();\n}\n\twait(0);\n}",
     "answers": [
       "iterative server",
       "concurrent server",
@@ -581,11 +581,6 @@
       "Accessing the web from an internal network. Your PC's network will be translated to your public IP (i.e., home network)."
     ],
     "correct": "abc"
-  },
-  {
-    "question": "127.0.0.1 cannot be a network address",
-    "answers": ["True", "False"],
-    "correct": "a"
   },
   {
     "question": "127.16.0.1 is a private IP address",
@@ -1787,7 +1782,7 @@
     "answers": [
       "The bandwidth is the physical property of the transmission medium, while throughput represents the amount of data which we transmit",
       "There is no difference between them;",
-      "The bandwidth represents the amount of data which we transmit, while is the physical property of the transmission medium."
+      "The bandwidth represents the amount of data which we transmit, while throughput is the physical property of the transmission medium."
     ],
     "correct": "a"
   },
@@ -2986,7 +2981,7 @@
   {
     "question": "UDP is not on the Network Layer.",
     "answers": ["true", "false"],
-    "correct": "b"
+    "correct": "a"
   },
   {
     "question": "UDP is not on the Link Layer.",
@@ -3411,7 +3406,7 @@
   {
     "question": "The dimension of a network is 2^n, where n is the number of 0’s in the IP.",
     "answers": ["true", "false"],
-    "correct": "a"
+    "correct": "b"
   },
   {
     "question": "The dimension of a network is 2^n, where n is the number of 0’s in the netmask.",
@@ -3854,22 +3849,22 @@
     "correct": "a"
   },
   {
-    "question": "The sento() call sends data to the UDP client.",
+    "question": "The sendto() call sends data to the UDP client.",
     "answers": ["true", "false"],
     "correct": "a"
   },
   {
-    "question": "The sento() call sends data to the UDP server.",
+    "question": "The sendto() call sends data to the UDP server.",
     "answers": ["true", "false"],
     "correct": "a"
   },
   {
-    "question": "The sento() call sends data to the TCP client.",
+    "question": "The sendto() call sends data to the TCP client.",
     "answers": ["true", "false"],
     "correct": "b"
   },
   {
-    "question": "The sento() call sends data to the TCP server.",
+    "question": "The sendto() call sends data to the TCP server.",
     "answers": ["true", "false"],
     "correct": "b"
   },
