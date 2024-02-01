@@ -2324,7 +2324,7 @@
   {
     "question": "The broadcast address cannot be calculated using the IP address and the netmask",
     "answers": ["True", "False"],
-    "correct": "a"
+    "correct": "b"
   },
   {
     "question": "TCP, UDP are part of",
@@ -3387,11 +3387,6 @@
     "question": "UDP is connection-oriented.",
     "answers": ["true", "false"],
     "correct": "b"
-  },
-  {
-    "question": "UDP is not connection-oriented.",
-    "answers": ["true", "false"],
-    "correct": "a"
   },
   {
     "question": "TCP is connection-oriented.",
