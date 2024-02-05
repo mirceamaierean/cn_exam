@@ -357,7 +357,7 @@
   {
     "question": "Which one of the following addresses is a public IP address assignable to a computer ?",
     "answers": ["172.16.23.201", "1.0.0.1", "10.5.125.4", "225.46.130.1"],
-    "correct": "b"
+    "correct": "bd"
   },
   {
     "question": "How many /27 networks are needed such that they can be supernetted to a /24 network?",
@@ -2069,7 +2069,7 @@
   {
     "question": "Which IP address class can have 64 000 subnets with 64 000 hosts/subnet?",
     "answers": ["class A", "class B", "class C", "class D"],
-    "correct": "a"
+    "correct": "b"
   },
   {
     "question": "Which can be an Ethernet physical address?",
