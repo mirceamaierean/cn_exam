@@ -2187,7 +2187,7 @@
     "correct": "a"
   },
   {
-    "question": "A DNS server is responsible for translating numerical IP addresses to domain names:",
+    "question": "A DNS server is responsible for translating domain names to numerical IP addresses:",
     "answers": ["True", "False"],
     "correct": "a"
   },
