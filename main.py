@@ -57,6 +57,10 @@ while True:
                 print(chr(i + 97) + ") " + q['answers'][i])
         # get user input
         user_answer = input("Your answer: ")
+        # remove spaces and commas from user input when multiple choice
+        if len(q['answers']) >0:
+            user_answer.replace(" ", "")
+            user_answer.replace(",", "")
         # check if user input is correct
         if user_answer == q['correct']:
             print(bcolors.CORRECT + "Correct!")
