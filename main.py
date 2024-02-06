@@ -62,7 +62,7 @@ while True:
         # get user input
         user_answer = input("Your answer: ")
         # remove spaces  from user input when multiple choice
-        if len(multiple_choice):
+        if multiple_choice:
             user_answer.replace(" ", "")
 
         # check if user input is correct
