@@ -53,14 +53,16 @@ while True:
         if q['answers'] != []:
             # for each question that is multiple choice, display the answers, and in front of each one, display the corresponding character
             # for example, the first answer will be a, the second will be b, etc.
-            if(len(q['correct']) > 1):
+            #Correct answear length is greater than 1, then it is multiple choice
+            multiple_choice = len(q['correct']) >1
+            if multiple_choice:
                 print("(Multiple choice)")
             for i in range(len(q['answers'])):
                 print(chr(i + 97) + ") " + q['answers'][i])
         # get user input
         user_answer = input("Your answer: ")
         # remove spaces  from user input when multiple choice
-        if len(q['correct']) >0:
+        if len(multiple_choice):
             user_answer.replace(" ", "")
 
         # check if user input is correct
