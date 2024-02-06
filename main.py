@@ -14,7 +14,7 @@ class bcolors:
 # import questions from questions.json
 print("Welcome to the quiz!")
 print(
-    "You will be asked a series of multiple choice question, and you must answer them correctly. Write with downcase all the corresponding letter of the answer you think is correct")
+    "You will be asked a series of multiple choice question, and you must answer them correctly. Write with downcase all sepperatted by spaces or commas the corresponding letter of the answer you think is correct")
 print("For the answers that are not multiple choice, write the answer you think is correct")
 # store the questions in a dictionary
 questions = []
