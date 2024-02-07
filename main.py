@@ -14,7 +14,7 @@ class bcolors:
 # import questions from questions.json
 print("Welcome to the quiz!")
 print(
-    "You will be asked a series of multiple choice question, and you must answer them correctly. Write with downcase all sepperatted by spaces or commas the corresponding letter of the answer you think is correct")
+    "You will be asked a series of multiple choice question, and you must answer them correctly. Write with downcase all the corresponding letter of the answer you think is correct")
 print("For the answers that are not multiple choice, write the answer you think is correct")
 # store the questions in a dictionary
 questions = []
@@ -57,10 +57,6 @@ while True:
                 print(chr(i + 97) + ") " + q['answers'][i])
         # get user input
         user_answer = input("Your answer: ")
-        # remove spaces and commas from user input when multiple choice
-        if len(q['answers']) >0:
-            user_answer.replace(" ", "")
-            user_answer.replace(",", "")
         # check if user input is correct
         if user_answer == q['correct']:
             print(bcolors.CORRECT + "Correct!")
