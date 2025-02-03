@@ -13,6 +13,7 @@ import "./App.css";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Session } from "./types";
 import { storage } from "./utils/storage";
+import { getExplanation } from "./utils/ai";
 
 interface Question {
   question: string;
@@ -47,6 +48,10 @@ function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [testQuestionCount, setTestQuestionCount] = useState(69);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [explanations, setExplanations] = useState<Record<number, string>>({});
+  const [loadingExplanations, setLoadingExplanations] = useState<
+    Record<number, boolean>
+  >({});
 
   useEffect(() => {
     // Load questions from your JSON file
@@ -162,7 +167,7 @@ function App() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if ((!selectedAnswers.length && !textAnswer) || isAnswerSubmitted) return;
 
     setIsAnswerSubmitted(true);
@@ -188,6 +193,22 @@ function App() {
       }
       setAnsweredQuestions((prev) => new Set(prev).add(currentQuestionIndex));
     }
+
+    const newExplanations: Record<number, string> = {};
+
+    // Get explanations for each answered question
+    for (const [index, answer] of Object.entries(selectedAnswers)) {
+      const question = questions[parseInt(index)];
+      const explanation = await getExplanation(
+        question.question,
+        answer,
+        question.correct,
+        question.answers
+      );
+      newExplanations[parseInt(index)] = explanation;
+    }
+
+    setExplanations(newExplanations);
   };
 
   const handleNext = () => {
@@ -401,6 +422,29 @@ function App() {
     setSessions((prev) => prev.filter((s) => s.id !== sessionId));
     if (currentSession?.id === sessionId) {
       setCurrentSession(null);
+    }
+  };
+
+  const handleExplain = async (questionIndex: number) => {
+    if (loadingExplanations[questionIndex]) return;
+
+    setLoadingExplanations((prev) => ({ ...prev, [questionIndex]: true }));
+
+    const question = questions[questionIndex];
+    const userAnswer = selectedAnswers[questionIndex] || textAnswer;
+
+    try {
+      const explanation = await getExplanation(
+        question.question,
+        userAnswer,
+        question.correct,
+        question.answers
+      );
+      setExplanations((prev) => ({ ...prev, [questionIndex]: explanation }));
+    } catch (error) {
+      console.error("Failed to get explanation:", error);
+    } finally {
+      setLoadingExplanations((prev) => ({ ...prev, [questionIndex]: false }));
     }
   };
 
@@ -739,36 +783,62 @@ function App() {
               Score: {score}/
               {currentSession?.totalQuestions || questions.length}
             </div>
-            {!isAnswerSubmitted ? (
-              <button
-                onClick={handleSubmit}
-                disabled={
-                  currentQuestion.answers.length > 0
-                    ? selectedAnswers.length === 0
-                    : !textAnswer
-                }
-                className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
-                  ${
-                    (
-                      currentQuestion.answers.length > 0
-                        ? selectedAnswers.length === 0
-                        : !textAnswer
-                    )
-                      ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
-                      : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                  }`}
-              >
-                Submit
-              </button>
-            ) : (
-              <button
-                onClick={handleNext}
-                className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-              >
-                Next Question
-              </button>
-            )}
+            <div className="flex gap-2">
+              {isAnswerSubmitted &&
+                !isCorrectAnswer(
+                  selectedAnswers.length ? selectedAnswers : textAnswer,
+                  currentQuestion
+                ) &&
+                (!explanations[currentQuestionIndex] ? (
+                  <button
+                    onClick={() => handleExplain(currentQuestionIndex)}
+                    disabled={loadingExplanations[currentQuestionIndex]}
+                    className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                  >
+                    {loadingExplanations[currentQuestionIndex]
+                      ? "Loading..."
+                      : "Explain"}
+                  </button>
+                ) : null)}
+              {!isAnswerSubmitted ? (
+                <button
+                  onClick={handleSubmit}
+                  disabled={
+                    currentQuestion.answers.length > 0
+                      ? selectedAnswers.length === 0
+                      : !textAnswer
+                  }
+                  className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
+                    ${
+                      (
+                        currentQuestion.answers.length > 0
+                          ? selectedAnswers.length === 0
+                          : !textAnswer
+                      )
+                        ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
+                        : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                    }`}
+                >
+                  Submit
+                </button>
+              ) : (
+                <button
+                  onClick={handleNext}
+                  className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                >
+                  Next Question
+                </button>
+              )}
+            </div>
           </div>
+
+          {isAnswerSubmitted && explanations[currentQuestionIndex] && (
+            <div className="px-6 pb-4">
+              <div className="explanation incorrect">
+                {explanations[currentQuestionIndex]}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
