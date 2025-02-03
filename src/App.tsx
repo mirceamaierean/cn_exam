@@ -495,29 +495,88 @@ function App() {
   }
 
   if (gameOver) {
-    const percentage =
-      (score /
-        (numberOfQuestions === "all" ? questions.length : numberOfQuestions)) *
-      100;
+    const totalQuestions = currentSession?.totalQuestions || questions.length;
+    const percentage = (score / totalQuestions) * 100;
+    const wrongCount = wrongAnswers.length;
+    const correctCount = score;
+
     return (
       <div className={`${containerClass} flex flex-col items-center gap-4 p-4`}>
         <div
-          className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+          className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg p-6`}
         >
-          <h2 className="text-[22px] font-semibold mb-4">Quiz Complete!</h2>
-          <p className="text-[17px]">You got {percentage.toFixed(1)}%</p>
-          <div className="flex gap-2">
+          <h2 className="text-[22px] font-semibold mb-6">Session Complete!</h2>
+
+          <div className="space-y-4 mb-8">
+            <div className="flex justify-between items-center py-2 border-b border-[var(--ios-border)]">
+              <span className="text-[var(--ios-text-secondary)]">
+                Session Type
+              </span>
+              <span className="font-medium">
+                {currentSession?.isTest ? "Test" : "Practice"}
+              </span>
+            </div>
+
+            <div className="flex justify-between items-center py-2 border-b border-[var(--ios-border)]">
+              <span className="text-[var(--ios-text-secondary)]">
+                Questions Completed
+              </span>
+              <span className="font-medium">{totalQuestions}</span>
+            </div>
+
+            <div className="flex justify-between items-center py-2 border-b border-[var(--ios-border)]">
+              <span className="text-[var(--ios-text-secondary)]">
+                Correct Answers
+              </span>
+              <span className="text-[var(--ios-green)]">{correctCount}</span>
+            </div>
+
+            <div className="flex justify-between items-center py-2 border-b border-[var(--ios-border)]">
+              <span className="text-[var(--ios-text-secondary)]">
+                Wrong Answers
+              </span>
+              <span className="text-[var(--ios-red)]">{wrongCount}</span>
+            </div>
+
+            <div className="flex justify-between items-center py-2 border-b border-[var(--ios-border)]">
+              <span className="text-[var(--ios-text-secondary)]">
+                Final Score
+              </span>
+              <span className="text-[var(--ios-blue)] font-semibold">
+                {percentage.toFixed(1)}%
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {wrongCount > 0 && (
+              <button
+                className="w-full py-3 rounded-[14px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                onClick={() => setShowReview(true)}
+              >
+                Review Mistakes
+              </button>
+            )}
             <button
-              className="px-4 py-2 bg-[var(--ios-blue)] text-white rounded-[14px]"
-              onClick={() => setShowReview(true)}
+              className="w-full py-3 rounded-[14px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+              onClick={() => {
+                if (currentSession?.isTest) {
+                  setIsSettingsOpen(true);
+                } else {
+                  handleStart(numberOfQuestions);
+                }
+              }}
             >
-              Review Mistakes
+              {currentSession?.isTest ? "Start New Test" : "Practice Again"}
             </button>
             <button
-              className="px-4 py-2 bg-[var(--ios-blue)] text-white rounded-[14px]"
-              onClick={() => handleStart(numberOfQuestions)}
+              className="w-full py-3 rounded-[14px] border border-[var(--ios-border)]"
+              onClick={() => {
+                setCurrentSession(null);
+                setIsSettingsOpen(true);
+              }}
             >
-              Play Again
+              Back to Menu
             </button>
           </div>
         </div>
@@ -555,7 +614,8 @@ function App() {
 
           <div className="p-6 overflow-hidden">
             <div className="text-[17px] text-[var(--ios-text-secondary)] mb-2">
-              Question {currentQuestionIndex + 1} of {questions.length}
+              Question {currentQuestionIndex + 1} of{" "}
+              {currentSession?.totalQuestions || questions.length}
             </div>
 
             <AnimatePresence mode="wait">
@@ -668,7 +728,8 @@ function App() {
 
           <div className="px-6 py-4 flex justify-between items-center border-t border-[#E5E5EA]">
             <div className="text-[17px] text-[var(--ios-text-secondary)]">
-              Score: {score}/{questions.length}
+              Score: {score}/
+              {currentSession?.totalQuestions || questions.length}
             </div>
             {!isAnswerSubmitted ? (
               <button
