@@ -1,0 +1,17 @@
+@layer base {
+  :root {
+    --ios-blue: #007aff;
+    --ios-blue-light: #e5f1ff;
+    --ios-background: #f2f2f7;
+    --ios-green: #34c759;
+    --ios-red: #ff3b30;
+    --ios-gray: #8e8e93;
+  }
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("https://v0.dev/sf-pro-text.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+} 
