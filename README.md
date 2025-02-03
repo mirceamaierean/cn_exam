@@ -1,6 +1,6 @@
 # Quiz Application
 
-This is a Python quiz application that asks the user a series of multiple choice questions, for Computer Networks exam.
+This is a quiz application that asks the user a series of multiple choice questions, for Computer Networks exam. Can be used either as a Python script, or a React app.
 
 ##### IMPORTANT NOTE: Some answers may not be correct, so please check them while using this application, and if you find any mistakes, please let me know.
 
@@ -30,7 +30,7 @@ To run the React app, simply execute the `npm dev` or `yarn dev` or `pnpm dev`.
 npm dev
 ```
 
-If you want to have Gemini explain the answers to you, you can set the `VITE_GEMINI_API_KEY` inside a `.env`. You know how to get the key (:
+If you want to have Gemini explain the answers to you, you can set the `VITE_GEMINI_API_KEY` inside a `.env` file. You know how to get the key (:
 
 ```bash
 VITE_GEMINI_API_KEY=your_api_key_here
