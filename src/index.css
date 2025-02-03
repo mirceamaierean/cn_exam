@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  /* You can customize your theme here if needed */
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.explanation {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.explanation.correct {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.explanation.incorrect {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+/* Add styles for markdown content */
+.explanation.prose {
+  color: inherit;
+}
+
+.explanation.prose p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.explanation.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.explanation.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+}
+
+.explanation.prose code {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-size: 0.9em;
+}
+
+.explanation.prose pre {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+}
+
+.dark .explanation.prose code,
+.dark .explanation.prose pre {
+  background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,46 @@
+@layer base {
+  :root {
+    --ios-blue: #007aff;
+    --ios-blue-light: #e5f1ff;
+    --ios-background: #f2f2f7;
+    --ios-green: #34c759;
+    --ios-green-light: rgba(52, 199, 89, 0.15);
+    --ios-red: #ff3b30;
+    --ios-red-light: rgba(255, 59, 48, 0.15);
+    --ios-gray: #8e8e93;
+  }
+
+  :root {
+    --ios-background: #f2f2f7;
+    --ios-card-background: #ffffff;
+    --ios-border: #e5e5ea;
+    --ios-text: #000000;
+    --ios-text-secondary: #8e8e93;
+  }
+
+  :root[class~="dark"] {
+    --ios-background: #000000;
+    --ios-card-background: #1c1c1e;
+    --ios-border: #38383a;
+    --ios-text: #ffffff;
+    --ios-text-secondary: #98989f;
+    --ios-blue: #0a84ff;
+    --ios-blue-light: rgba(10, 132, 255, 0.15);
+    --ios-green: #30d158;
+    --ios-green-light: rgba(48, 209, 88, 0.15);
+    --ios-red: #ff453a;
+    --ios-red-light: rgba(255, 69, 58, 0.15);
+  }
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("https://v0.dev/sf-pro-text.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Apply SF Pro Text font globally */
+body {
+  font-family: "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+} 
