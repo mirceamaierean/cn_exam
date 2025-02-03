@@ -1,27 +1,50 @@
-# Quiz Application
+# React + TypeScript + Vite
 
-This is a Python quiz application that asks the user a series of multiple choice questions, for Computer Networks exam.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-##### IMPORTANT NOTE: Some answers may not be correct, so please check them while using this application, and if you find any mistakes, please let me know.
+Currently, two official plugins are available:
 
-## How it works
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-The application starts by welcoming the user and explaining how the quiz works. The user is then asked how many questions they would like to answer. They can choose to answer all questions or specify a number.
+## Expanding the ESLint configuration
 
-The questions are stored in a JSON file named `questions.json`. This file is read at the start of the program and the questions are stored in a list. Feel free to add more questions to the file.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-The application then enters a loop where it asks the user the specified number of questions. Before each question, the program waits for 1 second. The questions are selected randomly from the list of questions.
+- Configure the top-level `parserOptions` property like this:
 
-The user's score is kept track of throughout the quiz.
-
-## How to run
-
-To run the application, simply execute the `main.py` file with a Python interpreter.
-
-```bash
-python main.py
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## Requirements
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-- Python 3.6 or higher
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
