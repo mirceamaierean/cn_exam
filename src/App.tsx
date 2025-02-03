@@ -14,6 +14,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Session } from "./types";
 import { storage } from "./utils/storage";
 import { getExplanation } from "./utils/ai";
+import ReactMarkdown from "react-markdown";
 
 interface Question {
   question: string;
@@ -451,8 +452,10 @@ function App() {
   if (!questions.length) {
     return (
       <div className={`${containerClass} flex items-center justify-center p-4`}>
-        <div className="animate-pulse text-[var(--ios-text-secondary)]">
-          Loading questions...
+        <div className="w-full max-w-3xl mx-auto">
+          <div className="animate-pulse text-[var(--ios-text-secondary)]">
+            Loading questions...
+          </div>
         </div>
       </div>
     );
@@ -464,7 +467,7 @@ function App() {
         className={`${containerClass} flex flex-col items-center justify-center p-4`}
       >
         <div
-          className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+          className={`w-full max-w-3xl ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
         >
           <div className="px-4 py-3 flex items-center justify-between border-b border-[var(--ios-border)]">
             <div className="w-[60px]" />
@@ -505,7 +508,7 @@ function App() {
     return (
       <div className={`${containerClass} p-4`}>
         <div
-          className={`w-full max-w-md mx-auto ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+          className={`w-full max-w-3xl mx-auto ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
         >
           <div className="px-4 py-3 border-b border-[var(--ios-border)]">
             <h2 className="text-[17px] font-semibold">Review Wrong Answers</h2>
@@ -555,7 +558,7 @@ function App() {
     return (
       <div className={`${containerClass} flex flex-col items-center gap-4 p-4`}>
         <div
-          className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg p-6`}
+          className={`w-full max-w-3xl ${cardClass} rounded-[18px] overflow-hidden shadow-lg p-6`}
         >
           <h2 className="text-[22px] font-semibold mb-6">Session Complete!</h2>
 
@@ -642,7 +645,7 @@ function App() {
         className={`${containerClass} flex flex-col items-center justify-center p-4`}
       >
         <div
-          className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+          className={`w-full max-w-3xl ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
         >
           <div className="px-4 py-3 flex items-center justify-between border-b border-[var(--ios-border)]">
             <button
@@ -834,8 +837,10 @@ function App() {
 
           {isAnswerSubmitted && explanations[currentQuestionIndex] && (
             <div className="px-6 pb-4">
-              <div className="explanation incorrect">
-                {explanations[currentQuestionIndex]}
+              <div className="explanation incorrect prose dark:prose-invert max-w-none">
+                <ReactMarkdown>
+                  {explanations[currentQuestionIndex]}
+                </ReactMarkdown>
               </div>
             </div>
           )}
