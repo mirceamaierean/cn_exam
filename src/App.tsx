@@ -12,6 +12,7 @@ import "./ios.css";
 import "./App.css";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Session } from "./types";
+import { storage } from "./utils/storage";
 
 interface Question {
   question: string;
@@ -62,43 +63,51 @@ function App() {
     }
   }, []);
 
-  // Load sessions from localStorage on mount
+  // Initialize storage on mount
   useEffect(() => {
-    try {
-      const savedSessions = localStorage.getItem("quiz-sessions");
-      if (savedSessions) {
-        const parsed = JSON.parse(savedSessions);
-        setSessions(parsed);
-
-        // Also restore current session if it exists
-        const currentSessionId = localStorage.getItem("current-session-id");
-        if (currentSessionId) {
-          const currentSession = parsed.find(
-            (s: Session) => s.id === currentSessionId
-          );
-          if (currentSession && !currentSession.completed) {
-            setCurrentSession(currentSession);
-            setCurrentQuestionIndex(currentSession.currentQuestionIndex);
-            setScore(currentSession.score);
-            setAnsweredQuestions(new Set(currentSession.answeredQuestions));
-          }
-        }
-      }
-    } catch (error) {
-      console.error("Error loading sessions:", error);
-    }
+    storage.init();
   }, []);
 
-  // Save sessions to localStorage when updated
+  // Load sessions from file
   useEffect(() => {
-    try {
-      localStorage.setItem("quiz-sessions", JSON.stringify(sessions));
-      if (currentSession) {
-        localStorage.setItem("current-session-id", currentSession.id);
+    const loadSavedSessions = async () => {
+      try {
+        const { sessions: savedSessions, currentSessionId } =
+          await storage.loadSessions();
+        if (savedSessions.length) {
+          setSessions(savedSessions);
+
+          if (currentSessionId) {
+            const currentSession = savedSessions.find(
+              (s) => s.id === currentSessionId
+            );
+            if (currentSession && !currentSession.completed) {
+              setCurrentSession(currentSession);
+              setCurrentQuestionIndex(currentSession.currentQuestionIndex);
+              setScore(currentSession.score);
+              setAnsweredQuestions(new Set(currentSession.answeredQuestions));
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error loading sessions:", error);
       }
-    } catch (error) {
-      console.error("Error saving sessions:", error);
-    }
+    };
+
+    loadSavedSessions();
+  }, []);
+
+  // Save sessions to file when updated
+  useEffect(() => {
+    const saveSessionsToFile = async () => {
+      try {
+        await storage.saveSessions(sessions, currentSession?.id);
+      } catch (error) {
+        console.error("Error saving sessions:", error);
+      }
+    };
+
+    saveSessionsToFile();
   }, [sessions, currentSession]);
 
   const handleStart = (amount: number | "all") => {
@@ -392,7 +401,6 @@ function App() {
     setSessions((prev) => prev.filter((s) => s.id !== sessionId));
     if (currentSession?.id === sessionId) {
       setCurrentSession(null);
-      localStorage.removeItem("current-session-id");
     }
   };
 
