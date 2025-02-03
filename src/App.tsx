@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, Moon, Sun } from "lucide-react";
 import "./ios.css";
@@ -7,13 +7,13 @@ import "./App.css";
 interface Question {
   question: string;
   answers: string[];
-  correct: string;
+  correct: string; // Can be like "a", "bc", "ad", or a direct answer
 }
 
 function App() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -26,6 +26,12 @@ function App() {
     "all"
   );
   const [isDark, setIsDark] = useState(false);
+  const [textAnswer, setTextAnswer] = useState<string>("");
+  const [focusedAnswerIndex, setFocusedAnswerIndex] = useState<number>(-1);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [answeredQuestions, setAnsweredQuestions] = useState<Set<number>>(
+    new Set()
+  );
 
   useEffect(() => {
     // Load questions from your JSON file
@@ -49,24 +55,74 @@ function App() {
     setWrongAnswers([]);
     setShowReview(false);
     setGameOver(false);
+    setAnsweredQuestions(new Set());
   };
 
   const currentQuestion = questions[currentQuestionIndex];
 
   const handleAnswerSelect = (answer: string) => {
     if (!isAnswerSubmitted) {
-      setSelectedAnswer(answer);
+      setSelectedAnswers((prev) => {
+        if (prev.includes(answer)) {
+          return prev.filter((a) => a !== answer);
+        } else {
+          return [...prev, answer];
+        }
+      });
+    }
+  };
+
+  const isCorrectAnswer = (
+    answer: string | string[],
+    question: Question
+  ): boolean => {
+    if (question.answers.length === 0) {
+      // For text input questions
+      return answer.toString().toLowerCase() === question.correct.toLowerCase();
+    }
+
+    // For multiple choice questions
+    if (Array.isArray(answer)) {
+      // Convert selected answers to letters (a, b, c, etc.)
+      const selectedLetters = answer
+        .map((ans) => String.fromCharCode(97 + question.answers.indexOf(ans)))
+        .sort()
+        .join("");
+      // Sort the correct letters to match regardless of order
+      const correctLetters = question.correct.split("").sort().join("");
+      return selectedLetters === correctLetters;
+    } else {
+      const answerIndex = question.answers.indexOf(answer);
+      const correctLetters = question.correct.split("");
+      return correctLetters.includes(String.fromCharCode(97 + answerIndex));
     }
   };
 
   const handleSubmit = () => {
-    if (selectedAnswer !== null && !isAnswerSubmitted) {
-      setIsAnswerSubmitted(true);
-      if (selectedAnswer === currentQuestion.correct) {
-        setScore((prev) => prev + 1);
+    if ((!selectedAnswers.length && !textAnswer) || isAnswerSubmitted) return;
+
+    setIsAnswerSubmitted(true);
+
+    if (!answeredQuestions.has(currentQuestionIndex)) {
+      if (currentQuestion.answers.length === 0) {
+        // Text input question
+        if (isCorrectAnswer(textAnswer, currentQuestion)) {
+          setScore((prev) => prev + 1);
+        } else {
+          setWrongAnswers((prev) => [...prev, [currentQuestion, textAnswer]]);
+        }
       } else {
-        setWrongAnswers((prev) => [...prev, [currentQuestion, selectedAnswer]]);
+        // Multiple choice question
+        if (isCorrectAnswer(selectedAnswers, currentQuestion)) {
+          setScore((prev) => prev + 1);
+        } else {
+          setWrongAnswers((prev) => [
+            ...prev,
+            [currentQuestion, selectedAnswers.join(", ")],
+          ]);
+        }
       }
+      setAnsweredQuestions((prev) => new Set(prev).add(currentQuestionIndex));
     }
   };
 
@@ -79,7 +135,8 @@ function App() {
     if (currentQuestionIndex < maxQuestions - 1) {
       setDirection(1);
       setCurrentQuestionIndex((prev) => prev + 1);
-      setSelectedAnswer(null);
+      setSelectedAnswers([]);
+      setTextAnswer("");
       setIsAnswerSubmitted(false);
     } else {
       setGameOver(true);
@@ -90,7 +147,7 @@ function App() {
     if (currentQuestionIndex > 0) {
       setDirection(-1);
       setCurrentQuestionIndex((prev) => prev - 1);
-      setSelectedAnswer(null);
+      setSelectedAnswers([]);
       setIsAnswerSubmitted(false);
     }
   };
@@ -99,6 +156,106 @@ function App() {
     setIsDark(!isDark);
     document.documentElement.classList.toggle("dark");
   };
+
+  // Add keyboard event handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!currentQuestion) return;
+
+      switch (e.key) {
+        case "Enter":
+          // Submit answer or go to next question
+          if (isAnswerSubmitted) {
+            handleNext();
+          } else if (
+            (currentQuestion.answers.length > 0 &&
+              selectedAnswers.length > 0) ||
+            (currentQuestion.answers.length === 0 && textAnswer.length > 0)
+          ) {
+            handleSubmit();
+          }
+          break;
+
+        case " ": // Space
+          if (
+            currentQuestion.answers.length > 0 &&
+            focusedAnswerIndex >= 0 &&
+            !isAnswerSubmitted
+          ) {
+            e.preventDefault(); // Prevent page scroll
+            handleAnswerSelect(currentQuestion.answers[focusedAnswerIndex]);
+          }
+          break;
+
+        case "ArrowUp":
+          if (currentQuestion.answers.length > 0) {
+            e.preventDefault();
+            setFocusedAnswerIndex((prev) =>
+              prev <= 0 ? currentQuestion.answers.length - 1 : prev - 1
+            );
+          }
+          break;
+
+        case "ArrowDown":
+          if (currentQuestion.answers.length > 0) {
+            e.preventDefault();
+            setFocusedAnswerIndex((prev) =>
+              prev >= currentQuestion.answers.length - 1 ? 0 : prev + 1
+            );
+          }
+          break;
+
+        case "Tab":
+          if (currentQuestion.answers.length > 0) {
+            e.preventDefault();
+            if (e.shiftKey) {
+              setFocusedAnswerIndex((prev) =>
+                prev <= 0 ? currentQuestion.answers.length - 1 : prev - 1
+              );
+            } else {
+              setFocusedAnswerIndex((prev) =>
+                prev >= currentQuestion.answers.length - 1 ? 0 : prev + 1
+              );
+            }
+          }
+          break;
+
+        // Number keys 1-9 for quick answer selection
+        default:
+          const num = parseInt(e.key);
+          if (
+            !isAnswerSubmitted &&
+            currentQuestion.answers.length > 0 &&
+            num >= 1 &&
+            num <= currentQuestion.answers.length
+          ) {
+            handleAnswerSelect(currentQuestion.answers[num - 1]);
+          }
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [
+    currentQuestion,
+    focusedAnswerIndex,
+    isAnswerSubmitted,
+    selectedAnswers,
+    textAnswer,
+  ]);
+
+  // Reset focused answer when question changes
+  useEffect(() => {
+    setFocusedAnswerIndex(-1);
+  }, [currentQuestionIndex]);
+
+  // Add a new useEffect to focus the input when the question changes
+  useEffect(() => {
+    if (currentQuestion && currentQuestion.answers.length === 0) {
+      inputRef.current?.focus();
+    }
+  }, [currentQuestion]);
 
   // Update the className and style for all main container divs
   const containerClass =
@@ -283,34 +440,88 @@ function App() {
               <p className="text-[22px] mb-8">{currentQuestion.question}</p>
 
               <div className="space-y-3">
-                {currentQuestion.answers.map((answer, index) => (
-                  <motion.button
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2, delay: index * 0.05 }}
-                    onClick={() => handleAnswerSelect(answer)}
-                    disabled={isAnswerSubmitted}
-                    className={`w-full text-left py-3.5 px-5 rounded-[14px] text-[17px] transition-all
-                      ${
-                        selectedAnswer === answer && !isAnswerSubmitted
-                          ? "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                          : "bg-[var(--ios-background)]"
+                {currentQuestion.answers.length > 0 ? (
+                  // Multiple choice answers
+                  currentQuestion.answers.map((answer, index) => (
+                    <motion.button
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2, delay: index * 0.05 }}
+                      onClick={() => handleAnswerSelect(answer)}
+                      onFocus={() => setFocusedAnswerIndex(index)}
+                      disabled={isAnswerSubmitted}
+                      className={`w-full text-left py-3.5 px-5 rounded-[14px] text-[17px] transition-all outline-none
+                        ${
+                          selectedAnswers.includes(answer) && !isAnswerSubmitted
+                            ? "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                            : "bg-[var(--ios-background)]"
+                        } ${
+                        isAnswerSubmitted &&
+                        isCorrectAnswer(answer, currentQuestion)
+                          ? "bg-[var(--ios-green-light)] text-[var(--ios-green)]"
+                          : ""
                       } ${
-                      isAnswerSubmitted && answer === currentQuestion.correct
-                        ? "bg-[var(--ios-green-light)] text-[var(--ios-green)]"
-                        : ""
-                    } ${
-                      isAnswerSubmitted &&
-                      selectedAnswer === answer &&
-                      answer !== currentQuestion.correct
-                        ? "bg-[var(--ios-red-light)] text-[var(--ios-red)]"
-                        : ""
-                    }`}
-                  >
-                    {answer}
-                  </motion.button>
-                ))}
+                        isAnswerSubmitted &&
+                        selectedAnswers.includes(answer) &&
+                        !isCorrectAnswer(answer, currentQuestion)
+                          ? "bg-[var(--ios-red-light)] text-[var(--ios-red)]"
+                          : ""
+                      } ${
+                        focusedAnswerIndex === index
+                          ? "ring-2 ring-[var(--ios-blue)] ring-offset-2"
+                          : ""
+                      }`}
+                    >
+                      {String.fromCharCode(97 + index)}) {answer}
+                    </motion.button>
+                  ))
+                ) : (
+                  // Text input for questions without answers
+                  <div className="space-y-2">
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={textAnswer}
+                      onChange={(e) => setTextAnswer(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (
+                          e.key === "Enter" &&
+                          !isAnswerSubmitted &&
+                          textAnswer.length > 0
+                        ) {
+                          e.preventDefault(); // Prevent form submission
+                          handleSubmit();
+                          // Add delay before moving to next question
+                          if (currentQuestionIndex < questions.length - 1) {
+                            setTimeout(() => {
+                              handleNext();
+                            }, 1500); // 1.5 second delay
+                          }
+                        }
+                      }}
+                      autoFocus
+                      disabled={isAnswerSubmitted}
+                      placeholder="Type your answer here..."
+                      className={`w-full py-3.5 px-5 rounded-[14px] text-[17px] transition-all
+                        border border-[var(--ios-border)] bg-[var(--ios-background)]
+                        ${
+                          isAnswerSubmitted &&
+                          isCorrectAnswer(textAnswer, currentQuestion)
+                            ? "bg-[var(--ios-green-light)] text-[var(--ios-green)] border-[var(--ios-green)]"
+                            : isAnswerSubmitted
+                            ? "bg-[var(--ios-red-light)] text-[var(--ios-red)] border-[var(--ios-red)]"
+                            : ""
+                        }`}
+                    />
+                    {isAnswerSubmitted &&
+                      !isCorrectAnswer(textAnswer, currentQuestion) && (
+                        <p className="text-[var(--ios-red)] text-[15px]">
+                          Correct answer: {currentQuestion.correct}
+                        </p>
+                      )}
+                  </div>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -323,10 +534,18 @@ function App() {
           {!isAnswerSubmitted ? (
             <button
               onClick={handleSubmit}
-              disabled={selectedAnswer === null}
+              disabled={
+                currentQuestion.answers.length > 0
+                  ? selectedAnswers.length === 0
+                  : !textAnswer
+              }
               className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
                 ${
-                  selectedAnswer === null
+                  (
+                    currentQuestion.answers.length > 0
+                      ? selectedAnswers.length === 0
+                      : !textAnswer
+                  )
                     ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
                     : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
                 }`}
