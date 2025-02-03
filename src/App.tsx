@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Moon, Sun } from "lucide-react";
 import "./ios.css";
 import "./App.css";
 
@@ -25,12 +25,21 @@ function App() {
   const [numberOfQuestions, setNumberOfQuestions] = useState<number | "all">(
     "all"
   );
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     // Load questions from your JSON file
     fetch("/questions.json")
       .then((response) => response.json())
       .then((data) => setQuestions(data));
+  }, []);
+
+  useEffect(() => {
+    // Check system preference
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+    }
   }, []);
 
   const handleStart = (amount: number | "all") => {
@@ -86,20 +95,48 @@ function App() {
     }
   };
 
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("dark");
+  };
+
+  // Update the className and style for all main container divs
+  const containerClass =
+    "min-h-screen bg-[var(--ios-background)] text-[var(--ios-text)]";
+  const cardClass =
+    "bg-[var(--ios-card-background)] border border-[var(--ios-border)]";
+
   if (!questions.length) {
-    return <div>Loading questions...</div>;
+    return (
+      <div className={`${containerClass} flex items-center justify-center p-4`}>
+        <div className="animate-pulse text-[var(--ios-text-secondary)]">
+          Loading questions...
+        </div>
+      </div>
+    );
   }
 
   if (!currentQuestion) {
     return (
       <div
-        className="min-h-screen bg-[var(--ios-background)] flex flex-col items-center justify-center p-4"
-        style={{ fontFamily: "SF Pro Text, system-ui" }}
+        className={`${containerClass} flex flex-col items-center justify-center p-4`}
       >
-        <div className="w-full max-w-md bg-white rounded-[18px] overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.05)]">
+        <div
+          className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+        >
+          <div className="px-4 py-3 flex items-center justify-between border-b border-[var(--ios-border)]">
+            <div className="w-[60px]" />
+            <span className="text-[17px]">Quiz</span>
+            <button
+              onClick={toggleDarkMode}
+              className="w-[60px] flex justify-end text-[var(--ios-blue)]"
+            >
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+          </div>
           <div className="p-6">
             <h1 className="text-[22px] mb-4">Welcome to the Quiz!</h1>
-            <p className="text-[17px] text-[var(--ios-gray)] mb-6">
+            <p className="text-[17px] text-[var(--ios-text-secondary)] mb-6">
               How many questions would you like to answer?
             </p>
             <div className="space-y-3">
@@ -124,12 +161,11 @@ function App() {
 
   if (showReview) {
     return (
-      <div
-        className="min-h-screen bg-[var(--ios-background)] p-4"
-        style={{ fontFamily: "SF Pro Text, system-ui" }}
-      >
-        <div className="w-full max-w-md mx-auto bg-white rounded-[18px] overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.05)]">
-          <div className="px-4 py-3 border-b border-[#E5E5EA]">
+      <div className={`${containerClass} p-4`}>
+        <div
+          className={`w-full max-w-md mx-auto ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+        >
+          <div className="px-4 py-3 border-b border-[var(--ios-border)]">
             <h2 className="text-[17px] font-semibold">Review Wrong Answers</h2>
           </div>
           <div className="p-6">
@@ -142,9 +178,9 @@ function App() {
                       key={i}
                       className={`py-3 px-4 rounded-[14px] text-[15px] ${
                         answer === question.correct
-                          ? "bg-[#E5FAE6] text-[var(--ios-green)]"
+                          ? "bg-[var(--ios-green-light)] text-[var(--ios-green)]"
                           : answer === userAnswer
-                          ? "bg-[#FFE5E5] text-[var(--ios-red)]"
+                          ? "bg-[var(--ios-red-light)] text-[var(--ios-red)]"
                           : "bg-[var(--ios-background)]"
                       }`}
                     >
@@ -174,22 +210,26 @@ function App() {
         (numberOfQuestions === "all" ? questions.length : numberOfQuestions)) *
       100;
     return (
-      <div className="flex flex-col items-center gap-4 p-4">
-        <h2 className="text-xl font-bold">Quiz Complete!</h2>
-        <p>You got {percentage.toFixed(1)}%</p>
-        <div className="flex gap-2">
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={() => setShowReview(true)}
-          >
-            Review Mistakes
-          </button>
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={() => handleStart(numberOfQuestions)}
-          >
-            Play Again
-          </button>
+      <div className={`${containerClass} flex flex-col items-center gap-4 p-4`}>
+        <div
+          className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+        >
+          <h2 className="text-[22px] font-semibold mb-4">Quiz Complete!</h2>
+          <p className="text-[17px]">You got {percentage.toFixed(1)}%</p>
+          <div className="flex gap-2">
+            <button
+              className="px-4 py-2 bg-[var(--ios-blue)] text-white rounded-[14px]"
+              onClick={() => setShowReview(true)}
+            >
+              Review Mistakes
+            </button>
+            <button
+              className="px-4 py-2 bg-[var(--ios-blue)] text-white rounded-[14px]"
+              onClick={() => handleStart(numberOfQuestions)}
+            >
+              Play Again
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -197,11 +237,12 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-[var(--ios-background)] flex flex-col items-center justify-center p-4"
-      style={{ fontFamily: "SF Pro Text, system-ui" }}
+      className={`${containerClass} flex flex-col items-center justify-center p-4`}
     >
-      <div className="w-full max-w-md bg-white rounded-[18px] overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.05)]">
-        <div className="px-4 py-3 flex items-center justify-between border-b border-[#E5E5EA]">
+      <div
+        className={`w-full max-w-md ${cardClass} rounded-[18px] overflow-hidden shadow-lg`}
+      >
+        <div className="px-4 py-3 flex items-center justify-between border-b border-[var(--ios-border)]">
           <button
             onClick={handlePrevious}
             className={`flex items-center text-[var(--ios-blue)] transition-opacity ${
@@ -213,11 +254,16 @@ function App() {
             <span className="text-[17px]">Back</span>
           </button>
           <span className="text-[17px]">Quiz</span>
-          <div className="w-[60px]" />
+          <button
+            onClick={toggleDarkMode}
+            className="w-[60px] flex justify-end text-[var(--ios-blue)]"
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </div>
 
         <div className="p-6 overflow-hidden">
-          <div className="text-[17px] text-[var(--ios-gray)] mb-2">
+          <div className="text-[17px] text-[var(--ios-text-secondary)] mb-2">
             Question {currentQuestionIndex + 1} of {questions.length}
           </div>
 
@@ -252,13 +298,13 @@ function App() {
                           : "bg-[var(--ios-background)]"
                       } ${
                       isAnswerSubmitted && answer === currentQuestion.correct
-                        ? "bg-[#E5FAE6] text-[var(--ios-green)]"
+                        ? "bg-[var(--ios-green-light)] text-[var(--ios-green)]"
                         : ""
                     } ${
                       isAnswerSubmitted &&
                       selectedAnswer === answer &&
                       answer !== currentQuestion.correct
-                        ? "bg-[#FFE5E5] text-[var(--ios-red)]"
+                        ? "bg-[var(--ios-red-light)] text-[var(--ios-red)]"
                         : ""
                     }`}
                   >
@@ -271,7 +317,7 @@ function App() {
         </div>
 
         <div className="px-6 py-4 flex justify-between items-center border-t border-[#E5E5EA]">
-          <div className="text-[17px] text-[var(--ios-gray)]">
+          <div className="text-[17px] text-[var(--ios-text-secondary)]">
             Score: {score}/{questions.length}
           </div>
           {!isAnswerSubmitted ? (
@@ -281,7 +327,7 @@ function App() {
               className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
                 ${
                   selectedAnswer === null
-                    ? "bg-[var(--ios-background)] text-[var(--ios-gray)]"
+                    ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
                     : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
                 }`}
             >
