@@ -254,7 +254,13 @@ function App() {
         case "Enter":
           // Submit answer or go to next question
           if (isAnswerSubmitted) {
-            handleNext();
+            // Only proceed if there's an explanation or if it's not required
+            if (
+              explanations[currentQuestionIndex] ||
+              !currentQuestion.correct
+            ) {
+              handleNext();
+            }
           } else if (
             (currentQuestion.answers.length > 0 &&
               selectedAnswers.length > 0) ||
@@ -746,12 +752,6 @@ function App() {
                           ) {
                             e.preventDefault(); // Prevent form submission
                             handleSubmit();
-                            // Add delay before moving to next question
-                            if (currentQuestionIndex < questions.length - 1) {
-                              setTimeout(() => {
-                                handleNext();
-                              }, 1500); // 1.5 second delay
-                            }
                           }
                         }}
                         autoFocus
