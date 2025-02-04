@@ -24,16 +24,49 @@ python main.py
 
 ## How to run the React app
 
-To run the React app, simply execute the `npm dev` or `yarn dev` or `pnpm dev`.
+To run the React app, you need to install dependencies using `npm`, `yarn` or `pnpm`
 
-```bash
-npm dev
+```commandline
+npm install
 ```
 
-If you want to have Gemini explain the answers to you, you can set the `VITE_GEMINI_API_KEY` inside a `.env` file. You know how to get the key (:
+Then run the React app, simply execute the `npm run dev` or `yarn dev` or `pnpm dev` (alternatively `pnpm run dev`).
+
+```bash
+npm run dev
+```
+
+If you want to have Gemini explain the answers to you, you can set the `VITE_GEMINI_API_KEY` inside a `.env` file.
 
 ```bash
 VITE_GEMINI_API_KEY=your_api_key_here
+```
+
+### How to get a Google Gemini API Key
+
+Visit [Google AI Studio](https://aistudio.google.com/) and login into your Google account
+
+Click on Get API key
+
+![Get API key](https://imgur.com/UKWxJ5p.jpg)
+
+Create a new API key
+
+![Create API key](https://imgur.com/ooVIaGT.jpg)
+
+Continue with the form, then copy your API keys.
+
+**[Optional]** If you want to test your API key, you can use the command below, where you will insert your generated api key. If it works, you can freely use it in the project
+
+```bash
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=INSERTKEYHERE" \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{
+      "contents": [{
+        "parts":[{"text": "Write me back "1234" and a random thought."}]
+        }]
+       }'
 ```
 
 ## Requirements
