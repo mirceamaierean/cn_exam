@@ -7,6 +7,7 @@ import {
   Settings2,
   History,
   HelpCircle,
+  Search,
 } from "lucide-react";
 import "./ios.css";
 import "./App.css";
@@ -15,6 +16,7 @@ import { Session } from "./types";
 import { storage } from "./utils/storage";
 import { getExplanation } from "./utils/ai";
 import ReactMarkdown from "react-markdown";
+import { CommandPalette } from "./components/CommandPalette";
 
 interface Question {
   question: string;
@@ -53,6 +55,7 @@ function App() {
   const [loadingExplanations, setLoadingExplanations] = useState<
     Record<number, boolean>
   >({});
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   useEffect(() => {
     // Load questions from your JSON file
@@ -452,6 +455,32 @@ function App() {
       console.error("Failed to get explanation:", error);
     } finally {
       setLoadingExplanations((prev) => ({ ...prev, [questionIndex]: false }));
+    }
+  };
+
+  // Add keyboard shortcut for command palette
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setIsCommandPaletteOpen(true);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Add command palette handler
+  const handleQuestionSelect = (index: number) => {
+    if (currentSession) {
+      setCurrentQuestionIndex(index);
+      setSelectedAnswers([]);
+      setTextAnswer("");
+      setIsAnswerSubmitted(false);
+    } else {
+      createNewSession(questions.length);
+      setCurrentQuestionIndex(index);
     }
   };
 
@@ -995,6 +1024,135 @@ function App() {
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
+
+      {/* Add CommandPalette component */}
+      <CommandPalette
+        questions={questions}
+        onQuestionSelect={handleQuestionSelect}
+        isOpen={isCommandPaletteOpen}
+        onOpenChange={setIsCommandPaletteOpen}
+      />
+
+      {/* Add search button to the bottom buttons group */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-4">
+        <button
+          onClick={() => setIsCommandPaletteOpen(true)}
+          className="p-3 rounded-full bg-[var(--ios-card-background)] border border-[var(--ios-border)] text-[var(--ios-text-secondary)] hover:text-[var(--ios-text)] transition-colors"
+        >
+          <Search size={20} />
+        </button>
+
+        <Dialog.Root open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
+          <Dialog.Trigger asChild>
+            <button className="p-3 rounded-full bg-[var(--ios-card-background)] border border-[var(--ios-border)] text-[var(--ios-text-secondary)] hover:text-[var(--ios-text)] transition-colors">
+              <Settings2 size={20} />
+            </button>
+          </Dialog.Trigger>
+
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 bg-black/50" />
+            <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg">
+              <Dialog.Title className="text-[22px] mb-4">Settings</Dialog.Title>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="text-[15px] text-[var(--ios-text-secondary)]">
+                    Test Question Count
+                  </label>
+                  <input
+                    type="number"
+                    value={testQuestionCount}
+                    onChange={(e) => {
+                      const value = Math.max(
+                        1,
+                        Math.min(questions.length, Number(e.target.value))
+                      );
+                      setTestQuestionCount(value);
+                    }}
+                    className="w-full mt-1 px-4 py-2 rounded-[10px] bg-[var(--ios-background)] border border-[var(--ios-border)]"
+                    min="1"
+                    max={questions.length}
+                    placeholder="Enter number of questions"
+                  />
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      createNewSession(testQuestionCount, true);
+                      setIsSettingsOpen(false);
+                    }}
+                    className="flex-1 py-2 rounded-[14px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                  >
+                    Start Test
+                  </button>
+                  <button
+                    onClick={() => {
+                      createNewSession(questions.length, false);
+                      setIsSettingsOpen(false);
+                    }}
+                    className="flex-1 py-2 rounded-[14px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                  >
+                    Practice All
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <h3 className="text-[17px] mb-3">Recent Sessions</h3>
+                <div className="space-y-2 max-h-[200px] overflow-y-auto">
+                  {sessions
+                    .slice()
+                    .reverse()
+                    .map((session) => (
+                      <div
+                        key={session.id}
+                        className="p-3 rounded-[14px] bg-[var(--ios-background)] flex justify-between items-center"
+                      >
+                        <div className="flex-1">
+                          <p className="text-[15px]">
+                            {session.isTest ? "Test" : "Practice"} -{" "}
+                            {new Date(session.timestamp).toLocaleDateString()}
+                          </p>
+                          <p className="text-[13px] text-[var(--ios-text-secondary)]">
+                            Progress: {session.currentQuestionIndex}/
+                            {session.totalQuestions}
+                          </p>
+                        </div>
+                        <div className="flex gap-2">
+                          {!session.completed && (
+                            <button
+                              onClick={() => {
+                                resumeSession(session);
+                                setIsSettingsOpen(false);
+                              }}
+                              className="px-4 py-1 rounded-[8px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)] text-[13px]"
+                            >
+                              Resume
+                            </button>
+                          )}
+                          <button
+                            onClick={() => deleteSession(session.id)}
+                            className="px-4 py-1 rounded-[8px] bg-[var(--ios-red-light)] text-[var(--ios-red)] text-[13px]"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
+
+        <button
+          onClick={() => setIsHelpOpen(true)}
+          className="p-3 rounded-full bg-[var(--ios-card-background)] border border-[var(--ios-border)] text-[var(--ios-text-secondary)] hover:text-[var(--ios-text)] transition-colors"
+        >
+          <HelpCircle size={20} />
+        </button>
+      </div>
     </>
   );
 }
