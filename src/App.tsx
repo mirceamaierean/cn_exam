@@ -17,6 +17,7 @@ import { storage } from "./utils/storage";
 import { getExplanation } from "./utils/ai";
 import ReactMarkdown from "react-markdown";
 import { CommandPalette } from "./components/CommandPalette";
+import { questionCache } from "./utils/questionCache";
 
 interface Question {
   question: string;
@@ -56,12 +57,34 @@ function App() {
     Record<number, boolean>
   >({});
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [isViewMode, setIsViewMode] = useState(false);
+  const [previousQuestionIndex, setPreviousQuestionIndex] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
-    // Load questions from your JSON file
-    fetch("/questions.json")
-      .then((response) => response.json())
-      .then((data) => setQuestions(data));
+    const loadQuestions = async () => {
+      try {
+        // Try to get questions from cache first
+        const cachedQuestions = await questionCache.getCachedQuestions();
+        if (cachedQuestions) {
+          setQuestions(cachedQuestions);
+          return;
+        }
+
+        // If not in cache, fetch from file
+        const response = await fetch("/questions.json");
+        const data = await response.json();
+        setQuestions(data);
+
+        // Cache the questions for future use
+        await questionCache.cacheQuestions(data);
+      } catch (error) {
+        console.error("Error loading questions:", error);
+      }
+    };
+
+    loadQuestions();
   }, []);
 
   useEffect(() => {
@@ -473,14 +496,26 @@ function App() {
 
   // Add command palette handler
   const handleQuestionSelect = (index: number) => {
+    if (!isViewMode) {
+      setPreviousQuestionIndex(currentQuestionIndex);
+    }
+    setCurrentQuestionIndex(index);
+    setSelectedAnswers([]);
+    setTextAnswer("");
+    setIsAnswerSubmitted(false);
+    setIsViewMode(true);
+  };
+
+  // Add handler for resuming practice
+  const handleResumePractice = () => {
+    setIsViewMode(false);
     if (currentSession) {
-      setCurrentQuestionIndex(index);
-      setSelectedAnswers([]);
-      setTextAnswer("");
-      setIsAnswerSubmitted(false);
+      if (previousQuestionIndex !== null) {
+        setCurrentQuestionIndex(previousQuestionIndex);
+        setPreviousQuestionIndex(null);
+      }
     } else {
       createNewSession(questions.length);
-      setCurrentQuestionIndex(index);
     }
   };
 
@@ -811,55 +846,73 @@ function App() {
           </div>
 
           <div className="px-6 py-4 flex justify-between items-center border-t border-[#E5E5EA]">
-            <div className="text-[17px] text-[var(--ios-text-secondary)]">
-              Score: {score}/
-              {currentSession?.totalQuestions || questions.length}
-            </div>
+            {isViewMode ? (
+              <div className="text-[17px] text-[var(--ios-text-secondary)]">
+                View Mode
+              </div>
+            ) : (
+              <div className="text-[17px] text-[var(--ios-text-secondary)]">
+                Score: {score}/
+                {currentSession?.totalQuestions || questions.length}
+              </div>
+            )}
             <div className="flex gap-2">
-              {isAnswerSubmitted &&
-                !isCorrectAnswer(
-                  selectedAnswers.length ? selectedAnswers : textAnswer,
-                  currentQuestion
-                ) &&
-                (!explanations[currentQuestionIndex] ? (
-                  <button
-                    onClick={() => handleExplain(currentQuestionIndex)}
-                    disabled={loadingExplanations[currentQuestionIndex]}
-                    className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                  >
-                    {loadingExplanations[currentQuestionIndex]
-                      ? "Loading..."
-                      : "Explain"}
-                  </button>
-                ) : null)}
-              {!isAnswerSubmitted ? (
+              {isViewMode && (
                 <button
-                  onClick={handleSubmit}
-                  disabled={
-                    currentQuestion.answers.length > 0
-                      ? selectedAnswers.length === 0
-                      : !textAnswer
-                  }
-                  className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
-                    ${
-                      (
+                  onClick={handleResumePractice}
+                  className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                >
+                  Resume Practice
+                </button>
+              )}
+              {!isViewMode && (
+                <>
+                  {isAnswerSubmitted &&
+                    !isCorrectAnswer(
+                      selectedAnswers.length ? selectedAnswers : textAnswer,
+                      currentQuestion
+                    ) &&
+                    (!explanations[currentQuestionIndex] ? (
+                      <button
+                        onClick={() => handleExplain(currentQuestionIndex)}
+                        disabled={loadingExplanations[currentQuestionIndex]}
+                        className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                      >
+                        {loadingExplanations[currentQuestionIndex]
+                          ? "Loading..."
+                          : "Explain"}
+                      </button>
+                    ) : null)}
+                  {!isAnswerSubmitted ? (
+                    <button
+                      onClick={handleSubmit}
+                      disabled={
                         currentQuestion.answers.length > 0
                           ? selectedAnswers.length === 0
                           : !textAnswer
-                      )
-                        ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
-                        : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                    }`}
-                >
-                  Submit
-                </button>
-              ) : (
-                <button
-                  onClick={handleNext}
-                  className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                >
-                  Next Question
-                </button>
+                      }
+                      className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
+                        ${
+                          (
+                            currentQuestion.answers.length > 0
+                              ? selectedAnswers.length === 0
+                              : !textAnswer
+                          )
+                            ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
+                            : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                        }`}
+                    >
+                      Submit
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleNext}
+                      className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                    >
+                      Next Question
+                    </button>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -876,6 +929,12 @@ function App() {
         </div>
       </div>
 
+      {/* Add keyboard shortcut hint */}
+      <div className="fixed bottom-24 left-1/2 -translate-x-1/2 text-[13px] text-[var(--ios-text-secondary)]">
+        Press {navigator.platform.includes("Mac") ? "⌘" : "Ctrl"} + K to search
+        questions
+      </div>
+
       {/* Settings and History Panel */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-4">
         <Dialog.Root open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
@@ -887,7 +946,7 @@ function App() {
 
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-            <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg">
+            <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg text-[var(--ios-text)]">
               <Dialog.Title className="text-[22px] mb-4">Settings</Dialog.Title>
 
               <div className="space-y-4">
@@ -905,7 +964,7 @@ function App() {
                       );
                       setTestQuestionCount(value);
                     }}
-                    className="w-full mt-1 px-4 py-2 rounded-[10px] bg-[var(--ios-background)] border border-[var(--ios-border)]"
+                    className="w-full mt-1 px-4 py-2 rounded-[10px] bg-[var(--ios-background)] border border-[var(--ios-border)] text-[var(--ios-text)]"
                     min="1"
                     max={questions.length}
                     placeholder="Enter number of questions"
@@ -946,7 +1005,7 @@ function App() {
                         className="p-3 rounded-[14px] bg-[var(--ios-background)] flex justify-between items-center"
                       >
                         <div className="flex-1">
-                          <p className="text-[15px]">
+                          <p className="text-[15px] text-[var(--ios-text)]">
                             {session.isTest ? "Test" : "Practice"} -{" "}
                             {new Date(session.timestamp).toLocaleDateString()}
                           </p>
@@ -993,7 +1052,7 @@ function App() {
       <Dialog.Root open={isHelpOpen} onOpenChange={setIsHelpOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-          <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg">
+          <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg text-[var(--ios-text)]">
             <Dialog.Title className="text-[22px] mb-4">
               Keyboard Shortcuts
             </Dialog.Title>
@@ -1005,6 +1064,10 @@ function App() {
                   <li>Tab/Shift+Tab - Cycle through answers</li>
                   <li>Enter - Submit answer or go to next question</li>
                   <li>Space - Select/deselect focused answer</li>
+                  <li>
+                    {navigator.platform.includes("Mac") ? "⌘" : "Ctrl"} + K -
+                    Search questions
+                  </li>
                 </ul>
               </div>
               <div>
@@ -1032,127 +1095,6 @@ function App() {
         isOpen={isCommandPaletteOpen}
         onOpenChange={setIsCommandPaletteOpen}
       />
-
-      {/* Add search button to the bottom buttons group */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-4">
-        <button
-          onClick={() => setIsCommandPaletteOpen(true)}
-          className="p-3 rounded-full bg-[var(--ios-card-background)] border border-[var(--ios-border)] text-[var(--ios-text-secondary)] hover:text-[var(--ios-text)] transition-colors"
-        >
-          <Search size={20} />
-        </button>
-
-        <Dialog.Root open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
-          <Dialog.Trigger asChild>
-            <button className="p-3 rounded-full bg-[var(--ios-card-background)] border border-[var(--ios-border)] text-[var(--ios-text-secondary)] hover:text-[var(--ios-text)] transition-colors">
-              <Settings2 size={20} />
-            </button>
-          </Dialog.Trigger>
-
-          <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-            <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg">
-              <Dialog.Title className="text-[22px] mb-4">Settings</Dialog.Title>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="text-[15px] text-[var(--ios-text-secondary)]">
-                    Test Question Count
-                  </label>
-                  <input
-                    type="number"
-                    value={testQuestionCount}
-                    onChange={(e) => {
-                      const value = Math.max(
-                        1,
-                        Math.min(questions.length, Number(e.target.value))
-                      );
-                      setTestQuestionCount(value);
-                    }}
-                    className="w-full mt-1 px-4 py-2 rounded-[10px] bg-[var(--ios-background)] border border-[var(--ios-border)]"
-                    min="1"
-                    max={questions.length}
-                    placeholder="Enter number of questions"
-                  />
-                </div>
-
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => {
-                      createNewSession(testQuestionCount, true);
-                      setIsSettingsOpen(false);
-                    }}
-                    className="flex-1 py-2 rounded-[14px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                  >
-                    Start Test
-                  </button>
-                  <button
-                    onClick={() => {
-                      createNewSession(questions.length, false);
-                      setIsSettingsOpen(false);
-                    }}
-                    className="flex-1 py-2 rounded-[14px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                  >
-                    Practice All
-                  </button>
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <h3 className="text-[17px] mb-3">Recent Sessions</h3>
-                <div className="space-y-2 max-h-[200px] overflow-y-auto">
-                  {sessions
-                    .slice()
-                    .reverse()
-                    .map((session) => (
-                      <div
-                        key={session.id}
-                        className="p-3 rounded-[14px] bg-[var(--ios-background)] flex justify-between items-center"
-                      >
-                        <div className="flex-1">
-                          <p className="text-[15px]">
-                            {session.isTest ? "Test" : "Practice"} -{" "}
-                            {new Date(session.timestamp).toLocaleDateString()}
-                          </p>
-                          <p className="text-[13px] text-[var(--ios-text-secondary)]">
-                            Progress: {session.currentQuestionIndex}/
-                            {session.totalQuestions}
-                          </p>
-                        </div>
-                        <div className="flex gap-2">
-                          {!session.completed && (
-                            <button
-                              onClick={() => {
-                                resumeSession(session);
-                                setIsSettingsOpen(false);
-                              }}
-                              className="px-4 py-1 rounded-[8px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)] text-[13px]"
-                            >
-                              Resume
-                            </button>
-                          )}
-                          <button
-                            onClick={() => deleteSession(session.id)}
-                            className="px-4 py-1 rounded-[8px] bg-[var(--ios-red-light)] text-[var(--ios-red)] text-[13px]"
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              </div>
-            </Dialog.Content>
-          </Dialog.Portal>
-        </Dialog.Root>
-
-        <button
-          onClick={() => setIsHelpOpen(true)}
-          className="p-3 rounded-full bg-[var(--ios-card-background)] border border-[var(--ios-border)] text-[var(--ios-text-secondary)] hover:text-[var(--ios-text)] transition-colors"
-        >
-          <HelpCircle size={20} />
-        </button>
-      </div>
     </>
   );
 }
