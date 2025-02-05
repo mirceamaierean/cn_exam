@@ -1,7 +1,25 @@
 # import questions from questions.json
 import json
+import os
+import platform
 import random
+import subprocess
 import time
+
+def open_image(image_path):
+    system_name = platform.system()
+
+    try:
+        if system_name == "Windows":
+            os.startfile(image_path)
+        elif system_name == "Darwin":
+            subprocess.run(["open", image_path])
+        elif system_name == "Linux":
+            subprocess.run(["xdg-open", image_path])
+        else:
+            print("Unsupported OS")
+    except Exception as e:
+        print(f"Error opening image: {e}")
 
 
 class bcolors:
@@ -49,12 +67,19 @@ while True:
         q = questions[index_of_question]
 
         print(bcolors.NORMAL + q['question'])
+
+        #if the question contains an image, it will display
+        if 'image' in q:
+            print(bcolors.BLUE + "Image opening..." + bcolors.NORMAL)
+            open_image(q['image'])
+
         # for each answer, display the answer
         if q['answers'] != []:
             # for each question that is multiple choice, display the answers, and in front of each one, display the corresponding character
             # for example, the first answer will be a, the second will be b, etc.
             for i in range(len(q['answers'])):
                 print(chr(i + 97) + ") " + q['answers'][i])
+
         # get user input
         user_answer = input("Your answer: ")
         # check if user input is correct

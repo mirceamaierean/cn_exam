@@ -1,5 +1,11 @@
 ﻿[
   {
+    "question": "Given the network diagram bellow and the routing tables for routers R1, R2, R3 - provide the first 4 IP addresses displayed by executing on host S - traceroute 10.0.8.5 ! (addresses will be written separated only by comas with no spaces or other characters)",
+    "answers": [],
+    "correct": "10.0.0.1,192.168.3.1,192.168.1.254,10.0.0.1",
+    "image": "public/images/network_diagram_R1R2R3traceroute.png"
+  },
+  {
     "question": "How many bits of zero does the following netmask have? 255.255.255.248",
     "answers": ["3", "4", "8", "2"],
     "correct": "a"

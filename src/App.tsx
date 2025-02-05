@@ -692,6 +692,10 @@ function App() {
               >
                 <p className="text-[22px] mb-8">{currentQuestion.question}</p>
 
+                {currentQuestion.image && (
+                    <img src={currentQuestion.image} alt="Question Image" className="w-full h-auto rounded-lg shadow-md mb-8" />
+                )}
+
                 <div className="space-y-3">
                   {currentQuestion.answers.length > 0 ? (
                     // Multiple choice answers
