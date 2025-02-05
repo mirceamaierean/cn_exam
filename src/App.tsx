@@ -7,6 +7,7 @@ import {
   Settings2,
   History,
   HelpCircle,
+  Search,
 } from "lucide-react";
 import "./ios.css";
 import "./App.css";
@@ -15,6 +16,8 @@ import { Session } from "./types";
 import { storage } from "./utils/storage";
 import { getExplanation } from "./utils/ai";
 import ReactMarkdown from "react-markdown";
+import { CommandPalette } from "./components/CommandPalette";
+import { questionCache } from "./utils/questionCache";
 
 interface Question {
   question: string;
@@ -53,12 +56,35 @@ function App() {
   const [loadingExplanations, setLoadingExplanations] = useState<
     Record<number, boolean>
   >({});
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [isViewMode, setIsViewMode] = useState(false);
+  const [previousQuestionIndex, setPreviousQuestionIndex] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
-    // Load questions from your JSON file
-    fetch("/questions.json")
-      .then((response) => response.json())
-      .then((data) => setQuestions(data));
+    const loadQuestions = async () => {
+      try {
+        // Try to get questions from cache first
+        const cachedQuestions = await questionCache.getCachedQuestions();
+        if (cachedQuestions) {
+          setQuestions(cachedQuestions);
+          return;
+        }
+
+        // If not in cache, fetch from file
+        const response = await fetch("/questions.json");
+        const data = await response.json();
+        setQuestions(data);
+
+        // Cache the questions for future use
+        await questionCache.cacheQuestions(data);
+      } catch (error) {
+        console.error("Error loading questions:", error);
+      }
+    };
+
+    loadQuestions();
   }, []);
 
   useEffect(() => {
@@ -254,7 +280,13 @@ function App() {
         case "Enter":
           // Submit answer or go to next question
           if (isAnswerSubmitted) {
-            handleNext();
+            // Only proceed if there's an explanation or if it's not required
+            if (
+              explanations[currentQuestionIndex] ||
+              !currentQuestion.correct
+            ) {
+              handleNext();
+            }
           } else if (
             (currentQuestion.answers.length > 0 &&
               selectedAnswers.length > 0) ||
@@ -446,6 +478,44 @@ function App() {
       console.error("Failed to get explanation:", error);
     } finally {
       setLoadingExplanations((prev) => ({ ...prev, [questionIndex]: false }));
+    }
+  };
+
+  // Add keyboard shortcut for command palette
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setIsCommandPaletteOpen(true);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Add command palette handler
+  const handleQuestionSelect = (index: number) => {
+    if (!isViewMode) {
+      setPreviousQuestionIndex(currentQuestionIndex);
+    }
+    setCurrentQuestionIndex(index);
+    setSelectedAnswers([]);
+    setTextAnswer("");
+    setIsAnswerSubmitted(false);
+    setIsViewMode(true);
+  };
+
+  // Add handler for resuming practice
+  const handleResumePractice = () => {
+    setIsViewMode(false);
+    if (currentSession) {
+      if (previousQuestionIndex !== null) {
+        setCurrentQuestionIndex(previousQuestionIndex);
+        setPreviousQuestionIndex(null);
+      }
+    } else {
+      createNewSession(questions.length);
     }
   };
 
@@ -746,12 +816,6 @@ function App() {
                           ) {
                             e.preventDefault(); // Prevent form submission
                             handleSubmit();
-                            // Add delay before moving to next question
-                            if (currentQuestionIndex < questions.length - 1) {
-                              setTimeout(() => {
-                                handleNext();
-                              }, 1500); // 1.5 second delay
-                            }
                           }
                         }}
                         autoFocus
@@ -782,55 +846,73 @@ function App() {
           </div>
 
           <div className="px-6 py-4 flex justify-between items-center border-t border-[#E5E5EA]">
-            <div className="text-[17px] text-[var(--ios-text-secondary)]">
-              Score: {score}/
-              {currentSession?.totalQuestions || questions.length}
-            </div>
+            {isViewMode ? (
+              <div className="text-[17px] text-[var(--ios-text-secondary)]">
+                View Mode
+              </div>
+            ) : (
+              <div className="text-[17px] text-[var(--ios-text-secondary)]">
+                Score: {score}/
+                {currentSession?.totalQuestions || questions.length}
+              </div>
+            )}
             <div className="flex gap-2">
-              {isAnswerSubmitted &&
-                !isCorrectAnswer(
-                  selectedAnswers.length ? selectedAnswers : textAnswer,
-                  currentQuestion
-                ) &&
-                (!explanations[currentQuestionIndex] ? (
-                  <button
-                    onClick={() => handleExplain(currentQuestionIndex)}
-                    disabled={loadingExplanations[currentQuestionIndex]}
-                    className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                  >
-                    {loadingExplanations[currentQuestionIndex]
-                      ? "Loading..."
-                      : "Explain"}
-                  </button>
-                ) : null)}
-              {!isAnswerSubmitted ? (
+              {isViewMode && (
                 <button
-                  onClick={handleSubmit}
-                  disabled={
-                    currentQuestion.answers.length > 0
-                      ? selectedAnswers.length === 0
-                      : !textAnswer
-                  }
-                  className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
-                    ${
-                      (
+                  onClick={handleResumePractice}
+                  className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                >
+                  Resume Practice
+                </button>
+              )}
+              {!isViewMode && (
+                <>
+                  {isAnswerSubmitted &&
+                    !isCorrectAnswer(
+                      selectedAnswers.length ? selectedAnswers : textAnswer,
+                      currentQuestion
+                    ) &&
+                    (!explanations[currentQuestionIndex] ? (
+                      <button
+                        onClick={() => handleExplain(currentQuestionIndex)}
+                        disabled={loadingExplanations[currentQuestionIndex]}
+                        className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                      >
+                        {loadingExplanations[currentQuestionIndex]
+                          ? "Loading..."
+                          : "Explain"}
+                      </button>
+                    ) : null)}
+                  {!isAnswerSubmitted ? (
+                    <button
+                      onClick={handleSubmit}
+                      disabled={
                         currentQuestion.answers.length > 0
                           ? selectedAnswers.length === 0
                           : !textAnswer
-                      )
-                        ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
-                        : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                    }`}
-                >
-                  Submit
-                </button>
-              ) : (
-                <button
-                  onClick={handleNext}
-                  className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                >
-                  Next Question
-                </button>
+                      }
+                      className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
+                        ${
+                          (
+                            currentQuestion.answers.length > 0
+                              ? selectedAnswers.length === 0
+                              : !textAnswer
+                          )
+                            ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
+                            : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                        }`}
+                    >
+                      Submit
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleNext}
+                      className="px-7 py-2.5 rounded-[14px] text-[17px] bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                    >
+                      Next Question
+                    </button>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -847,6 +929,12 @@ function App() {
         </div>
       </div>
 
+      {/* Add keyboard shortcut hint */}
+      <div className="fixed bottom-24 left-1/2 -translate-x-1/2 text-[13px] text-[var(--ios-text-secondary)]">
+        Press {navigator.platform.includes("Mac") ? "⌘" : "Ctrl"} + K to search
+        questions
+      </div>
+
       {/* Settings and History Panel */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-4">
         <Dialog.Root open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
@@ -858,7 +946,7 @@ function App() {
 
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-            <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg">
+            <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg text-[var(--ios-text)]">
               <Dialog.Title className="text-[22px] mb-4">Settings</Dialog.Title>
 
               <div className="space-y-4">
@@ -876,7 +964,7 @@ function App() {
                       );
                       setTestQuestionCount(value);
                     }}
-                    className="w-full mt-1 px-4 py-2 rounded-[10px] bg-[var(--ios-background)] border border-[var(--ios-border)]"
+                    className="w-full mt-1 px-4 py-2 rounded-[10px] bg-[var(--ios-background)] border border-[var(--ios-border)] text-[var(--ios-text)]"
                     min="1"
                     max={questions.length}
                     placeholder="Enter number of questions"
@@ -917,7 +1005,7 @@ function App() {
                         className="p-3 rounded-[14px] bg-[var(--ios-background)] flex justify-between items-center"
                       >
                         <div className="flex-1">
-                          <p className="text-[15px]">
+                          <p className="text-[15px] text-[var(--ios-text)]">
                             {session.isTest ? "Test" : "Practice"} -{" "}
                             {new Date(session.timestamp).toLocaleDateString()}
                           </p>
@@ -964,7 +1052,7 @@ function App() {
       <Dialog.Root open={isHelpOpen} onOpenChange={setIsHelpOpen}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-          <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg">
+          <Dialog.Content className="fixed bottom-[100px] left-1/2 -translate-x-1/2 w-[90%] max-w-md p-6 rounded-[18px] bg-[var(--ios-card-background)] border border-[var(--ios-border)] shadow-lg text-[var(--ios-text)]">
             <Dialog.Title className="text-[22px] mb-4">
               Keyboard Shortcuts
             </Dialog.Title>
@@ -976,6 +1064,10 @@ function App() {
                   <li>Tab/Shift+Tab - Cycle through answers</li>
                   <li>Enter - Submit answer or go to next question</li>
                   <li>Space - Select/deselect focused answer</li>
+                  <li>
+                    {navigator.platform.includes("Mac") ? "⌘" : "Ctrl"} + K -
+                    Search questions
+                  </li>
                 </ul>
               </div>
               <div>
@@ -995,6 +1087,14 @@ function App() {
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
+
+      {/* Add CommandPalette component */}
+      <CommandPalette
+        questions={questions}
+        onQuestionSelect={handleQuestionSelect}
+        isOpen={isCommandPaletteOpen}
+        onOpenChange={setIsCommandPaletteOpen}
+      />
     </>
   );
 }
