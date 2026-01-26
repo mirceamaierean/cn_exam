@@ -5,9 +5,7 @@ import {
   Moon,
   Sun,
   Settings2,
-  History,
   HelpCircle,
-  Search,
 } from "lucide-react";
 import "./ios.css";
 import "./App.css";
@@ -23,6 +21,7 @@ interface Question {
   question: string;
   answers: string[];
   correct: string; // Can be like "a", "bc", "ad", or a direct answer
+  image?: string; // Optional image URL for the question
 }
 
 function App() {
@@ -220,22 +219,6 @@ function App() {
       }
       setAnsweredQuestions((prev) => new Set(prev).add(currentQuestionIndex));
     }
-
-    const newExplanations: Record<number, string> = {};
-
-    // Get explanations for each answered question
-    for (const [index, answer] of Object.entries(selectedAnswers)) {
-      const question = questions[parseInt(index)];
-      const explanation = await getExplanation(
-        question.question,
-        answer,
-        question.correct,
-        question.answers
-      );
-      newExplanations[parseInt(index)] = explanation;
-    }
-
-    setExplanations(newExplanations);
   };
 
   const handleNext = () => {
@@ -341,7 +324,7 @@ function App() {
           break;
 
         // Number keys 1-9 for quick answer selection
-        default:
+        default: {
           const num = parseInt(e.key);
           if (
             !isAnswerSubmitted &&
@@ -352,6 +335,7 @@ function App() {
             handleAnswerSelect(currentQuestion.answers[num - 1]);
           }
           break;
+        }
       }
     };
 
@@ -591,13 +575,12 @@ function App() {
                   {question.answers.map((answer, i) => (
                     <div
                       key={i}
-                      className={`py-3 px-4 rounded-[14px] text-[15px] ${
-                        answer === question.correct
-                          ? "bg-[var(--ios-green-light)] text-[var(--ios-green)]"
-                          : answer === userAnswer
+                      className={`py-3 px-4 rounded-[14px] text-[15px] ${answer === question.correct
+                        ? "bg-[var(--ios-green-light)] text-[var(--ios-green)]"
+                        : answer === userAnswer
                           ? "bg-[var(--ios-red-light)] text-[var(--ios-red)]"
                           : "bg-[var(--ios-background)]"
-                      }`}
+                        }`}
                     >
                       {answer}
                     </div>
@@ -720,9 +703,8 @@ function App() {
           <div className="px-4 py-3 flex items-center justify-between border-b border-[var(--ios-border)]">
             <button
               onClick={handlePrevious}
-              className={`flex items-center text-[var(--ios-blue)] transition-opacity ${
-                currentQuestionIndex === 0 ? "opacity-50" : "opacity-100"
-              }`}
+              className={`flex items-center text-[var(--ios-blue)] transition-opacity ${currentQuestionIndex === 0 ? "opacity-50" : "opacity-100"
+                }`}
               disabled={currentQuestionIndex === 0}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -763,7 +745,7 @@ function App() {
                 <p className="text-[22px] mb-8">{currentQuestion.question}</p>
 
                 {currentQuestion.image && (
-                    <img src={currentQuestion.image} alt="Question Image" className="w-full h-auto rounded-lg shadow-md mb-8" />
+                  <img src={currentQuestion.image} alt="Question Image" className="w-full h-auto rounded-lg shadow-md mb-8" />
                 )}
 
                 <div className="space-y-3">
@@ -779,27 +761,23 @@ function App() {
                         onFocus={() => setFocusedAnswerIndex(index)}
                         disabled={isAnswerSubmitted}
                         className={`w-full text-left py-3.5 px-5 rounded-[14px] text-[17px] transition-all outline-none
-                          ${
-                            selectedAnswers.includes(answer) &&
+                          ${selectedAnswers.includes(answer) &&
                             !isAnswerSubmitted
-                              ? "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
-                              : "bg-[var(--ios-background)]"
-                          } ${
-                          isAnswerSubmitted &&
-                          isCorrectAnswer(answer, currentQuestion)
+                            ? "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                            : "bg-[var(--ios-background)]"
+                          } ${isAnswerSubmitted &&
+                            isCorrectAnswer(answer, currentQuestion)
                             ? "bg-[var(--ios-green-light)] text-[var(--ios-green)]"
                             : ""
-                        } ${
-                          isAnswerSubmitted &&
-                          selectedAnswers.includes(answer) &&
-                          !isCorrectAnswer(answer, currentQuestion)
+                          } ${isAnswerSubmitted &&
+                            selectedAnswers.includes(answer) &&
+                            !isCorrectAnswer(answer, currentQuestion)
                             ? "bg-[var(--ios-red-light)] text-[var(--ios-red)]"
                             : ""
-                        } ${
-                          focusedAnswerIndex === index
+                          } ${focusedAnswerIndex === index
                             ? "ring-2 ring-[var(--ios-blue)] ring-offset-2"
                             : ""
-                        }`}
+                          }`}
                       >
                         {String.fromCharCode(97 + index)}) {answer}
                       </motion.button>
@@ -827,11 +805,10 @@ function App() {
                         placeholder="Type your answer here..."
                         className={`w-full py-3.5 px-5 rounded-[14px] text-[17px] transition-all
                           border border-[var(--ios-border)] bg-[var(--ios-background)]
-                          ${
-                            isAnswerSubmitted &&
+                          ${isAnswerSubmitted &&
                             isCorrectAnswer(textAnswer, currentQuestion)
-                              ? "bg-[var(--ios-green-light)] text-[var(--ios-green)] border-[var(--ios-green)]"
-                              : isAnswerSubmitted
+                            ? "bg-[var(--ios-green-light)] text-[var(--ios-green)] border-[var(--ios-green)]"
+                            : isAnswerSubmitted
                               ? "bg-[var(--ios-red-light)] text-[var(--ios-red)] border-[var(--ios-red)]"
                               : ""
                           }`}
@@ -896,14 +873,13 @@ function App() {
                           : !textAnswer
                       }
                       className={`px-7 py-2.5 rounded-[14px] text-[17px] transition-all
-                        ${
-                          (
-                            currentQuestion.answers.length > 0
-                              ? selectedAnswers.length === 0
-                              : !textAnswer
-                          )
-                            ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
-                            : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
+                        ${(
+                          currentQuestion.answers.length > 0
+                            ? selectedAnswers.length === 0
+                            : !textAnswer
+                        )
+                          ? "bg-[var(--ios-background)] text-[var(--ios-text-secondary)]"
+                          : "bg-[var(--ios-blue-light)] text-[var(--ios-blue)]"
                         }`}
                     >
                       Submit
